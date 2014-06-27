@@ -1,0 +1,8 @@
+SYNOPSIS
+  contentsearch [OPTIONS] dir_path keyword
+
+OPTIONS:
+-R, -r, --recursive
+    recursively dive into directories
+-i, --ignore-case
+    ignore case distinctions in keyword
