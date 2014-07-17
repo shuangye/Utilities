@@ -11,6 +11,7 @@ double calc_PI(int algorithm, long terms)
     case 1:  // Nilakantha series
         // PI = 3 + 4/(2*3*4) - 4/(4*5*6) + 4/(6*7*8) - 4(8*9*10) ...
         PI = 3.0;
+        #pragma omp parallel for
         for (long i = 2; i < terms; i += 2) {
             // if (0 == i % 4)
             if (0 == (i & 3))
@@ -24,6 +25,7 @@ double calc_PI(int algorithm, long terms)
         // produces 5 correct fractional digits after 500,000 terms
         // PI = 4/1 - 4/3 + 4/5 - 4/7 + 4/9 ...
         PI = 4.0;
+        #pragma omp parallel for
         for (long i = 3; i <= terms; i += 2) {
             // (i - 1) % 4 == 0
             if (0 == ((i - 1) & 3))
@@ -31,6 +33,7 @@ double calc_PI(int algorithm, long terms)
             else
                 PI -= 4.0 / i;
         }
+        break;
         
     default:
         PI = -1.0;
