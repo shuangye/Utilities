@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# written by Liu Mingyang
+# calc running duration according to .VER or .RST files.
 
 import sys
 import os
