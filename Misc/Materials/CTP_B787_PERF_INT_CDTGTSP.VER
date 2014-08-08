@@ -1,0 +1,650 @@
+
+
+                                RESULTS FILE
+
+******************************************************************************
+                            Test Results Summary
+
+          Percentage of Comparisons Passed    : 100.0000%   
+
+          Total Number of Comparisons Failed  : 0           
+          Total Number of Unknown Comparisons : 0           
+          Total Number of Comparisons Passed  : 55          
+          Total Number of Comparisons         : 55          
+          Total Number of Test Cases Included : 10          
+
+          Test Complete          
+
+                                                                              
+
+******************************************************************************
+
+
+Test Start Time: 07/15/2014 Tue 11:09:31"
+FILE                  :  CTP_B787_PERF_INT_CDTGTSP.TDF
+SOURCE CONFIGURATION  :  ISS (Instruction Set Simulator)
+DESCRIPTION           :  To verify the procedure <Int_Cdtgtspd>
+MODIFICATION HISTORY  :
+                         DATE             SCR #           AUTHOR              DESCRIPTION
+                         =====            =====           ======              ===========
+                        04-Dec-06         2462.00          Albert Fu           Initial development for B787 cycle 2 on SBC180.
+                        20-Dec-06         2462.00          Albert Fu           Reworked as per HTSL review comments.
+                                                                               1,Removed redundant sut_vars
+                                                                               2,Modified the description of TC 1
+                                                                               3,Tweaked TC 1,2,3,4
+                       18-Sep-07          4865.00          Sabrina Zhang       Update for B787 On Load 4.5 Build SBC425
+                                                                               1.Update the REQ generation
+                                                                                 FMF_PERF_PREDS_TRAJ_INTEG.SRD; 6==>15
+                                                                                 FMF_PERF_TRAJ_PRED_INTEG.SDD;4==>9
+                                                                               2.Add SRD ANCHOR
+                                                                                 FMCS_19_20008208,FMCS_19_20008209,
+                                                                                 FMCS_19_20008210, FMCS_19_20008211,
+                                                                                 Fmcs_19_20008214, PERF_SRD_211575,
+                                                                                 PERF_SRD_211576,  PERF_SRD_211577
+                                                                                 Delete SRD ANCHOR Fmcs_19_20008215
+                                                                               3.Tag SRD ANCHOR FMCS_19_20008208, FMCS_19_20008209
+                                                                                 FMCS_19_20008210,FMCS_19_20008211 in TC1 and TC3,
+                                                                                 Tag PERF_SRD_211575,PERF_SRD_211576,
+                                                                                 PERF_SRD_211577 in All the TCs
+                                                                               4.Update the breakpoints as code updated.
+                                                                               5.Update TC1 and TC3 for REQ ANCHOR FMCS_19_20008219
+                                                                                 Updated.
+                     24-Sep-07           4865.00         Sabrina Zhang         Reworked as per HTSL-C review comments
+                                                                               1.Add the MACRO of CHECK_OUT_OF_BOUNDS and call that
+                                                                                 in every TCs
+                                                                               2.Update TC2 ,Add TC6,7 for Robust test
+                    12-Jun-08            6666.00          Henson Zhao          Updated for B787 Load 6 on Build SBC588_8Eb3.
+                                                                               1.Updated SDD generations:
+                                                                                 FMF_PERF_TRAJ_PRED_INTEG.SDD 9 -->11.
+                                                                               2.Modified the TCs for new STB method and new codes
+                                                                               3.Added SDD anchor FMCS_19_21022011 and tag into
+                                                                                 TC 1,5.
+                    17-Dec-08            9407.00          Zuwen Shuang         Updated for B787 Load 7.2 on Build SBC684_8G.
+                                                                               1.Updated SRD generations:
+                                                                                 FMF_PERF_PREDS_TRAJ_INTEG.SRD; 15=>18
+                                                                               2.Modified breakpoints position.
+                                                                               3.Updated TC1 ,TC3 as per SCR 7557.
+                    30-Nov-2009          12432.07         Alex Xie             Update for B787 Load 10 Build SBC857_81C.
+                                                                               1.Added the SRD anchor PERF_SRD_211579
+                                                                                 as per SCR 9773.00.
+                                                                               2.Added TC8-TC10, updated TC1 to verify SRD
+                                                                                 PERF_SRD_211579 as per SCR 9773.00.
+                                                                               3.Added comments beside breakpoint.
+                                                                               4.Updated SUT_VARS list.
+                    21-Mar-2013          15875.00       Lu Shubo               Update for B787 BP2 LD5 on Build ACMBLD_070_SBC.
+                                                                               1. Updated TC 1 as PDB is updated.
+                    25-Jun-2014          *****.**       Liu Mingyang           Update for B787 BP3 LD3 on Build SBC2415_93C.
+                                                                               1. Updated REQ: FMF_PERF_PREDS_TRAJ_INTEG.SRD; 18
+                                                                                  -> FMF_PERF_PREDS_TRAJ_INTEG_SRD.DOCX; 7
+                                                                               2. Updated break point line numbers.
+SRD and SDD DETAILS   :   FMF_PERF_PREDS_TRAJ_INTEG_SRD.DOCX; 7
+                          FMF_PERF_TRAJ_PRED_INTEG.SDD;  11
+TRACE DETAILS         :
+                         ANCHOR        : PERF_TEST_198081
+                         SOURCE        : SDD; FMCS_19_21022001, FMCS_19_21022011
+                                         SRD; FMCS_19_20008205, FMCS_19_20008206, FMCS_19_20008207, FMCS_19_20008208,
+                                              FMCS_19_20008209, FMCS_19_20008210, FMCS_19_20008211, FMCS_19_20008212,
+                                              FMCS_19_20008213, Fmcs_19_20008214, FMCS_19_20008216, FMCS_19_20008229,
+                                              FMCS_19_20008217, FMCS_19_20008218, FMCS_19_20008219, FMCS_19_20008220,
+                                              FMCS_19_20008221, FMCS_19_20008222, FMCS_19_20008223, FMCS_19_20008224,
+                                              FMCS_19_20008225, FMCS_19_20008226, FMCS_19_20008227, FMCS_19_20008228,
+                                              FMCS_19_20008230, PERF_SRD_211575, PERF_SRD_211576, PERF_SRD_211577,
+                                              FMCS_19_20008343, PERF_SRD_211579
+
+
+CONSTANT                                                                                                       VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+FP_DEF_TOL                                                                                                              0.0001
+
+
+DEFAULTS                                                                                                       VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Ops_Aedb_Ifdata.Aedb_Load_Signature                                                                                 "FMCSAEDB"
+sut_start                                                                                                                 True
+load_ge_config                                                                                                            True
+Perf_Integrators_LFData.Intdir                                                                                               0
+Perf_Int_Pkg.Dhgeo                                                                                                        -1.0
+Perf_Int_Pkg.Thrust                                                                                                       -1.0
+Perf_Int_Pkg.Drag                                                                                                         -1.0
+Perf_Integrators_LFData.Intprogbuf.dGW                                                                                    -1.0
+Perf_Integrators_LFData.Intprogbuf.Xprog                                                                                  -1.0
+Perf_Integrators_LFData.Intprogbuf.Tprog                                                                                  -1.0
+Perf_Integrators_LFData.Intprogbuf.Gndspd2                                                                                -1.0
+Perf_Integrators_LFData.Intprogbuf.Gamaair2                                                                               -1.0
+Perf_Integrators_LFData.Intprogbuf.Rateofclb2                                                                             -1.0
+Perf_Integrators_LFData.Intprogbuf.Fuelflow2                                                                              -1.0
+Perf_Integrators_LFData.Intprogbuf.CAS1                                                                                   -1.0
+Perf_Integrators_LFData.Intprogbuf.CAS2                                                                                   -1.0
+Perf_Integrators_LFData.Intprogbuf.TAS1                                                                                   -1.0
+Perf_Integrators_LFData.Intprogbuf.TAS2                                                                                   -1.0
+Perf_Integrators_LFData.Intprogbuf.MACH1                                                                                  -1.0
+Perf_Integrators_LFData.Intprogbuf.MACH2                                                                                  -1.0
+Perf_Integrators_LFData.Intprogbuf.dH                                                                                     -1.0
+Perf_Integrators_LFData.Intprogbuf.dT                                                                                     -1.0
+Perf_Integrators_LFData.Intprogbuf.dX                                                                                     -1.0
+Perf_Integrators_LFData.Initint                                                                                           True
+Perf_Integrators_LFData.Intprogbuf.Hprog                                                                               11500.0
+CTP_STB_EPM_IDLE_INVOKED                                                                                                 False
+CTP_STB_EPM_RATING_INVOKED                                                                                               False
+Perf_Preds_LFData.Tailwind_Margin                                                                                          1.0
+CTP_STB_AIR_STATIC_DATA_Pressnorm                                                                                          8.0
+CTP_STB_AIR_STATIC_DATA_Velsound                                                                                         340.0
+CTP_STB_SU_TGTSPD_MACH                                                                                                     1.0
+CTP_STB_SU_TGTSPD_CAS                                                                                                    369.0
+CTP_STB_SU_GNDSPD_Groundspd                                                                                              101.0
+CTP_STB_EPM_IDLE_CORRNETTHRST                                                                                              9.0
+CTP_STB_AER_ACDRAG_Drag                                                                                                   70.0
+CTP_STB_EPM_IDLE_WFUELFLOW                                                                                               123.0
+CTP_STB_AIR_STATIC_DATA_Satnormstd                                                                                         2.0
+CTP_STB_AIR_DYNAMIC_DATA_Tastemp                                                                                           1.0
+CTP_STB_ATM_MODEL_PREDTDEV                                                                                                10.0
+CTP_Use_AEDB_Flap_Spds                                                                                                    True
+Perf_Preds_LFData.VTPFplnIndex                                                                                               2
+CTP_Current_Des_Pth_Ptr_b                                                                                                False
+Perf_Preds_LFData.Perf_Pass                                                                          PERF_PREDS_LFTYPES.Normal
+
+
+CONSTANT                                                                                                       VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+DBG_TIMEOUT                                                                                                                300
+
+
+TESTID: 1
+This TC verifies:
+
+<1>
+dH is set to 1500.0 when integration is forward,in descent phase and hold a constant CAS
+<2>
+CAS1,MACH1,TAS1 are computed at Point 1
+<3>
+CAS2,MACH2, TAS2, FF2, T are computed at Point 2, TAS2 = MACH2*Velsound
+<4>
+Idle thrust is used for the evaluation for T
+<5>
+dHgeo is correctly computed as per figure 4.1.15.7.5.5-2
+<6>
+in the first time of invoking LocAngROCSpd(), when CAS > Flaps1spd, the drag model is used
+in the second time of invoking LocAngROCSpd(), when CAS <=Flaps5spd, Drag = F5ELOD (L/D constant for flaps = 5) * W2
+in the third time of invoking LocAngROCSpd(), when Flaps5spd < CAS <= Flaps1spd, Drag = F5ELOD (L/D constant for flaps = 5) * W2
+<7>
+dHgeo > 300.0 so Fwg=Vt2 * ( Vg2 - Vt2 - Vg1 + Vt1 ) / dHgeo, Facc=Vt2 * ( Vt2 - Vt1 ) / dHgeo
+in the third time of invoking LocAngROCSpd(), set dHgeo<300, so Fwg=0, Facc=0
+<8>
+in the first time of invoking LocAngROCSpd(), Fwg = 1.0 when Fwg >= 1.0
+in the second time of invoking LocAngROCSpd(), Fwg = -0.5 when Fwg < -0.5
+<9>
+in the first time of invoking LocAngROCSpd(), set Gwprog=0.1 to cover Temp<1.0 Intermed > 1.0
+in the second time of invoking LocAngROCSpd(), set Gwprog=-50 to cover Intermed < -1.0
+<10>
+ROC2=TAS2*(Intermed * 101.2686)
+<11>
+ROC is limited to maximum of -100 ft/min for descent
+<12>
+GA2 should be re-computed when ROC is limited to maximum of -100 ft/min for descent
+<13>
+in the 3rd time of invoking LocAirTSpd(), set Tgtspdtag = Casmach, Cmxalt - Hprog > 4.0 and Hprime > Cmxalt
+<14>
+dW = - dtest * (FF1 + FF2) / 2
+<15>
+dt = dHgeo / (ROC1 + ROC2) / 2
+<16>
+ t  = t + dt, dX = - dt * (Vg1 + Vg2) / 2, X  = X + dX
+<17>
+if the roc was limited, recompute gamma, Limit Intermed between 1.0 and -1.0 for Arcsin calculation to cover Intermed < -1.0
+
+REQUIREMENTS UNDER EVALUATION: FMCS_19_20008205, FMCS_19_20008207, FMCS_19_20008212, FMCS_19_20008221, FMCS_19_20008226,
+                               FMCS_19_20008224, FMCS_19_20008222, FMCS_19_20008223, FMCS_19_20008227,FMCS_19_20008214
+                               FMCS_19_20008228, FMCS_19_20008218, FMCS_19_20008229, FMCS_19_20008230, FMCS_19_20008220,
+                               FMCS_19_20008213, FMCS_19_20008225, FMCS_19_20008216, FMCS_19_20008217, FMCS_19_20008219,
+                               FMCS_19_20008343, FMCS_19_20008206, FMCS_19_20008208, FMCS_19_20008209, FMCS_19_20008210,
+                               FMCS_19_20008211, FMCS_19_21022011
+SUPPORTING REQUIREMENTS : FMCS_19_21022001,PERF_SRD_211575,  PERF_SRD_211576,  PERF_SRD_211577
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Preds_LFData.Desiredphase                                                                                               4
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               PERF_PREDS_LFTypes.Casonly
+Perf_Integrators_LFData.Intprogbuf.Rateofclb1                                                                             10.0
+Perf_Integrators_LFData.Intprogbuf.Gndspd1                                                                                99.0
+Perf_Integrators_LFData.Intprogbuf.Gwprog                                                                                  0.1
+CTP_STB_AIR_STATIC_DATA_Pressnorm                                                                                          8.0
+CTP_STB_AIR_STATIC_DATA_Velsound                                                                                         340.0
+CTP_STB_SU_TGTSPD_MACH                                                                                                     1.0
+CTP_STB_SU_TGTSPD_CAS                                                                                                    369.0
+CTP_STB_SU_GNDSPD_Groundspd                                                                                              101.0
+CTP_STB_EPM_IDLE_CORRNETTHRST                                                                                              9.0
+CTP_STB_AER_ACDRAG_Drag                                                                                                   70.0
+CTP_STB_EPM_IDLE_WFUELFLOW                                                                                               123.0
+CTP_STB_AIR_STATIC_DATA_Satnormstd                                                                                         2.0
+CTP_STB_AIR_DYNAMIC_DATA_Tastemp                                                                                           0.5
+CTP_STB_ATM_MODEL_PREDTDEV                                                                                                10.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.CAS2                                       369.0         0.0001                       369.0  P
+Perf_Integrators_LFData.Intprogbuf.MACH2                                        1.0         0.0001                         1.0  P
+Perf_Integrators_LFData.Intprogbuf.TAS2                                       340.0         0.0001                       340.0  P
+CTP_STB_EPM_IDLE_INVOKED                                                       True          (N/A)                        true  P
+Perf_Int_Pkg.Thrust                                                            72.0         0.0001                        72.0  P
+Perf_Integrators_LFData.Intprogbuf.Fuelflow2                                  123.0         0.0001                       123.0  P
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+CTP_STB_SU_TGTSPD_MACH                                                                                                     0.5
+CTP_STB_AIR_STATIC_DATA_Velsound                                                                                         369.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.CAS1                                       369.0         0.0001                       369.0  P
+Perf_Integrators_LFData.Intprogbuf.MACH1                                        0.5         0.0001                         0.5  P
+Perf_Integrators_LFData.Intprogbuf.TAS1                                       184.5         0.0001                       184.5  P
+Perf_Int_Pkg.Dhgeo                                                        1526.0281         0.0001                  1526.02808  P
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+CTP_STB_SU_GNDSPD_Groundspd                                                                                              401.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Local_Flap_1_Speed                                                            200.0         0.0001                       200.0  P
+Local_Flap_5_Speed                                                            180.0         0.0001                       180.0  P
+Perf_Integrators_LFData.Intprogbuf.Gamaair2                                   -90.0         0.0001                       -90.0  P
+Perf_Integrators_LFData.Intprogbuf.Rateofclb2                                -100.0         0.0001                      -100.0  P
+Perf_Int_Pkg.Drag                                                              70.0         0.0001                        70.0  P
+Perf_Integrators_LFData.Intprogbuf.Gndspd2                                    401.0         0.0001                       401.0  P
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Integrators_LFData.Intprogbuf.CAS2                                                                                  100.0
+Perf_Integrators_LFData.Intprogbuf.Gwprog                                                                                  1.0
+Perf_Int_Pkg.Thrust                                                                                                      -50.0
+CTP_STB_AIR_DYNAMIC_DATA_Tastemp                                                                                           1.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Int_Pkg.Drag                                                         0.0581395         0.0001                0.0581395328  P
+Perf_Integrators_LFData.Intprogbuf.Gamaair2                                   -90.0         0.0001                       -90.0  P
+Perf_Integrators_LFData.Intprogbuf.Rateofclb2                             -101.2686         0.0001                   -101.2686  P
+Perf_Integrators_LFData.Intprogbuf.dH                                        1500.0         0.0001                      1500.0  P
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Integrators_LFData.Intprogbuf.Fuelflow1                                                                             277.0
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               Perf_Preds_LFTypes.Casmach
+Perf_Preds_LFData.Tgtspdrec.Cmxalt                                                                                        10.0
+Perf_Integrators_LFData.Intprogbuf.Hprog                                                                                   5.0
+CTP_STB_AIR_STATIC_DATA_INVOKED                                                                                          False
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+CTP_STB_AIR_STATIC_DATA_INVOKED                                                True          (N/A)                        true  P
+Perf_Integrators_LFData.Intprogbuf.dH                                           9.0         0.0001                         9.0  P
+Perf_Integrators_LFData.Initint                                               False          (N/A)                       false  P
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Integrators_LFData.Intprogbuf.Gwprog                                                                                100.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.dGW                                      50.2303         0.0001                   50.230381  P
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Integrators_LFData.Intprogbuf.CAS2                                                                                  190.0
+Perf_Int_Pkg.Dhgeo                                                                                                       299.0
+Perf_Int_Pkg.Thrust                                                                                                    15.6179
+CTP_STB_AIR_DYNAMIC_DATA_Tastemp                                                                                         -20.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Fwg                                                                             0.0         0.0001                         0.0  P
+Facc                                                                            0.0         0.0001                         0.0  P
+Perf_Int_Pkg.Drag                                                            7.9910         0.0001                  7.99097776  P
+Intermed                                                                     0.0763         0.0001                0.0762692094  P
+Perf_Integrators_LFData.Intprogbuf.dT                                     -140.2976         0.0001                 -140.297577  P
+Perf_Integrators_LFData.Intprogbuf.Gwprog                                  150.2303         0.0001                  150.230377  P
+Perf_Integrators_LFData.Intprogbuf.Tprog                                  -141.2976         0.0001                 -141.297577  P
+Perf_Integrators_LFData.Intprogbuf.Dx                                       15.6666         0.0001                   15.666563  P
+Perf_Integrators_LFData.Intprogbuf.Xprog                                    14.6666         0.0001                   14.666563  P
+
+
+====> All 33 Comparisons Passed <====
+
+
+TESTID: 2
+This TC verifies:
+
+--FMCS_19_20008205
+dH is set to 1500.0 when integration is forward, and
+                         in descent phase, with a MACH/CAS speed, below the Mach/CAS crossover altitude
+
+REQUIREMENTS UNDER EVALUATION: FMCS_19_20008205
+
+SUPPORTING REQUIREMENTS : FMCS_19_21022001,PERF_SRD_211575,  PERF_SRD_211576,  PERF_SRD_211577
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Preds_LFData.Desiredphase                                                                                               4
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               PERF_PREDS_LFTypes.Casmach
+Perf_Preds_LFData.Tgtspdrec.Cmxalt                                                                                        10.0
+Perf_Integrators_LFData.Intprogbuf.Hprog                                                                                   5.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.dH                                        1500.0         0.0001                      1500.0  P
+Perf_Integrators_LFData.Intprogbuf.dH                                           9.0         0.0001                         9.0  P
+
+
+====> All 2 Comparisons Passed <====
+
+
+TESTID: 3
+This TC verifies:
+
+--FMCS_19_20008205
+dH is set to 500.0 for all other forward integration cases
+
+--FMCS_19_20008226
+The rating mode is used if the predicted phase is not descent
+
+--FMCS_19_20008229
+ROC should be limited to minimum of 100 ft/min for pre-descent flight phases
+
+--FMCS_19_20008230
+GA2 = ARCSIN[100 fpm / Vt2]  when ROC has been limited to 100  or -100 ft/min.
+if the roc was limited, recompute gamma, Limit Intermed between 1.0 and -1.0 for Arcsin calculation to cover Intermed > 1.0
+
+REQUIREMENTS UNDER EVALUATION: FMCS_19_20008205, FMCS_19_20008226, FMCS_19_20008229, FMCS_19_20008230,FMCS_19_20008219
+                               FMCS_19_20008208, FMCS_19_20008209, FMCS_19_20008210, FMCS_19_20008211.
+
+SUPPORTING REQUIREMENTS : FMCS_19_21022001,PERF_SRD_211575,  PERF_SRD_211576,  PERF_SRD_211577
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Preds_LFData.Desiredphase                                                                                               0
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               PERF_PREDS_LFTypes.Casmach
+Perf_Preds_LFData.Tgtspdrec.Cmxalt                                                                                        10.0
+Perf_Integrators_LFData.Intprogbuf.Hprog                                                                                   5.0
+CTP_STB_EPM_RATING_CORRNETTHRST                                                                                            0.1
+CTP_STB_AIR_STATIC_DATA_Pressnorm                                                                                        101.1
+CTP_STB_AER_ACDRAG_Drag                                                                                                    1.0
+Perf_Int_Pkg.Thrust                                                                                                        1.0
+CTP_STB_AIR_DYNAMIC_DATA_Tastemp                                                                                           0.5
+CTP_STB_SU_GNDSPD_Groundspd                                                                                              401.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Int_Pkg.Thrust                                                           10.11         0.0001                  10.1099997  P
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Int_Pkg.Dhgeo                                                                                                       299.0
+Perf_Integrators_LFData.Intprogbuf.Gwprog                                                                                  1.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.Rateofclb2                                 100.0         0.0001                       100.0  P
+Perf_Integrators_LFData.Intprogbuf.Gamaair2                                    90.0         0.0001                        90.0  P
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+CTP_STB_AIR_DYNAMIC_DATA_Tastemp                                                                                           1.0
+Intermed                                                                                                                   0.5
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.Rateofclb2                                 100.0         0.0001                       100.0  P
+Perf_Integrators_LFData.Intprogbuf.Gamaair2                                 80.9214         0.0001                  80.9214249  P
+Perf_Integrators_LFData.Intprogbuf.dH                                         500.0         0.0001                       500.0  P
+CTP_STB_EPM_RATING_INVOKED                                                     True          (N/A)                        true  P
+Perf_Integrators_LFData.Intprogbuf.Dx                                      -33.7822         0.0001                  -33.782238  P
+Perf_Integrators_LFData.Intprogbuf.Xprog                                   -34.7822         0.0001                  -34.782238  P
+
+
+====> All 9 Comparisons Passed <====
+
+
+TESTID: 4
+This TC verifies:
+
+--FMCS_19_20008206
+dH should be set to -500 for backward integration
+
+REQUIREMENTS UNDER EVALUATION: FMCS_19_20008206
+
+SUPPORTING REQUIREMENTS : FMCS_19_21022001,PERF_SRD_211575,  PERF_SRD_211576,  PERF_SRD_211577
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Integrators_LFData.Intdir                                                                                               1
+Perf_Preds_LFData.Desiredphase                                                                                               4
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               PERF_PREDS_LFTypes.Casonly
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.dH                                        -500.0         0.0001                      -500.0  P
+
+
+====> All 1 Comparisons Passed <====
+
+
+TESTID: 5
+Robust test case for cover Perf_Integrators_LFData.Initint=false
+
+REQUIREMENTS UNDER EVALUATION: FMCS_19_20008206, FMCS_19_21022011
+
+SUPPORTING REQUIREMENTS : FMCS_19_21022001.PERF_SRD_211575,  PERF_SRD_211576,  PERF_SRD_211577
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Integrators_LFData.Initint                                                                                          false
+Perf_Integrators_LFData.Intprogbuf.dH                                                                                   1230.0
+Perf_Preds_LFData.Desiredphase                                                                                               0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.dH                                        1230.0         0.0001                      1230.0  P
+
+
+====> All 1 Comparisons Passed <====
+
+
+TESTID: 6
+This TC verifies:
+
+--FMCS_19_20008205
+dH is set to 500.0 when integration is forward, and in descent phase,
+Perf_Preds_LFData.Tgtspdrec.Cmxalt -(RN_Intprogbuf.Hprog) <4.0)
+
+Robust test for cover the code line 473
+
+REQUIREMENTS UNDER EVALUATION: FMCS_19_20008205
+
+SUPPORTING REQUIREMENTS : FMCS_19_21022001,PERF_SRD_211575,  PERF_SRD_211576,  PERF_SRD_211577
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Preds_LFData.Desiredphase                                                                                               4
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               PERF_PREDS_LFTypes.Casmach
+Perf_Preds_LFData.Tgtspdrec.Cmxalt                                                                                         9.0
+Perf_Integrators_LFData.Intprogbuf.Hprog                                                                                   5.0
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.dH                                         500.0         0.0001                       500.0  P
+
+
+====> All 1 Comparisons Passed <====
+
+
+TESTID: 7
+This TC verifies:
+
+--FMCS_19_20008205
+dH is set to 1500.0 when integration is forward, and
+                         in descent phase, with a MACH/CAS speed, below the Mach/CAS crossover altitude
+Robust test to cover the code in line 184~191
+
+REQUIREMENTS UNDER EVALUATION: FMCS_19_20008205,
+
+SUPPORTING REQUIREMENTS : N/A
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Preds_LFData.Desiredphase                                                                                               4
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               PERF_PREDS_LFTypes.Casmach
+Perf_Preds_LFData.Tgtspdrec.Cmxalt                                                                                        10.0
+Perf_Integrators_LFData.Intprogbuf.Hprog                                                                                   5.0
+CTP_Use_AEDB_Flap_Spds                                                                                                   False
+CTP_Current_Des_Pth_Ptr_b                                                                                                 True
+CTP_Descent_Path.Valid                                                                                                    True
+CTP_Descent_Path.FlapDecelPoint(3).Speed                                                                                   500
+CTP_Descent_Path.FlapDecelPoint(4).Speed                                                                                   100
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Perf_Integrators_LFData.Intprogbuf.dH                                        1500.0         0.0001                      1500.0  P
+Perf_Integrators_LFData.Intprogbuf.dH                                           9.0         0.0001                         9.0  P
+
+
+====> All 2 Comparisons Passed <====
+
+
+TESTID: 8
+The FM constant flight path angle integration shall define Flaps 1 and Flaps 5 speed from the AEDB if Use_AEDB_Flaps is true or
+a valid descent path does not exist.(PERF_SRD_211579)
+This TC verifies:
+When Use_AEDB_Flaps is false(invalid) and there is a valid descent path, the flap 1 and flap 5 speed should be copied from
+descent path.(not from AEDB)
+
+REQUIREMENTS UNDER EVALUATION: PERF_SRD_211579
+
+SUPPORTING REQUIREMENTS : N/A
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Preds_LFData.Desiredphase                                                                                               4
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               PERF_PREDS_LFTypes.Casmach
+Perf_Preds_LFData.Tgtspdrec.Cmxalt                                                                                        10.0
+Perf_Integrators_LFData.Intprogbuf.Hprog                                                                                   5.0
+CTP_Use_AEDB_Flap_Spds                                                                                                   False
+CTP_Current_Des_Pth_Ptr_b                                                                                                 True
+CTP_Descent_Path.Valid                                                                                                    True
+CTP_Descent_Path.FlapDecelPoint(3).Speed                                                                                   179
+CTP_Descent_Path.FlapDecelPoint(4).Speed                                                                                   199
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Local_Flap_1_Speed                                                              199          (N/A)                       199.0  P
+Local_Flap_5_Speed                                                              179          (N/A)                       179.0  P
+
+
+====> All 2 Comparisons Passed <====
+
+
+TESTID: 9
+The FM constant flight path angle integration shall define Flaps 1 and Flaps 5 speed from the AEDB if Use_AEDB_Flaps is true or
+a valid descent path does not exist.(PERF_SRD_211579)
+This TC verifies:
+When Use_AEDB_Flaps is false(invalid) and there is no valid descent path, the flap 1 and flap 5 speed should be copied from AEDB.
+
+REQUIREMENTS UNDER EVALUATION: PERF_SRD_211579
+
+SUPPORTING REQUIREMENTS : N/A
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Preds_LFData.Desiredphase                                                                                               4
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               PERF_PREDS_LFTypes.Casmach
+Perf_Preds_LFData.Tgtspdrec.Cmxalt                                                                                        10.0
+Perf_Integrators_LFData.Intprogbuf.Hprog                                                                                   5.0
+CTP_Use_AEDB_Flap_Spds                                                                                                   False
+CTP_Current_Des_Pth_Ptr_b                                                                                                false
+CTP_Descent_Path.Valid                                                                                                    True
+CTP_Descent_Path.FlapDecelPoint(3).Speed                                                                                   179
+CTP_Descent_Path.FlapDecelPoint(4).Speed                                                                                   199
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Local_Flap_1_Speed                                                              200          (N/A)                       200.0  P
+Local_Flap_5_Speed                                                              180          (N/A)                       180.0  P
+
+
+====> All 2 Comparisons Passed <====
+
+
+TESTID: 10
+The FM constant flight path angle integration shall define Flaps 1 and Flaps 5 speed from the AEDB if Use_AEDB_Flaps is true or
+a valid descent path does not exist.(PERF_SRD_211579)
+This TC verifies:
+When Use_AEDB_Flaps is true(valid) and there is valid descent path, the flap 1 and flap 5 speed should be copied from AEDB.
+
+REQUIREMENTS UNDER EVALUATION: PERF_SRD_211579
+
+SUPPORTING REQUIREMENTS : N/A
+
+
+INPUT                                                                                                          VALUE
+--------------------------------------------------------------------------------------------------  --------------------------
+Perf_Preds_LFData.Desiredphase                                                                                               4
+Perf_Preds_LFData.Tgtspdrec.Tgtspdtag                                                               PERF_PREDS_LFTypes.Casmach
+Perf_Preds_LFData.Tgtspdrec.Cmxalt                                                                                        10.0
+Perf_Integrators_LFData.Intprogbuf.Hprog                                                                                   5.0
+CTP_Use_AEDB_Flap_Spds                                                                                                    True
+CTP_Current_Des_Pth_Ptr_b                                                                                                 True
+CTP_Descent_Path.Valid                                                                                                    True
+CTP_Descent_Path.FlapDecelPoint(3).Speed                                                                                   179
+CTP_Descent_Path.FlapDecelPoint(4).Speed                                                                                   199
+
+
+OUTPUT                                                          EXPECTED               TOLERANCE              ACTUAL            P/F
+----------------------------------------------------  -----------------------------  -------------  --------------------------  ----
+Local_Flap_1_Speed                                                              200          (N/A)                       200.0  P
+Local_Flap_5_Speed                                                              180          (N/A)                       180.0  P
+
+
+====> All 2 Comparisons Passed <====
+
+
+Test End Time: 07/15/2014 Tue 11:09:44"
+Test Generation System (TGS) Version v5.5, ps4082887-109
+
+UserID:  e817739    Node:  CH71DTDY8193X
+
+Current Build 
+         C:\B787\BUILDS\SBC2415_93C

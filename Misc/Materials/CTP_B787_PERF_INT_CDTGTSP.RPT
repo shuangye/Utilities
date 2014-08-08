@@ -1,0 +1,205 @@
+	#######################################################
+	#                                                     #
+	#                Test Coverage Analyzer               #
+	#            Short Summary Coverage Report            #
+	#                                                     #
+	#######################################################
+
+	              Tue Jul 15 11:19:03 China Standard Time 2014
+
+    Test Coverage Analyzer (TCA)  V6.7 CLASS A ps4082880-115
+    Win32 Host: WinNT 6.1 Build 7601  UserID: e817739  Node: CH71DTDY8193X (Intel PentPro Model 42 Step 7)
+    Current Dir: C:\B787\Builds\SBC2415_93C\Output\Netboot\wrSbc750gx_scoe
+
+--------------------------------------------------------------------------------
+TCA invoked Tue Jul 15 11:18:39 China Standard Time 2014 with command line:
+   tca.exe -TABS -s -X -V -v configRecord.xml -p ...
+   CTP_B787_PERF_INT_CDTGTSP.pth -x CTP_B787_PERF_INT_CDTGTSP.xin -r ...
+   CTP_B787_PERF_INT_CDTGTSP.RPT -c ...
+   C:\B787\Builds\SBC2415_93C\CFG\CTP_B787_PERF_INT_CDTGTSP\CTP_B787_PERF_INT_CDTGTSP.CUL ...
+   -type 3 --ignore=I,C,A,K
+--------------------------------------------------------------------------------
+Expanded command line:
+   tca.exe -TABS -s -X -V -v configRecord.xml -p ...
+   CTP_B787_PERF_INT_CDTGTSP.pth -x CTP_B787_PERF_INT_CDTGTSP.xin -r ...
+   CTP_B787_PERF_INT_CDTGTSP.RPT -c ...
+   C:\B787\Builds\SBC2415_93C\CFG\CTP_B787_PERF_INT_CDTGTSP\CTP_B787_PERF_INT_CDTGTSP.CUL ...
+   -type 3 --ignore=I,C,A,K
+--------------------------------------------------------------------------------
+
+
+Test Coverage Type: 3
+
+Report File Name  : CTP_B787_PERF_INT_CDTGTSP.RPT
+
+Paths file(s) :
+
+  (P01) CTP_B787_PERF_INT_CDTGTSP.pth   Tue Jul 15 11:06:12 2014
+	     ELFPOPP, Version v1.5, ps4090055-106
+
+XInfo file(s)   Test Date   Test Platform:
+
+  (P01) CTP_B787_PERF_INT_CDTGTSP.pth
+	(X01) CTP_B787_PERF_INT_CDTGTSP.xin   Tue Jul 15 11:10:11 2014   Simics PowerPC TCA XInfo, Platform V3.00.09
+
+------------------------------------------------------------------------------
+       Compilation                    Test Coverage Statistics       Warnings 
+        Unit Name               Total Decision Cond Statemnt Block  Mixed Bool
+------------------------------- ----------------------------------- ----------
+PERF_INT_CDTGTSPD_SEP.ADA -
+  .PERF_INT_PKG.INT_CDTGTSPD -
+  .LOCAIRTSPD                    100.0   100.0   n/a   100.0  100.0     1   1
+                                        6/6     n/a   12/12  13/13
+
+PERF_INT_CDTGTSPD_SEP.ADA -
+  .PERF_INT_PKG.INT_CDTGTSPD -
+  .LOCTHRSTFF                    100.0   100.0   n/a   100.0  100.0     0   0
+                                        2/2     n/a   7/7    6/6
+
+PERF_INT_CDTGTSPD_SEP.ADA -
+  .PERF_INT_PKG.INT_CDTGTSPD -
+  .LOCANGROCSPD                  100.0   100.0   n/a   100.0  100.0     0   0
+                                        22/22   n/a   50/50  34/34
+
+PERF_INT_CDTGTSPD_SEP.ADA -
+  .PERF_INT_PKG.INT_CDTGTSPD     100.0   100.0   n/a   100.0  100.0     0   0
+                                        10/10   n/a   54/54  30/30
+
+------------------------------------------------------------------------------
+Total Percentages                       100.0   n/a   100.0  100.0
+Totals                                  40/40   n/a   123/123  83/83
+Total Coverage                  100.0
+------------------------------------------------------------------------------
+
+************************************************************************
+
+	Test Coverage Analyzer (TCA)  Version 6.7 CLASS A
+
+************************************************************************
+
+Coverage Type: 3
+
+Date of report / Report name :
+
+	Tue Jul 15 11:19:03 2014 CTP_B787_PERF_INT_CDTGTSP.RPT
+
+Current Directory:
+
+	 C:\B787\Builds\SBC2415_93C\Output\Netboot\wrSbc750gx_scoe
+
+Paths file(s) :
+
+  (P01) CTP_B787_PERF_INT_CDTGTSP.pth   Tue Jul 15 11:06:12 2014
+	     ELFPOPP, Version v1.5, ps4090055-106
+
+XInfo file(s)   Test Date   Test Platform:
+
+  (P01) CTP_B787_PERF_INT_CDTGTSP.pth
+	  (X01) CTP_B787_PERF_INT_CDTGTSP.xin   Tue Jul 15 11:10:11 2014   Simics PowerPC TCA XInfo, Platform V3.00.09
+
+Source file(s) :
+
+   C:\B787\Builds\SBC2415_93C\SRC\fm\perf_int_cdtgtspd_sep.ada
+
+Total Coverage statistics :
+
+   TYPE 3, 100.0%  
+
+
+************************************************************************
+		      Source Report Legend Key
+	   (Legend Key may be suppressed by -k option)
+
+Coverage messages preceding source code lines are annotated with
+object code block tags of the form [x-y BLOCKTYPE]. For example,
+   [263-17 JMPT] is a block tag for the 17th block of the 263rd unit
+                 in the pathsfile and is a jump true block.
+This block tag annotation is intended to be used as a reference to
+the object code level block report (.tcb) generated with the -B option.
+Each object code block is labeled with a unique block tag.
+
+Each line of source code may be prefixed by one of the following
+indicators:
+   . = source line completely or partially executed
+   * = source line shown ONLY to clarify previous source lines and
+       is NOT actually part of the uncovered source TCA is reporting on
+   Note that no prefix indicates source line was not executed
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	PERF_INT_CDTGTSPD_SEP.ADA.PERF_INT_PKG.INT_CDTGTSPD.LOCAIRTSPD
+	C:\B787\Builds\SBC2415_93C\SRC\fm\perf_int_cdtgtspd_sep.ada
+
+Coverage statistics :
+
+	TYPE 3, 100.0%
+
+			 Executed	  Total
+	Decision Paths 	       6	     6
+	Condition Paths	     n/a	   n/a
+	Statements	      12	    12
+	Blocks		      13	    13
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	PERF_INT_CDTGTSPD_SEP.ADA.PERF_INT_PKG.INT_CDTGTSPD.LOCTHRSTFF
+	C:\B787\Builds\SBC2415_93C\SRC\fm\perf_int_cdtgtspd_sep.ada
+
+Coverage statistics :
+
+	TYPE 3, 100.0%
+
+			 Executed	  Total
+	Decision Paths 	       2	     2
+	Condition Paths	     n/a	   n/a
+	Statements	       7	     7
+	Blocks		       6	     6
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	PERF_INT_CDTGTSPD_SEP.ADA.PERF_INT_PKG.INT_CDTGTSPD.LOCANGROCSPD
+	C:\B787\Builds\SBC2415_93C\SRC\fm\perf_int_cdtgtspd_sep.ada
+
+Coverage statistics :
+
+	TYPE 3, 100.0%
+
+			 Executed	  Total
+	Decision Paths 	      22	    22
+	Condition Paths	     n/a	   n/a
+	Statements	      50	    50
+	Blocks		      34	    34
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	PERF_INT_CDTGTSPD_SEP.ADA.PERF_INT_PKG.INT_CDTGTSPD
+	C:\B787\Builds\SBC2415_93C\SRC\fm\perf_int_cdtgtspd_sep.ada
+
+Coverage statistics :
+
+	TYPE 3, 100.0%
+
+			 Executed	  Total
+	Decision Paths 	      10	    10
+	Condition Paths	     n/a	   n/a
+	Statements	      54	    54
+	Blocks		      30	    30
+
+
+
+**************************** End of Report *****************************

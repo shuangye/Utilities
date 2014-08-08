@@ -15,13 +15,16 @@ def func(src_path):
         return -1
 
     ID = 1  # TESTID starts from 1
-    valid = re.compile(r"TESTID\s*:\s*\d+", re.IGNORECASE)  # TESTID: 2
+    pattern = re.compile(r"TESTID\s*:\s*\d+", re.IGNORECASE)  # TESTID: 2
     for line in file_in:
-        if (None != valid.match(line.strip())):
+        if (None != pattern.match(line.strip())):
             print("TESTID: {ID}".format(ID = ID), file = file_out)
             ID += 1
         else:
             print(line, end = '', file = file_out)
+            
+    file_in.close()
+    file_out.close()
 
 
 if ("__main__" == __name__):

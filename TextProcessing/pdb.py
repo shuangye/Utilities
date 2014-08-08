@@ -62,6 +62,9 @@ def func(src_path):
             
             print("MAGVARTBL[{row:2},{col:2}] = {val:16,.4f}  ;  ({lat:11,.4f}{lon:13,.4f}   )".format(\
                   row = row, col = col, val = float(splits[0]), lat = float(splits[1]), lon = float(splits[2])), file = file_out)
+                  
+    file_in.close()
+    file_out.close()
 
 
 if ("__main__" == __name__):

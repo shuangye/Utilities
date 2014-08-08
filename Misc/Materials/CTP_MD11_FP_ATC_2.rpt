@@ -1,0 +1,2210 @@
+	#######################################################
+	#                                                     #
+	#                Test Coverage Analyzer               #
+	#            Short Summary Coverage Report            #
+	#                                                     #
+	#######################################################
+
+	              Fri May 02 09:31:04 US Mountain Standard Time 2014
+
+    Test Coverage Analyzer (TCA)  V6.16b3 beta4082880-124
+    Win32 Host: WinNT 6.1 Build 7601  UserID: E552384  Node: CH71DT9QL763X (Intel PentPro Model 42 Step 7)
+    Current Dir: C:\MD11_Project\CTP\24193.01\SLTP\CTP_MD11_FP_ATC
+
+--------------------------------------------------------------------------------
+TCA invoked Fri May 02 09:30:59 US Mountain Standard Time 2014 with command line:
+   tca.exe -TABS -r CTP_MD11_FP_ATC_2.rpt -s -type 3 -p ...
+   CTP_MD11_FP_ATC_2_d.pth -x CTP_MD11_FP_ATC_2.xin -c ...
+   CTP_MD11_FP_ATC_2.cul --ignore=i,g,h
+--------------------------------------------------------------------------------
+Expanded command line:
+   tca.exe -TABS -r CTP_MD11_FP_ATC_2.rpt -s -type 3 -p ...
+   CTP_MD11_FP_ATC_2_d.pth -x CTP_MD11_FP_ATC_2.xin -c ...
+   CTP_MD11_FP_ATC_2.cul --ignore=i,g,h
+--------------------------------------------------------------------------------
+
+
+Test Coverage Type: 3
+
+Report File Name  : CTP_MD11_FP_ATC_2.rpt
+
+Paths file(s) :
+
+  (P01) CTP_MD11_FP_ATC_2_d.pth   Fri May 02 09:08:32 2014
+	     HADS-290x0 (PC/Windows NT) Ada Compiler, Version 2.9, PS4078711-104
+	     HADS-290x0 (PC/Windows NT) Ada Compiler, Version 2.9.05, PS4078711-106
+	     HADS-290x0 (PC/Windows NT) Ada Compiler, Version 2.9.61, PS4082845-107
+	     Honeywell 29K Assembler, V2.4, PS4072677-105
+	     HADS-290x0 (PC/Windows NT) Ada Linker, Version 2.9.61, PS4082846-109
+
+XInfo file(s)   Test Date   Test Platform:
+
+  (P01) CTP_MD11_FP_ATC_2_d.pth
+	(X01) CTP_MD11_FP_ATC_2.xin   Fri May 02 09:26:42 2014   ISS TCA Xinfo, Platform V7.02.04
+
+------------------------------------------------------------------------------
+       Compilation                    Test Coverage Statistics       Warnings 
+        Unit Name               Total Decision Cond Statemnt Block  Mixed Bool
+------------------------------- ----------------------------------- ----------
+IO_MDXX_SPAD_MSG_INFO_TPKG -
+  .DISPLAY_MESSAGE_LIST_FULL    
+  (overloaded at line 115)      100.0    NONE   n/a   100.0  100.0     0   0
+                                        0/0     n/a   2/2    5/5
+
+IO_MDXX_SPAD_MSG_INFO_TPKG -
+  .DISPLAY_MESSAGE_LIST_FULL    
+  (overloaded at line 93)       100.0   100.0   n/a   100.0  100.0     0   0
+                                        2/2     n/a   4/4    11/11
+
+IO_MDXX_SPAD_MSG_INFO_TPKG       100.0   100.0   n/a   100.0  100.0     0   0
+                                        2/2     n/a   12/12  22/22
+
+FPX_UPLINK_BUFFER_PKG.GET_PIL -
+  OT_DEF_WPT_LIST_STATUS         100.0    NONE   n/a   100.0  100.0     0   0
+                                        0/0     n/a   1/1    3/3
+
+FP_ROUTE_UPLINK_PKG.IS_ALT_A_ -
+  CRZ_FL                           0.0     0.0   n/a     0.0    0.0     1   0
+                                        0/2     n/a   0/4    0/46
+
+FP_ROUTE_UPLINK_PKG.PROCESS_A -
+  TC_DEPARTURE                    19.9    17.4   n/a    15.8   26.6     2   0
+                                        8/46    n/a   12/76  46/173
+
+FP_ROUTE_UPLINK_PKG.PROCESS_C -
+  ONSTRAINT                        0.0     0.0   n/a     0.0    0.0     3   0
+                                        0/80    n/a   0/105  0/277
+
+FP_ROUTE_UPLINK_PKG.PROCESS_ATO   16.1    11.5   n/a    25.6   11.1     0   0
+                                        3/26    n/a   11/43  10/90
+
+FP_ROUTE_UPLINK_PKG.SETUP_ATC     83.2    76.9   n/a    88.5   84.3     1   0
+                                        40/52   n/a   69/78  172/204
+
+FP_ROUTE_UPLINK_PKG.PROCESS_D -
+  IRECT_FIX                       50.7    50.0   n/a    48.4   53.7     2   0
+                                        22/44   n/a   44/91  88/164
+
+FP_ROUTE_UPLINK_PKG.ROUTE_CON -
+  STRUCTION                       56.9    60.0   n/a    54.4   56.3     2   0
+                                        24/40   n/a   43/79  143/254
+
+FP_ROUTE_UPLINK_PKG.EXECUTIVE     57.2    46.9   n/a    63.5   61.2     0   0
+                                        15/32   n/a   33/52  71/116
+
+------------------------------------------------------------------------------
+Total Percentages                        35.6   n/a    42.2   41.8
+Totals                                  116/326   n/a   231/547  571/1365
+Total Coverage                   39.9
+------------------------------------------------------------------------------
+
+************************************************************************
+
+	Test Coverage Analyzer (TCA)  Version 6.16b3
+
+************************************************************************
+
+Coverage Type: 3
+
+Date of report / Report name :
+
+	Fri May 02 09:31:04 2014 CTP_MD11_FP_ATC_2.rpt
+
+Current Directory:
+
+	 C:\MD11_Project\CTP\24193.01\SLTP\CTP_MD11_FP_ATC
+
+Paths file(s) :
+
+  (P01) CTP_MD11_FP_ATC_2_d.pth   Fri May 02 09:08:32 2014
+	     HADS-290x0 (PC/Windows NT) Ada Compiler, Version 2.9, PS4078711-104
+	     HADS-290x0 (PC/Windows NT) Ada Compiler, Version 2.9.05, PS4078711-106
+	     HADS-290x0 (PC/Windows NT) Ada Compiler, Version 2.9.61, PS4082845-107
+	     Honeywell 29K Assembler, V2.4, PS4072677-105
+	     HADS-290x0 (PC/Windows NT) Ada Linker, Version 2.9.61, PS4082846-109
+
+XInfo file(s)   Test Date   Test Platform:
+
+  (P01) CTP_MD11_FP_ATC_2_d.pth
+	  (X01) CTP_MD11_FP_ATC_2.xin   Fri May 02 09:26:42 2014   ISS TCA Xinfo, Platform V7.02.04
+
+Source file(s) :
+
+   C:\BUILDS\MD11\HW\SRC_HW\com\IO_MDXX_SPAD_MSG_INFO_TPKG.ADA
+   C:\BUILDS\MD11\HW\SRC_HW\fm\FPX_UPLINK_BUFFER_PKG_GET_LIST_OF04472.ADA 
+   C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_EXECUTIVE.ADA
+   C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_IS_ALT_A_CRZ_FL.ADA
+   C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_PROCESS_ATC_D04385.ADA 
+   C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_PROCESS_ATO.ADA
+   C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_PROCESS_CONSTRAINT.ADA 
+   C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_PROCESS_DIRECT_FIX.ADA 
+   C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_SETUP_ATC.ADA
+   C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_ROUTE_CONSTRUCTION.ADA 
+
+Total Coverage statistics :
+
+   TYPE 3,  39.9%  
+
+
+************************************************************************
+		      Source Report Legend Key
+	   (Legend Key may be suppressed by -k option)
+
+Coverage messages preceding source code lines are annotated with
+object code block tags of the form [x-y BLOCKTYPE]. For example,
+   [263-17 JMPT] is a block tag for the 17th block of the 263rd unit
+                 in the pathsfile and is a jump true block.
+This block tag annotation is intended to be used as a reference to
+the object code level block report (.tcb) generated with the -B option.
+Each object code block is labeled with a unique block tag.
+
+Each line of source code may be prefixed by one of the following
+indicators:
+   . = source line completely or partially executed
+   * = source line shown ONLY to clarify previous source lines and
+       is NOT actually part of the uncovered source TCA is reporting on
+   Note that no prefix indicates source line was not executed
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	IO_MDXX_SPAD_MSG_INFO_TPKG.DISPLAY_MESSAGE_LIST_FULL
+  (overloaded at line 115)     
+	C:\BUILDS\MD11\HW\SRC_HW\com\IO_MDXX_SPAD_MSG_INFO_TPKG.ADA
+
+Coverage statistics :
+
+	TYPE 3, 100.0%
+
+			 Executed	  Total
+	Decision Paths 	       0	     0
+	Condition Paths	     n/a	   n/a
+	Statements	       2	     2
+	Blocks		       5	     5
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	IO_MDXX_SPAD_MSG_INFO_TPKG.DISPLAY_MESSAGE_LIST_FULL
+  (overloaded at line 93)      
+	C:\BUILDS\MD11\HW\SRC_HW\com\IO_MDXX_SPAD_MSG_INFO_TPKG.ADA
+
+Coverage statistics :
+
+	TYPE 3, 100.0%
+
+			 Executed	  Total
+	Decision Paths 	       2	     2
+	Condition Paths	     n/a	   n/a
+	Statements	       4	     4
+	Blocks		      11	    11
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	IO_MDXX_SPAD_MSG_INFO_TPKG
+	C:\BUILDS\MD11\HW\SRC_HW\com\IO_MDXX_SPAD_MSG_INFO_TPKG.ADA
+
+Coverage statistics :
+
+	TYPE 3, 100.0%
+
+			 Executed	  Total
+	Decision Paths 	       2	     2
+	Condition Paths	     n/a	   n/a
+	Statements	      12	    12
+	Blocks		      22	    22
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	FPX_UPLINK_BUFFER_PKG.GET_PILOT_DEF_WPT_LIST_STATUS
+	C:\BUILDS\MD11\HW\SRC_HW\fm\FPX_UPLINK_BUFFER_PKG_GET_LIST_OF04472.ADA 
+
+Coverage statistics :
+
+	TYPE 3, 100.0%
+
+			 Executed	  Total
+	Decision Paths 	       0	     0
+	Condition Paths	     n/a	   n/a
+	Statements	       1	     1
+	Blocks		       3	     3
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	FP_ROUTE_UPLINK_PKG.IS_ALT_A_CRZ_FL
+	C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_IS_ALT_A_CRZ_FL.ADA
+
+Coverage statistics :
+
+	TYPE 3,   0.0%
+
+			 Executed	  Total
+	Decision Paths 	       0	     2
+	Condition Paths	     n/a	   n/a
+	Statements	       0	     4
+	Blocks		       0	    46
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.IS_ALT_A_CRZ_FL  (0.0% Coverage)
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	FP_ROUTE_UPLINK_PKG.PROCESS_ATC_DEPARTURE
+	C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_PROCESS_ATC_D04385.ADA 
+
+Coverage statistics :
+
+	TYPE 3,  19.9%
+
+			 Executed	  Total
+	Decision Paths 	       8	    46
+	Condition Paths	     n/a	   n/a
+	Statements	      12	    76
+	Blocks		      46	   173
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.PROCESS_ATC_DEPARTURE
+[922-12 JMPF]Decision ending on line 148 NOT taken.
+  .  148   if Fp_Data_Dpkg.Fp_Header (Fplan).Originrwy.Rwylocexists then
+  *  149     Rwyid := Fp_Data_Dpkg.Fp_Header (Fplan).Originrwy.Rwyident;
+
+[922-15 LABEL]Line 149 not executed.
+     149     Rwyid := Fp_Data_Dpkg.Fp_Header (Fplan).Originrwy.Rwyident;
+
+[922-19 JMPT]Decision ending on line 157 NOT taken.
+     157     if (Qrec.Element_Type = Fpx_Buffer_Types.Fpx_Runway and then Qrec.Runway_Type = Fpx_Buffer_Types.Fpx_Origin) then
+  *  158 
+  *  159       -- IF ELEMENT 83 OR 79 (WITH OPC FALSE), THEN CONSIDER IT UNLOADABLE
+  *  160       if (Fp_Dl_Dpkg.Atc_Construction_Info.Atc_Element_Number = Fp_Dl_Dpkg.Atc_At_Position_Cleared_Rte_Clr) or else
+  *  161          ((Fp_Dl_Dpkg.Atc_Construction_Info.Atc_Element_Number = Fp_Dl_Dpkg.Atc_Cleared_To_Position_Via_Rte_Clr) and then
+  *  162          	(not(Options_And_Data_Pkg.Uplink_Msg_79_Departure_Info))) then
+  *  163         Fprequest.Tapsel.Runwayval := False;
+
+[922-25 LABEL]Line 162 not executed.
+[922-26 JMPT]Decision ending on line 162 not executed.
+     162          	(not(Options_And_Data_Pkg.Uplink_Msg_79_Departure_Info))) then
+  *  163         Fprequest.Tapsel.Runwayval := False;
+
+[922-28 JMP]Lines 163 - 164 not executed.
+     163         Fprequest.Tapsel.Runwayval := False;
+     164         Fp_Dl_Dpkg.Unloadable := True;
+
+[922-30 IJMP]Lines 165 - 167 not executed.
+     165       else
+     166 
+     167         if (Fp_To_Cdk_Dpkg.Flight_Phase /= Fmcs_Base_Types.Preflight) or else
+  *  168            (Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Originwpt) = 0) then
+  *  169           Fprequest.Tapsel.Runwayval := False;
+
+[922-35 JMPT]Decision ending on line 168 not executed.
+     168            (Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Originwpt) = 0) then
+  *  169           Fprequest.Tapsel.Runwayval := False;
+
+[922-37 JMP]Lines 169 - 170 not executed.
+     169           Fprequest.Tapsel.Runwayval := False;
+     170           Fp_Dl_Dpkg.Unloadable := True;
+
+[922-41 IJMP]Line 176 not executed.
+     176           Nam_Runway_Pkg.Get_By_Ident (Rwy_Ident => Qrec.Runway_Id,     -- in
+  *  177                                        Apt_Ident => Fp_Data_Dpkg.Fp_Header (Fplan).Originapt.Airport_Id, -- in
+  *  178                                        Current_Offset => Current_Offset,-- out
+  *  179                                        Next_Offset => Next_Offset,      -- out
+  *  180                                        Rwy_Record => Rwy_Record,        -- out
+  *  181                                        Status => Status);               -- out
+
+[922-43 JMPT]Decision ending on line 183 not executed.
+     183           if Status.Majorstatus = Nam_Iftypes.Successful then
+  *  184             Rwyid := Qrec.Runway_Id;
+
+[922-46 JMP]Lines 184 - 189 not executed.
+     184             Rwyid := Qrec.Runway_Id;
+     185             Fprequest.Tapsel.Runwayval := True;
+     186             Fprequest.Tapsel.Runwaydata.Rwyptr := Current_Offset;
+     187             Fprequest.Tapsel.Runwaydata.Procexists := False;
+     188             Fprequest.Tapsel.Runwaydata.Vfrexists := False;
+     189             Fprequest.Tapsel.Runwaydata.Tapfileadr := Fmcs_Base_Types.Null_Ndb_Pointer;
+
+[922-48 LABEL]Lines 190 - 192 not executed.
+     190           else
+     191             -- RUNWAY DOESN'T EXIST AT THE DEPARTURE AIRPORT
+     192             Fp_Dl_Dpkg.Unloadable := True;
+
+[922-52 JMPT]Decision ending on line 202 ONLY taken.
+  .  202     if (Qrec.Element_Type = Fpx_Buffer_Types.Fpx_Procedure) and then (Qrec.Procedure_Type = Fpx_Buffer_Types.Fpx_Departure) then
+  *  203 
+  *  204       -- IF ELEMENT 83 OR 79 (WITH OPC FALSE)
+  *  205       if (Fp_Dl_Dpkg.Atc_Construction_Info.Atc_Element_Number = Fp_Dl_Dpkg.Atc_At_Position_Cleared_Rte_Clr) or else
+  *  206          ((Fp_Dl_Dpkg.Atc_Construction_Info.Atc_Element_Number = Fp_Dl_Dpkg.Atc_Cleared_To_Position_Via_Rte_Clr) and then
+  *  207          	(not(Options_And_Data_Pkg.Uplink_Msg_79_Departure_Info))) then
+  *  208         Fprequest.Tapsel.Sidstarval := False;
+
+[922-59 JMPT]Decision ending on line 207 NOT taken.
+     207          	(not(Options_And_Data_Pkg.Uplink_Msg_79_Departure_Info))) then
+  *  208         Fprequest.Tapsel.Sidstarval := False;
+
+[922-61 JMP]Lines 208 - 209 not executed.
+     208         Fprequest.Tapsel.Sidstarval := False;
+     209         Fp_Dl_Dpkg.Unloadable := True;
+
+[922-69 JMPT]Decision ending on line 215 ONLY taken.
+  .  215            Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Originwpt) = 0 then
+  *  216           Fprequest.Tapsel.Sidstarval := False;
+
+[922-74 IJMP]Line 222 not executed.
+     222           Nam_Tap_Pkg.Get_Taphdr_By_Ident (Taphdr_Ident => Sidid,             -- in
+  *  223                                            Apt_Offset => Fp_Data_Dpkg.Fp_Header (Fplan).Originapt.Aptnavdbptr, -- in
+  *  224                                            Current_Offset => Sidofst,         -- out
+  *  225                                            Taphdr_Record => Taphdr_Record,    -- out
+  *  226                                            Status => Status);                 -- out
+
+[922-82 LABEL]Line 232 not executed.
+[922-83 JMPT]Decision ending on line 232 not executed.
+     232              not (Nam_Db_Utils_Pkg.Is_Nil (Sidofst)) then
+  *  233 
+  *  234             -- DETERMINE IF THE DEPARTURE IS COMPATIBLE WITH THE DEPARTURE RUNWAY 
+  *  235             Nam_Tap_Pkg.Rwy_Sid_Compatible (Airport_Ofst => Fp_Data_Dpkg.Fp_Header (Fplan).Originapt.Aptnavdbptr, -- in
+  *  236                                             Sid_Ident => Sidid,             -- in
+  *  237                                             Rwy_Ident => Rwyid,             -- in
+  *  238                                             Compat_Sid_Ofst => Sidofst,     -- out
+  *  239                                             Rwy_And_Sid_Compat => Compat);  -- out
+
+[922-86 IJMP]Line 235 not executed.
+[922-88 LABEL]Line 235 not executed.
+     235             Nam_Tap_Pkg.Rwy_Sid_Compatible (Airport_Ofst => Fp_Data_Dpkg.Fp_Header (Fplan).Originapt.Aptnavdbptr, -- in
+  *  236                                             Sid_Ident => Sidid,             -- in
+  *  237                                             Rwy_Ident => Rwyid,             -- in
+  *  238                                             Compat_Sid_Ofst => Sidofst,     -- out
+  *  239                                             Rwy_And_Sid_Compat => Compat);  -- out
+
+[922-93 LABEL]Line 246 not executed.
+[922-94 JMPT]Decision ending on line 246 not executed.
+     246              not (Nam_Db_Utils_Pkg.Is_Nil (Sidofst)) then
+  *  247             Fprequest.Tapsel.Sidstarval := True;
+
+[922-96 IJMP]Lines 247 - 251 not executed.
+     247             Fprequest.Tapsel.Sidstarval := True;
+     248             Fprequest.Tapsel.Sidstaradr := Sidofst;
+     249 
+     250             -- FETCH STANDARD OR CUSTOM TAP FILE TYPE
+     251             Temp_Sidstar_Tapfile :=  --
+  *  252                Nam_Tap_Pkg.Get_Tap_File_Type (Ofst => Sidofst);
+
+[922-98 JMPT]Decision ending on line 253 not executed.
+     253             if Temp_Sidstar_Tapfile = Nam_Iftypes.Invalid then
+  *  254               Fp_Dl_Dpkg.Unloadable := True;
+
+[922-100 JMP]Lines 254 - 255 not executed.
+     254               Fp_Dl_Dpkg.Unloadable := True;
+     255               Fprequest.Tapsel.Sidstarval := False;
+
+[922-102 IJMP]Lines 256 - 257 not executed.
+[922-104 LABEL]Line 257 not executed.
+     256             else
+     257               Fprequest.Tapsel.Sidstrfile := --
+  *  258                  (Fp_Event_Utils_Pkg.Fp_Tap_Type_Convert (Nam_To_Cdk_Tap => Temp_Sidstar_Tapfile));
+
+[922-105 JMP]Line 259 not executed.
+     259             end if;
+
+[922-107 LABEL]Lines 261 - 263 not executed.
+     261           else
+     262             Fprequest.Tapsel.Sidstarval := False;
+     263             Fp_Dl_Dpkg.Unloadable := True;
+
+[922-111 JMPT]Decision ending on line 273 NOT taken.
+     273     if (Qrec.Element_Type = Fpx_Buffer_Types.Fpx_Transition and then Qrec.Transition_Type = Fpx_Buffer_Types.Fpx_Departure) then
+  *  274 
+  *  275       -- IF THE SID IS LOADABLE, THEN DETERMINE IF THE TRANSITION IS A VALID TRANSITION OF
+  *  276       -- THE SID
+  *  277       if Fprequest.Tapsel.Sidstarval then
+  *  278         Enrtid := Qrec.Transition_Id;
+
+[922-113 JMPF]Decision ending on line 277 not executed.
+     277       if Fprequest.Tapsel.Sidstarval then
+  *  278         Enrtid := Qrec.Transition_Id;
+
+[922-116 JMP]Lines 278 - 287 not executed.
+     278         Enrtid := Qrec.Transition_Id;
+     279 
+     280         Status.Majorstatus := Nam_Iftypes.Unsuccessful;
+     281         Tapofst := Fprequest.Tapsel.Sidstaradr;
+     282         Compat := False;
+     283 
+     284         First_Call := True;
+     285         End_Transition := False;
+     286         Status.Majorstatus := Unsuccessful;
+     287         while (not End_Transition) and then (Status.Majorstatus = Unsuccessful) loop
+  *  288           List_Index := 1;
+
+[922-118 IJMP]Lines 288 - 289 not executed.
+     288           List_Index := 1;
+     289           Nam_Tap_Pkg.Get_All_Sid_Transition_List (Airport_Offset => Fprequest.Tapsel.Tapairptptr,  -- in
+  *  290                                                    Requested_List_Size => Trans_List_Size,          -- in
+  *  291                                                    Firstcall => First_Call,                         -- in/out
+  *  292                                                    Current_Tap_Offset => Tapofst,                   -- in/out
+  *  293                                                    Sid_Trans_List => Trans_List,                    -- out
+  *  294                                                    Status => Status);                               -- out
+
+[922-120 JMPT]Decision ending on line 296 not executed.
+     296           if Status.Majorstatus = Successful then
+  *  297             Status.Majorstatus := Unsuccessful;
+
+[922-122 JMP]Lines 297 - 299 not executed.
+     297             Status.Majorstatus := Unsuccessful;
+     298 
+     299             while (List_Index < Trans_List.Count + 1) and then
+  *  300                      (Trans_List.Info (List_Index).Via = Nam_Base_Types.Viaenrtrns) and then
+  *  301                      (Status.Majorstatus = Unsuccessful) loop
+  *  302 
+  *  303               if Trans_List.Info (List_Index).Ident = Enrtid then
+  *  304                 Status.Majorstatus := Successful;
+
+[922-127 JMPF]Decision ending on line 303 not executed.
+     303               if Trans_List.Info (List_Index).Ident = Enrtid then
+  *  304                 Status.Majorstatus := Successful;
+
+[922-129 JMP]Line 304 not executed.
+     304                 Status.Majorstatus := Successful;
+
+[922-131 LABEL]Lines 305 - 306 not executed.
+     305               else
+     306                 List_Index := List_Index + 1;
+
+[922-137 JMPT]Decision ending on line 301 not executed.
+     301                      (Status.Majorstatus = Unsuccessful) loop
+  *  302 
+  *  303               if Trans_List.Info (List_Index).Ident = Enrtid then
+  *  304                 Status.Majorstatus := Successful;
+
+[922-143 JMPT]Decision ending on line 311 not executed.
+     311                List_Index = Trans_List.Count + 1 and then Status.Majorstatus = Unsuccessful then
+  *  312               End_Transition := True;  
+
+[922-145 JMP]Lines 312 - 313 not executed.
+     312               End_Transition := True;  
+     313             end if;
+
+[922-147 LABEL]Lines 315 - 316 not executed.
+     315           else
+     316             End_Transition := True;
+
+[922-150 JMPT]Decision ending on line 287 not executed.
+     287         while (not End_Transition) and then (Status.Majorstatus = Unsuccessful) loop
+  *  288           List_Index := 1;
+
+[922-152 JMPT]Decision ending on line 320 not executed.
+     320         if (Status.Majorstatus = Successful) then
+  *  321 
+  *  322           Tapofst := Fprequest.Tapsel.Sidstaradr;
+
+[922-154 JMP]Lines 322 - 324 not executed.
+     322           Tapofst := Fprequest.Tapsel.Sidstaradr;
+     323 
+     324           while (not Compat) and then (not (Nam_Db_Utils_Pkg.Is_Nil (Tapofst))) loop
+  *  325 
+  *  326             Nam_Tap_Pkg.Get_Taphdr_By_Ofst (Current_Offset => Tapofst,   -- in out
+  *  327                                             Next_Offset => Next_Offset,  -- out
+  *  328                                             Taphdr_Record => Taphdr_Record,  -- out
+  *  329                                             Status => Status);       -- out
+
+[922-156 IJMP]Line 326 not executed.
+     326             Nam_Tap_Pkg.Get_Taphdr_By_Ofst (Current_Offset => Tapofst,   -- in out
+  *  327                                             Next_Offset => Next_Offset,  -- out
+  *  328                                             Taphdr_Record => Taphdr_Record,  -- out
+  *  329                                             Status => Status);       -- out
+
+[922-162 JMPF]Decision ending on line 331 not executed.
+     331             if (Taphdr_Record.Via = Nam_Base_Types.Viaenrtrns) and then (Taphdr_Record.Ident = Enrtid) then  
+  *  332               Fprequest.Tapsel.Enrteadr := Tapofst;
+
+[922-164 JMP]Lines 332 - 334 not executed.
+     332               Fprequest.Tapsel.Enrteadr := Tapofst;
+     333               Fprequest.Tapsel.Enrteval := True;
+     334               Compat := True;
+
+[922-166 LABEL]Lines 336 - 337 not executed.
+     336             else   -- INCREMENT TO THE NEXT NDB RECORD          
+     337               Tapofst := Next_Offset;
+
+[922-169 LABEL]Line 324 not executed.
+[922-170 JMPF]Decision ending on line 324 not executed.
+[922-172 JMP]Line 324 not executed.
+     324           while (not Compat) and then (not (Nam_Db_Utils_Pkg.Is_Nil (Tapofst))) loop
+  *  325 
+  *  326             Nam_Tap_Pkg.Get_Taphdr_By_Ofst (Current_Offset => Tapofst,   -- in out
+  *  327                                             Next_Offset => Next_Offset,  -- out
+  *  328                                             Taphdr_Record => Taphdr_Record,  -- out
+  *  329                                             Status => Status);       -- out
+
+[922-174 LABEL]Lines 341 - 342 not executed.
+     341         else
+     342           Fp_Dl_Dpkg.Unloadable := True;
+
+[922-175 JMP]Line 343 not executed.
+     343         end if;
+
+[922-177 LABEL]Lines 345 - 347 not executed.
+     345       else
+     346         Fprequest.Tapsel.Enrteval := False;
+     347         Fp_Dl_Dpkg.Unloadable := True;
+
+[922-197 JMPT]Decision ending on line 359 ONLY taken.
+  .  359                     Qrec.Transition_Type = Fpx_Buffer_Types.Fpx_Departure));
+
+[922-203 JMPF]Decision ending on line 365 NOT taken.
+  .  365   if (Fprequest.Tapsel.Runwayval or else Fprequest.Tapsel.Sidstarval or else Fprequest.Tapsel.Enrteval) then
+  *  366     Fp_Dl_Dpkg.Loadable := True;
+
+[922-205 IJMP]Lines 366 - 367 not executed.
+     366     Fp_Dl_Dpkg.Loadable := True;
+     367     Cdk_To_Fpln_Dpkg.Put_Sidsel_Data (Sidsel_Fpln => Fprequest.Fplan,  -- in
+  *  368                                       Sidsel_Data => Fprequest.Tapsel);-- in
+
+[922-207 IJMP]Line 370 not executed.
+     370     Fp_Departure_Pkg.String_Sid (Fplan => Fplan,         -- in
+  *  371                                  Fprequest => Fprequest);-- in
+
+[922-209 LABEL]Line 373 not executed.
+     373     Revisept := Fprequest.Revptidx;
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	FP_ROUTE_UPLINK_PKG.PROCESS_CONSTRAINT
+	C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_PROCESS_CONSTRAINT.ADA 
+
+Coverage statistics :
+
+	TYPE 3,   0.0%
+
+			 Executed	  Total
+	Decision Paths 	       0	    80
+	Condition Paths	     n/a	   n/a
+	Statements	       0	   105
+	Blocks		       0	   277
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.PROCESS_CONSTRAINT.ALTITUDE_CONSTRAINT_FOUND  (0.0% Coverage)
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.PROCESS_CONSTRAINT  (0.0% Coverage)
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	FP_ROUTE_UPLINK_PKG.PROCESS_ATO
+	C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_PROCESS_ATO.ADA
+
+Coverage statistics :
+
+	TYPE 3,  16.1%
+
+			 Executed	  Total
+	Decision Paths 	       3	    26
+	Condition Paths	     n/a	   n/a
+	Statements	      11	    43
+	Blocks		      10	    90
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.PROCESS_ATO
+[926-3 JMPT]Decision ending on line 174 NOT taken.
+  .   96   function Convert_Fp_Request is new Unchecked_Conversion (System.Address, Cdk_Data_Dpkg.Fp_Request_Access_T);
+  .   97 
+  .   98   -- ATO IDENT
+  .   99   Atoident : Fmcs_Base_Types.Fix_Ident_Type;
+  .  100 
+  .  101   -- ATO LATITUDE
+  .  102   Atolat : Standard_Angle_Pkg.Saf_32;
+  .  103 
+  .  104   -- ATO LONGITUDE
+  .  105   Atolon : Standard_Angle_Pkg.Saf_32;
+  .  106 
+  .  107   -- ATO NAM OFFSET
+  .  108   Atoffset : Portable_Types_Pkg.Float_32;
+  .  109 
+  .  110   -- ATO BEARING
+  .  111   Ato_Bearing : Standard_Angle_Pkg.Saf_32;
+  .  112 
+  .  113   -- ATO PARENT ID
+  .  114   Ato_Parent_Id : Fmcs_Base_Types.Fix_Ident_Type;
+  .  115 
+  .  116   -- ATO PARENT POINTER
+  .  117   Ato_Parent_Pointer : Fmcs_Base_Types.Ndbptr_Type;
+  .  118 
+  .  119   -- ATO PARENT TYPE
+  .  120   Ato_Parent_Type : Fmcs_Fp_Guid_Btypes.Fixes_Type;
+  .  121 
+  .  122   -- ATO TRUE BEARING
+  .  123   Ato_True_Bearing : Standard_Angle_Pkg.Saf_32;
+  .  124 
+  .  125   -- T = THE ATO (AND RELATED OPTIONAL CONSTRAINT DATA) IS VALID
+  .  126   Ato_Valid : Boolean;
+  .  127 
+  .  128   -- THE REVISE POINT TO INSERT THE SPD/ALT CONSTRAINT
+  .  129   Cnstr_Revpt : Flight_Pln_Leg_Types.Leg_Index_Type;
+  .  130 
+  .  131   -- NAM POINTER TO ATO_WPT
+  .  132   Current_Offset : Fmcs_Base_Types.Ndbptr_Type;
+  .  133 
+  .  134   -- DISTANCE STRING VALUE
+  .  135   Distance_String : String (1 .. 7);
+  .  136 
+  .  137   -- FIX SPECIFICATION FOR VERIFY_ATO
+  .  138   Fix_Spec : Cdky_Fix_Entry_Tpkg.Fix_Spec_Type;
+  .  139 
+  .  140   -- STATUS OF CALL TO VERIFY_ATO
+  .  141   Fix_Status : Cdky_Fix_Entry_Tpkg.Fix_Status_Type;
+  .  142 
+  .  143   -- GUIDANCE LEG WHICH WILL BE SPLIT BY THE NEW ATO WPT
+  .  144   Gleg : Flight_Pln_Leg_Types.Leg_Rec;
+  .  145 
+  .  146   -- T = ATO IDENT FOUND IN THE UPLINKED
+  .  147   Ident_Found : Boolean;
+  .  148 
+  .  149   -- PILOT DEFINED WAYPOINT RECORD FOR THE NEW ALONG TRACK WAYPOINT
+  .  150   Pilot_Def_Wpt_Rec : Nam_Waypoint_Tpkg.Wptrec_Full_Type;
+  .  151 
+  .  152   -- TEMPORARY REQUEST RECORD
+  .  153   Temp_Fprequest : Fprequestrec_Types.Fprequestrec;
+  .  154 
+  .  155   -- CDCK REQUEST
+  .  156   Cdk_Fprequest : Cdk_Data_Dpkg.Fp_Request_Access_T;
+  .  157 
+  .  158   -- NAM STATUS
+  .  159   Status : Nam_Iftypes.Status_Type;
+  .  160 
+  .  161   -- T = THE NEXT ELEMENT IN THE BUFFER MUST BE RETRIEVED
+  .  162   -- F = THE NEXT ELEMENT HAS ALREADY BEEN RETRIEVED
+  .  163   Retrieve_Next_Element : Boolean;
+  .  164 
+  .  165 begin
+  .  166   Retrieve_Next_Element := True;
+  .  167   Atoident := (others => ' ');
+  .  168   Atoffset := 0.0;
+  .  169   Atolon := 0.0;
+  .  170   Atolat := 0.0;
+  .  171   Ident_Found := False;
+  .  172   Status.Majorstatus := Nam_Iftypes.Unsuccessful;
+  .  173 
+  .  174   if Revisept /= 0 then
+  *  175 
+  *  176     Ato_Valid := True;
+
+[926-5 IJMP]Lines 176 - 177 not executed.
+     176     Ato_Valid := True;
+     177     Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning,-- in
+  *  178                           Leg_Index => Revisept,                            -- in
+  *  179                           Lateral_Leg => Gleg);                             -- out
+
+[926-7 JMPT]Decision ending on line 181 not executed.
+     181     if Gleg.Prevfpn = 0 then
+  *  182       Ato_Valid := False;
+
+[926-9 JMP]Line 182 not executed.
+     182       Ato_Valid := False;
+
+[926-11 JMPT]Lines 183 - 187 not executed.
+[926-13 LABEL]Line 187 not executed.
+[926-14 JMPF]Line 187 not executed.
+     183     else
+     184       Fprequest.Revptidx := Gleg.Prevfpn;
+     185 
+     186       -- CHECK THE VALIDITY OF THE ATO
+     187       Fix_Spec.Text (1 .. 7) := Gleg.Fixident;
+
+[926-16 LABEL]Line 188 not executed.
+[926-18 LABEL]Line 188 not executed.
+[926-19 JMPT]Line 188 not executed.
+[926-21 JMPT]Line 188 not executed.
+[926-24 JMPT]Line 188 not executed.
+[926-26 LABEL]Line 188 not executed.
+[926-27 JMPF]Line 188 not executed.
+     188       Fix_Spec.Text (8 .. 24) := (others => ' ');
+
+[926-31 IJMP]Line 193 not executed.
+     193       Cdk_Fix_Entry_Pkg.Verify_Ato_Entry (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  194                                           Distance => Qrec.Atwpt_Distance,                   -- in
+  *  195                                           Numchars => 5,                                     -- in
+  *  196                                           Fix_Spec => Fix_Spec,                              -- in
+  *  197                                           Fprequest => Cdk_Fprequest,                        -- in
+  *  198                                           Fix_Status => Fix_Status,                          -- in out
+  *  199                                           Atolat => Atolat,                                  -- in out
+  *  200                                           Atolon => Atolon,                                  -- in out
+  *  201                                           Atoident => Atoident,                              -- in out
+  *  202                                           Atoffset => Atoffset,                              -- in out
+  *  203                                           Atoval => Ato_Valid,                               -- in out
+  *  204                                           Ato_Parent_Id => Ato_Parent_Id,                    -- out
+  *  205                                           Ato_Parent_Pointer => Ato_Parent_Pointer,          -- out
+  *  206                                           Ato_Parent_Tpye => Ato_Parent_Type,                -- out
+  *  207                                           Ato_Bearing => Ato_Bearing,                        -- out
+  *  208                                           Ato_True_Bearing => Ato_True_Bearing);             -- out
+
+[926-33 JMPT]Decision ending on line 210 not executed.
+     210       if Fix_Status.Disposition /= 0 then
+  *  211         Ato_Valid := False;
+
+[926-35 LABEL]Line 211 not executed.
+     211         Ato_Valid := False;
+
+[926-36 JMPF]Lines 212 - 216 not executed.
+[926-36 JMPF]Decision ending on line 216 not executed.
+     212       end if;
+     213     end if;
+     214 
+     215     -- IF THE ABOVE VALIDITY CHECKS PASSED, THEN THE ATO IS A-OKAY!!!
+     216     if Ato_Valid then
+  *  217 
+  *  218       Pilot_Def_Wpt_Rec := Nam_Waypoint_Tpkg.Init_Wptrec_Full_Data;     -- scr 10004
+
+[926-40 IJMP]Lines 229 - 231 not executed.
+     229       Pilot_Def_Wpt_Rec.Distance := Qrec.Atwpt_Distance;
+     230 
+     231       Nam_Waypoint_Pkg.Put_Pltdef (Pltdef_Wpt_Record => Pilot_Def_Wpt_Rec, -- in out
+  *  232                                    Current_Offset => Current_Offset,       -- out
+  *  233                                    Status => Status,                       -- in out
+  *  234                                    Dup_Check => False);                    -- in
+
+[926-42 JMPT]Decision ending on line 237 not executed.
+     237       if Status.Majorstatus = Nam_Iftypes.Unsuccessful then
+  *  238         -- PILOT DEFINED STORE IS FULL
+  *  239         Fp_Dl_Dpkg.Unloadable := True;
+
+[926-44 IJMP]Lines 239 - 240 not executed.
+[926-46 JMP]Line 240 not executed.
+     239         Fp_Dl_Dpkg.Unloadable := True;
+     240         Io_Mdxx_Spad_Msg_Info_Tpkg.Display_Message_List_Full;  -- SCR 24123
+
+[926-48 LABEL]Lines 242 - 245 not executed.
+[926-49 JMPF]Decision ending on line 251 not executed.
+     242       else
+     243         -- GENERATE THE ATO REQUEST
+     244         Fp_Dl_Dpkg.Loadable := True;
+     245         Temp_Fprequest := Fprequest;
+
+[926-52 IJMP]Lines 247 - 251 not executed.
+     247         Temp_Fprequest.Atodistance := Qrec.Atwpt_Distance;
+     248         Temp_Fprequest.Newfixptr := Current_Offset;
+     249         Temp_Fprequest.Newfixtype := Fmcs_Fp_Guid_Btypes.Waypt;
+     250 
+     251         Fp_Along_Track_Waypoint_Pkg.Build_Atw (Fplan => Fplan,               -- in
+  *  252                                                Fprequest => Temp_Fprequest); -- in out
+
+[926-55 JMPF]Decision ending on line 254 not executed.
+     254         if Qrec.Atwpt_Constraint_Follows then
+  *  255           -- RETRIEVE THE CONSTRAINT DATA
+  *  256           Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  257                                                 Qrec => Qrec,                          -- in out
+  *  258                                                 Qrecnum => Qrecnum);                   -- in out
+
+[926-57 IJMP]Line 256 not executed.
+     256           Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  257                                                 Qrec => Qrec,                          -- in out
+  *  258                                                 Qrecnum => Qrecnum);                   -- in out
+
+[926-59 IJMP]Lines 256 - 260 not executed.
+     256           Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+     257                                                 Qrec => Qrec,                          -- in out
+     258                                                 Qrecnum => Qrecnum);                   -- in out
+     259 
+     260           Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning,-- in
+  *  261                                 Leg_Index => Temp_Fprequest.Revptidx,             -- in
+  *  262                                 Lateral_Leg => Gleg);                             -- out
+
+[926-61 IJMP]Lines 264 - 266 not executed.
+     264           Cnstr_Revpt := Gleg.Nextfpn;
+     265 
+     266           Fp_Route_Uplink_Pkg.Process_Constraint (Fplan => Fplan,            -- in
+  *  267                                                   Fprequest => Fprequest,    -- in out
+  *  268                                                   Qrec => Qrec,              -- in out
+  *  269                                                   Qrecnum => Qrecnum,        -- in out
+  *  270                                                   Revisept => Cnstr_Revpt,   -- in
+  *  271                                                   Revptflags => Revptflags); -- in
+
+[926-63 LABEL]Lines 266 - 272 not executed.
+     266           Fp_Route_Uplink_Pkg.Process_Constraint (Fplan => Fplan,            -- in
+     267                                                   Fprequest => Fprequest,    -- in out
+     268                                                   Qrec => Qrec,              -- in out
+     269                                                   Qrecnum => Qrecnum,        -- in out
+     270                                                   Revisept => Cnstr_Revpt,   -- in
+     271                                                   Revptflags => Revptflags); -- in
+     272           Retrieve_Next_Element := False;
+
+[926-64 JMPF]Lines 273 - 276 not executed.
+[926-64 JMPF]Decision ending on line 276 not executed.
+     273         end if;
+     274       end if;
+     275       -- RETRIEVE THE NEXT ELEMENT
+     276       if Retrieve_Next_Element then
+  *  277         Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,-- in
+  *  278                                               Qrec => Qrec,                         -- in out
+  *  279                                               Qrecnum => Qrecnum);                  -- in out
+
+[926-66 IJMP]Line 277 not executed.
+     277         Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,-- in
+  *  278                                               Qrec => Qrec,                         -- in out
+  *  279                                               Qrecnum => Qrecnum);                  -- in out
+
+[926-68 JMP]Line 280 not executed.
+     280       end if;
+
+[926-70 JMPT]Lines 282 - 286 not executed.
+[926-70 JMPT]Decision ending on line 286 not executed.
+     282     else
+     283       -- THE ATO IS INVALID.  LOG A FAILURE AND THROW AWAY THE ATO DATA
+     284       Fp_Dl_Dpkg.Unloadable := True;
+     285 
+     286       if Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer then
+  *  287 
+  *  288         -- CONVERT ATO DISTANCE TO A STRING
+  *  289         Distance_String := Number_To_Text_Pkg.String_Of (Float_Number => Portable_Types_Pkg.Float_64 (Qrec.Atwpt_Distance), -- in
+  *  290                                                          Width => 7,                                     -- in
+  *  291                                                          Decimal_Places => 1,                            -- in
+  *  292                                                          Fill_Type => Text_Format_Tpkg.Zero_Fill,        -- in
+  *  293                                                          Justification => Text_Format_Tpkg.Right_Justify,-- in
+  *  294                                                          Leading_Zero => True);                          -- in
+
+[926-73 IJMP]Line 289 not executed.
+[926-76 LABEL]Line 289 not executed.
+[926-77 JMPF]Decision ending on line 297 not executed.
+     289         Distance_String := Number_To_Text_Pkg.String_Of (Float_Number => Portable_Types_Pkg.Float_64 (Qrec.Atwpt_Distance), -- in
+  *  290                                                          Width => 7,                                     -- in
+  *  291                                                          Decimal_Places => 1,                            -- in
+  *  292                                                          Fill_Type => Text_Format_Tpkg.Zero_Fill,        -- in
+  *  293                                                          Justification => Text_Format_Tpkg.Right_Justify,-- in
+  *  294                                                          Leading_Zero => True);                          -- in
+
+[926-79 IJMP]Lines 289 - 297 not executed.
+     289         Distance_String := Number_To_Text_Pkg.String_Of (Float_Number => Portable_Types_Pkg.Float_64 (Qrec.Atwpt_Distance), -- in
+     290                                                          Width => 7,                                     -- in
+     291                                                          Decimal_Places => 1,                            -- in
+     292                                                          Fill_Type => Text_Format_Tpkg.Zero_Fill,        -- in
+     293                                                          Justification => Text_Format_Tpkg.Right_Justify,-- in
+     294                                                          Leading_Zero => True);                          -- in
+     295 
+     296         -- LOG INVALID DISTANCE
+     297         Fp_Route_Uplink_Pkg.Process_Error (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,     -- in
+  *  298                                            Fp_Dl_Error_Code => Fp_Dl_Tpkg.Ato_Invalid,-- in
+  *  299                                            Ident => Distance_String);                 -- in
+
+[926-82 JMPF]Decision ending on line 303 not executed.
+     303       if Qrec.Atwpt_Constraint_Follows then
+  *  304         Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,-- in
+  *  305                                               Qrec => Qrec,                         -- in out
+  *  306                                               Qrecnum => Qrecnum);                  -- in out
+
+[926-84 IJMP]Line 304 not executed.
+[926-86 LABEL]Line 304 not executed.
+     304         Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,-- in
+  *  305                                               Qrec => Qrec,                         -- in out
+  *  306                                               Qrecnum => Qrecnum);                  -- in out
+
+[926-87 IJMP]Lines 307 - 310 not executed.
+     307       end if;
+     308 
+     309       -- RETRIEVE THE NEXT ELEMENT
+     310       Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,-- in 
+  *  311                                             Qrec => Qrec,                         -- in out
+  *  312                                             Qrecnum => Qrecnum);                  -- in out
+
+[926-89 JMP]Line 314 not executed.
+     314     end if;
+
+[926-91 JMPT]Decision ending on line 320 NOT taken.
+  .  315   else
+  .  316     -- REVISE POINT IS NOT FOUND.  LOG A FAILURE AND THROW AWAY THE ATO DATA
+  .  317 
+  .  318     Fp_Dl_Dpkg.Unloadable := True;
+  .  319 
+  .  320     if Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer then
+  *  321 
+  *  322       -- LOG INVALID FIX IDENTIFIER
+  *  323       Fp_Route_Uplink_Pkg.Process_Error (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,           -- in
+  *  324                                          Fp_Dl_Error_Code => Fp_Dl_Tpkg.Ato_Fix_Not_Found,-- in
+  *  325                                          Ident => Qrec.Atwpt_Fix);
+
+[926-94 IJMP]Line 323 not executed.
+     323       Fp_Route_Uplink_Pkg.Process_Error (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,           -- in
+  *  324                                          Fp_Dl_Error_Code => Fp_Dl_Tpkg.Ato_Fix_Not_Found,-- in
+  *  325                                          Ident => Qrec.Atwpt_Fix);
+
+[926-97 JMPF]Decision ending on line 330 NOT taken.
+  .  330     if Qrec.Atwpt_Constraint_Follows then
+  *  331       Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  332                                             Qrec => Qrec,                          -- in out
+  *  333                                             Qrecnum => Qrecnum);                   -- in out
+
+[926-99 IJMP]Line 331 not executed.
+[926-101 LABEL]Line 331 not executed.
+     331       Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  332                                             Qrec => Qrec,                          -- in out
+  *  333                                             Qrecnum => Qrecnum);                   -- in out
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	FP_ROUTE_UPLINK_PKG.SETUP_ATC
+	C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_SETUP_ATC.ADA
+
+Coverage statistics :
+
+	TYPE 3,  83.2%
+
+			 Executed	  Total
+	Decision Paths 	      40	    52
+	Condition Paths	     n/a	   n/a
+	Statements	      69	    78
+	Blocks		     172	   204
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.SETUP_ATC.DELETE_WYPT_AFTER_ENROUTE
+[932-39 JMPT]Decision ending on line 193 NOT taken.
+  .  193          Old_Firstleg /=  --
+  *  194             Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Firstleg) then
+  *  195 
+  *  196         Switch := False;
+
+[932-43 JMP]Line 197 not executed.
+     197         Revpt := Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Firstleg);
+
+[932-48 JMPT]Decision ending on line 200 NOT taken.
+     200             Old_Firstleg = Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Firstleg) then
+  *  201         Switch := True;
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.SETUP_ATC
+[933-22 JMPF]Decision ending on line 242 NOT taken.
+  .  242           Fp_Data_Dpkg.Fp_Header (Fplan).Origaptexist) then
+  *  243         Skip_Process_Uplink_Origin_Airport := True;
+
+[933-25 LABEL]Line 245 not executed.
+     245         Org_Aptnavdbptr := Fp_Data_Dpkg.Fp_Header (Fplan).Originapt.Aptnavdbptr;
+
+[933-26 JMP]Line 246 not executed.
+     246       end if;
+
+[933-53 JMPF]Decision ending on line 283 ONLY taken.
+  .  283                      Qrec.Element_Type = Fpx_Buffer_Types.Fpx_Nothing);  
+
+[933-66 JMPF]Decision ending on line 300 NOT taken.
+     300             Skip_Process_Uplink_Origin_Airport) then
+  *  301 
+  *  302           --   GENERATE ORIGIN  
+  *  303           Genorgdest (Fplan => Fplan,         -- in
+  *  304                       Fix_Is_Airport => True, -- in
+  *  305                       Orgordstptr_In => Org_Aptnavdbptr, -- in
+  *  306                       Defineorigin => True,   -- in
+  *  307                       Fprequest => Fprequest);-- in out
+
+[933-68 IJMP]Line 303 not executed.
+[933-70 JMP]Line 303 not executed.
+     303           Genorgdest (Fplan => Fplan,         -- in
+  *  304                       Fix_Is_Airport => True, -- in
+  *  305                       Orgordstptr_In => Org_Aptnavdbptr, -- in
+  *  306                       Defineorigin => True,   -- in
+  *  307                       Fprequest => Fprequest);-- in out
+
+[933-79 JMPF]Decision ending on line 331 NOT taken.
+  .  329         end if;
+  .  330 
+  .  331         if Dest_Retained then
+  *  332           --   GENERATE ORIGIN  
+  *  333           Genorgdest (Fplan => Fplan,         -- in
+  *  334                       Fix_Is_Airport => True, -- in
+  *  335                       Orgordstptr_In => Dest_Aptnavdbptr, -- in
+  *  336                       Defineorigin => False,  -- in
+  *  337                       Fprequest => Fprequest);-- in out
+
+[933-81 IJMP]Line 333 not executed.
+     333           Genorgdest (Fplan => Fplan,         -- in
+  *  334                       Fix_Is_Airport => True, -- in
+  *  335                       Orgordstptr_In => Dest_Aptnavdbptr, -- in
+  *  336                       Defineorigin => False,  -- in
+  *  337                       Fprequest => Fprequest);-- in out
+
+[933-83 JMP]Lines 338 - 340 not executed.
+     338         end if;
+     339 
+     340       end if;
+
+[933-98 JMPT]Decision ending on line 373 ONLY taken.
+  .  370           Gleg_Index := Gleg.Prevfpn;
+  .  371 
+  .  372           -- DELETE ALL LEGS PRIOR TO THE REVISE POINT
+  .  373           if Gleg_Index /= 0 then
+  *  374             Fp_Lat_Utils_Pkg.Delete_Legs
+  *  375                (Fplan => Fplan,            -- in
+  *  376                 Firstlegidx => Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Firstleg), -- in
+  *  377                 Lastlegidx => Gleg_Index,  -- in
+  *  378                 Fprequest => Fprequest);   -- in out
+
+[933-105 JMPF]Decision ending on line 381 ONLY taken.
+  .  379           end if;
+  .  380 
+  .  381           if Org_Retained then
+  *  382             --   GENERATE ORIGIN  
+  *  383             Genorgdest (Fplan => Fplan,         -- in
+  *  384                         Fix_Is_Airport => True, -- in
+  *  385                         Orgordstptr_In => Org_Aptnavdbptr, -- in
+  *  386                         Defineorigin => True,   -- in
+  *  387                         Fprequest => Fprequest);-- in out
+
+[933-112 IJMP]Line 392 not executed.
+     392             Common_Lgb.Getlgbhdr (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  393                                   Rte => Fplan,                                      -- in
+  *  394                                   Returned_Header => Fp_Data_Dpkg.Fp_Header (Fplan));-- out
+
+[933-117 IJMP]Line 397 not executed.
+     397             Common_Lgb.Requestlegbefore (Process_Id => Common_Lgb.Flight_Planning,  -- in
+  *  398                                          Route => Fplan,                            -- in
+  *  399                                          Leg_After => Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Firstleg), -- in
+  *  400                                          Leg_Index => Gleg_Index,                   -- out
+  *  401                                          Lateral_Leg => Gleg);                      -- out
+
+[933-119 IJMP]Lines 397 - 403 not executed.
+     397             Common_Lgb.Requestlegbefore (Process_Id => Common_Lgb.Flight_Planning,  -- in
+     398                                          Route => Fplan,                            -- in
+     399                                          Leg_After => Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Firstleg), -- in
+     400                                          Leg_Index => Gleg_Index,                   -- out
+     401                                          Lateral_Leg => Gleg);                      -- out
+     402 
+     403             Fp_Build_Leg_Pkg.Build_Tp (Acposn => Navigation_Data.Aircraft_Position, -- in
+  *  404                                        Gleg => Gleg,                                -- in out
+  *  405                                        Failure_Code => Failure_Code);               -- in out
+
+[933-121 IJMP]Lines 407 - 408 not executed.
+     407             Gleg.Viacode := Fmcs_Base_Types.Initialfix;
+     408             Common_Lgb.Putlgbleg (Process_Id => Common_Lgb.Flight_Planning,-- in
+  *  409                                   Leg_Index => Gleg_Index,
+  *  410                                   Lateral_Leg => Gleg);
+
+[933-123 LABEL]Line 412 not executed.
+     412             Fprequest.Revptidx := Gleg_Index;
+
+[933-124 JMP]Line 413 not executed.
+     413           end if;
+
+[933-127 JMPF]Decision ending on line 418 NOT taken.
+  .  418           if Qrec.Waypoint_Data.Duplicates_Exist then
+  *  419             Fp_Route_Uplink_Pkg.Process_Duplicate_Fix (Fplan => Fplan,         -- in
+  *  420                                                        Fprequest => Fprequest, -- in out
+  *  421                                                        Qrec => Qrec,           -- in out
+  *  422                                                        Qrecnum => Qrecnum);   -- in out                                  
+
+[933-129 IJMP]Line 419 not executed.
+[933-131 LABEL]Line 419 not executed.
+     419             Fp_Route_Uplink_Pkg.Process_Duplicate_Fix (Fplan => Fplan,         -- in
+  *  420                                                        Fprequest => Fprequest, -- in out
+  *  421                                                        Qrec => Qrec,           -- in out
+  *  422                                                        Qrecnum => Qrecnum);   -- in out                                  
+
+[933-141 JMPT]Decision ending on line 441 NOT taken.
+     441           if Qrec.Pilot_Defined and then Fprequest.Revptidx /= 0 then
+  *  442             Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  443                                   Leg_Index => Fprequest.Revptidx,                            -- in
+  *  444                                   Lateral_Leg => Gleg);
+
+[933-143 IJMP]Line 442 not executed.
+     442             Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  443                                   Leg_Index => Fprequest.Revptidx,                            -- in
+  *  444                                   Lateral_Leg => Gleg);
+
+[933-146 IJMP]Line 446 not executed.
+     446             Fp_Leg_Utils_Pkg.Pilot_Def_Gleg_Info (Qrec.Fix_Type, Qrec.Db_Offset, Gleg, Fprequest);
+
+[933-148 IJMP]Line 448 not executed.
+     448             Common_Lgb.Putlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  449                                   Leg_Index => Fprequest.Revptidx,                            -- in
+  *  450                                   Lateral_Leg => Gleg);
+
+[933-164 JMPT]Decision ending on line 480 ONLY taken.
+  .  475           Gleg_Index := Gleg.Nextfpn;
+  .  476 
+  .  477           Fprequest.Revptidx := Rev_Pt;
+  .  478 
+  .  479           -- DELETE ALL LEGS AFTER THE REVISE POINT
+  .  480           if Gleg_Index /= 0 then
+  *  481             Fp_Lat_Utils_Pkg.Delete_Legs (Fplan => Fplan,              -- in
+  *  482                                           Firstlegidx => Gleg_Index,   -- in
+  *  483                                           Lastlegidx => Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Lastleg),-- in
+  *  484                                           Fprequest => Fprequest);     -- in out
+
+[933-173 JMPT]Decision ending on line 487 ONLY taken.
+  .  486             Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Lastleg) := Rev_Pt;
+  .  487             if Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Destwpt) = 0 then
+  *  488 
+  *  489               Common_Lgb.Getlgbhdr (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  490                                     Rte => Fplan,                                      -- in
+  *  491                                     Returned_Header => Fp_Data_Dpkg.Fp_Header (Fplan));-- in
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	FP_ROUTE_UPLINK_PKG.PROCESS_DIRECT_FIX
+	C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_PROCESS_DIRECT_FIX.ADA 
+
+Coverage statistics :
+
+	TYPE 3,  50.7%
+
+			 Executed	  Total
+	Decision Paths 	      22	    44
+	Condition Paths	     n/a	   n/a
+	Statements	      44	    91
+	Blocks		      88	   164
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.PROCESS_DIRECT_FIX.PROCESS_DIR_TO_FOR_MSG74_75_79_80
+[934-2 JMPF]Decision ending on line 294 ONLY taken.
+  .  268   procedure Process_Dir_To_For_Msg74_75_79_80 is
+  .  269 
+  .  270     --!
+  .  271     --| @DESCRIPTION: This procedure:
+  .  272     --|               1. For message #74 and 75 -
+  .  273     --|                  construction a DF leg from the first [position]
+  .  274     --|                  to the second [position].
+  .  275     --|               2. For message #79
+  .  276     --|                  construction a DF leg from the via[position] to
+  .  277     --|                  the clear to [position]
+  .  278     --|               3. For message #80
+  .  279     --|                  construction a DF leg from the T-P to the first
+  .  280     --|                  direct to fix.
+  .  281     --|               note: 2 and 3 are due to there is no origin and 
+  .  282     --|                     T-P is generated.
+  .  283     --|
+  .  284     --!
+  .  285 
+  .  286   begin
+  .  287 
+  .  288     -- PROCESS THE ATC/AOC FIX AS A 'DIRTO'
+  .  289     Fprequest.Savediscon := Insertdiscon;
+  .  290     Fprequest.Fpreq := Allfprequest_Types.Gendirto;
+  .  291     Fprequest.Dirtoglegidx := Revisept;
+  .  292     Fprequest.Crsintcentrd := False;
+  .  293 
+  .  294     if Done_1 then
+  *  295       Fprequest.Dirtoglegidx := 0;
+
+[934-5 JMPT]Decision ending on line 298 ONLY taken.
+  .  296     end if;
+  .  297 
+  .  298     if Fprequest.Dirtoglegidx = 0 then
+  *  299       Fprequest.Newfixtype := Qrec.Fix_Type;
+
+[934-10 JMPT]Decision ending on line 305 NOT taken.
+  .  305     if Qrec.Fix_Identifier = Fpx_Buffer_Types.Aoc_Standard then
+  *  306       Fprequest.Fplan := Mdxx_Lgb_Tpkg.Secprimary;
+
+[934-12 LABEL]Line 306 not executed.
+     306       Fprequest.Fplan := Mdxx_Lgb_Tpkg.Secprimary;
+
+[934-19 JMPT]Decision ending on line 322 ONLY taken.
+  .  322        Fprequest.Revptidx /= 0 then
+  *  323 
+  *  324       Fp_Clear_Discon_Pkg.Clear_Discon (Fplan => Fplan,             -- in
+  *  325                                         Fprequest => Fprequest);    -- in
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.PROCESS_DIRECT_FIX.CONSTRUCT_DF_LEG
+[935-3 IJMP]Lines 174 - 203 not executed.
+     174     Brg12 : Standard_Angle_Pkg.Saf_32;
+     175 
+     176     --   BRG FROM ENDING TO BEGINNING
+     177     Brg21 : Standard_Angle_Pkg.Saf_32;
+     178 
+     179     --   NEWLY CREATED DF LEG
+     180     Dfgleg : Flight_Pln_Leg_Types.Leg_Rec;
+     181 
+     182     --   DF LEG DISTANCE 
+     183     Dist : Portable_Types_Pkg.Float_32;
+     184 
+     185     --   FIRST POSITION LEG
+     186     Firstgleg : Flight_Pln_Leg_Types.Leg_Rec;
+     187 
+     188     --   Dummy Boolean
+     189     Magvar_Valid : Boolean;
+     190 
+     191     --   PATH TERMINATION DATA FOR DF
+     192     Ptdata : Path_Term_Types.Ptlegrec;
+     193 
+     194     --   Temporary Copy of Magnetic Variation Value
+     195     Temp_Magvar : Standard_Angle_Pkg.Saf_32;
+     196 
+     197 
+     198 
+     199   begin
+     200 
+     201     --   BUILD DF LEG  
+     202 
+     203     Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning,-- in
+  *  204                           Leg_Index => Firstidx,                            -- in
+  *  205                           Lateral_Leg => Firstgleg);                        -- out
+
+[935-5 IJMP]Line 207 not executed.
+     207     Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning,-- in
+  *  208                           Leg_Index => Secondidx,                           -- in
+  *  209                           Lateral_Leg => Dfgleg);                           -- out
+
+[935-9 JMPT]Decision ending on line 211 not executed.
+     211     if (((Dfgleg.Pathterm = Fmcs_Base_Types.Cf) or else (Dfgleg.Pathterm = Fmcs_Base_Types.Tf))) then
+  *  212 
+  *  213       --   SET CONDITIONAL ALTITUDE FALSE  
+  *  214       Dfgleg.Spalt1Val := False;
+
+[935-11 LABEL]Line 214 not executed.
+     214       Dfgleg.Spalt1Val := False;
+
+[935-14 IJMP]Lines 221 - 223 not executed.
+     221     Ptdata.Fix.Tofixdbptr.Dbptrtype := Dfgleg.Fixtype;
+     222 
+     223     Fp_Build_Leg_Pkg.Store_Fix_Data (Ptdata => Ptdata,              -- in out
+  *  224                                      Gleg => Dfgleg,                -- in out
+  *  225                                      Failure_Code => Failure_Code); -- in out
+
+[935-16 IJMP]Lines 223 - 230 not executed.
+     223     Fp_Build_Leg_Pkg.Store_Fix_Data (Ptdata => Ptdata,              -- in out
+     224                                      Gleg => Dfgleg,                -- in out
+     225                                      Failure_Code => Failure_Code); -- in out
+     226 
+     227     --  CHECK FOR MISSING NAM FIX DATA
+     228     --  & CALL BITE IF NECESSARY
+     229     --  TO LOG THE FAILURE 
+     230     Fp_Error_Processing_Pkg.Check_For_Error (Fprequest => Fprequest,                           -- in out
+  *  231                                              New_Error_Status => Fprequestrec_Types.Nam_Error, -- in 
+  *  232                                              Failure_Code => Failure_Code);                    -- in
+
+[935-18 IJMP]Lines 234 - 236 not executed.
+     234     Dfgleg.Fromlatlon.Lat := Firstgleg.Tolatlon.Lat;
+     235     Dfgleg.Fromlatlon.Lon := Firstgleg.Tolatlon.Lon;
+     236     Dst_Brg_Utilities_Pkg.Sodanoinv (Lat1 => Dfgleg.Fromlatlon.Lat, -- in
+  *  237                                      Lon1 => Dfgleg.Fromlatlon.Lon, -- in
+  *  238                                      Lat2 => Dfgleg.Tolatlon.Lat,   -- in
+  *  239                                      Lon2 => Dfgleg.Tolatlon.Lon,   -- in
+  *  240                                      Brg12 => Brg12,                -- out
+  *  241                                      Dist => Dist,                  -- out
+  *  242                                      Brg21 => Brg21);               -- out
+
+[935-20 IJMP]Lines 244 - 245 not executed.
+     244     Dfgleg.Legdistance := Dist;
+     245     Cfp_Calcmagvar_Pkg.Calcmagvar (Latitude => Dfgleg.Fromlatlon.Lat,       -- in
+  *  246                                    Longitude => Dfgleg.Fromlatlon.Lon,      -- in
+  *  247                                    Magvar => Temp_Magvar,                   -- out
+  *  248                                    Magvar_Valid => Magvar_Valid);           -- out
+
+[935-22 IJMP]Line 249 not executed.
+     249     Dfgleg.Outcourse := Brg12 - Temp_Magvar;
+
+[935-24 IJMP]Lines 249 - 261 not executed.
+     249     Dfgleg.Outcourse := Brg12 - Temp_Magvar;
+     250 
+     251     Dfgleg.Procspecnav := False;
+     252     Dfgleg.Turndir := Fmcs_Base_Types.Either;
+     253     Dfgleg.Navaidptr := Fmcs_Base_Types.Null_Ndb_Pointer;
+     254     Dfgleg.Overfly := False;
+     255 
+     256     --   BLANK OUT SID VIA IDENTIFICATION FROM DF LEG  
+     257     Dfgleg.Viaident := (others => ' ');
+     258     Dfgleg.Viacode := Fmcs_Base_Types.Direct;
+     259 
+     260     --   NEW DF LEG  
+     261     Common_Lgb.Putlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning,        -- in
+  *  262                           Leg_Index => Secondidx,                                   -- in
+  *  263                           Lateral_Leg => Dfgleg);                                   -- in
+
+[935-26 IJMP]Line 265 not executed.
+     265   end Construct_Df_Leg;
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.PROCESS_DIRECT_FIX.SKIPDIRFIX
+[936-2 IJMP]Lines 139 - 147 not executed.
+     139   procedure Skipdirfix is
+     140 
+     141     --!
+     142     --| @DESCRIPTION: This procedure inserts a discon into the flight plan
+     143     --|               and ignore the current uplinked element.
+     144 
+     145   begin --  Skipdirfix
+     146     --  INSERT A DISCON AFTER CURRENT REVISEPT
+     147     Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  148                           Leg_Index => Revisept,                             -- in
+  *  149                           Lateral_Leg => Leg);                               -- out
+
+[936-4 IJMP]Lines 150 - 151 not executed.
+     150     Leg.Discon := True;
+     151     Common_Lgb.Putlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  152                           Leg_Index => Revisept,                             -- in
+  *  153                           Lateral_Leg => Leg);                               -- in
+
+[936-6 IJMP]Lines 156 - 158 not executed.
+     156     Insertdiscon := True;
+     157 
+     158     Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,-- in
+  *  159                                           Qrec => Qrec,                         -- in out
+  *  160                                           Qrecnum => Qrecnum);                  -- in out
+
+[936-8 LABEL]Lines 158 - 161 not executed.
+[936-9 IJMP]Line 161 not executed.
+     158     Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,-- in
+     159                                           Qrec => Qrec,                         -- in out
+     160                                           Qrecnum => Qrecnum);                  -- in out
+     161   end Skipdirfix;
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.PROCESS_DIRECT_FIX
+[937-7 JMPT]Decision ending on line 345 NOT taken.
+  .  345   if Prev_Qrec.Element_Type = Fpx_Buffer_Types.Fpx_Airway then
+  *  346 
+  *  347     -- IGNORE THE DIRECT FIX ELEMENT BECAUSE IT'S ALREADY INSERTED AS PART OF AN
+  *  348     -- AIRWAY.
+  *  349     Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  350                                           Qrec => Qrec,                          -- in out
+  *  351                                           Qrecnum => Qrecnum);
+
+[937-9 IJMP]Line 349 not executed.
+[937-11 JMP]Line 349 not executed.
+     349     Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  350                                           Qrec => Qrec,                          -- in out
+  *  351                                           Qrecnum => Qrecnum);
+
+[937-15 JMPT]Decision ending on line 363 NOT taken.
+  .  363     if (Fp_Dl_Dpkg.Atc_Construction_Info.Atc_Element_Number = Fp_Dl_Dpkg.Atc_At_Position_Direct_To) then
+  *  364 
+  *  365 
+  *  366       -- RETRIEVE THE 'DIRECT TO' FIX ELEMENT
+  *  367       Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  368                                             Qrec => Qrec,                          -- in out
+  *  369                                             Qrecnum => Qrecnum);                   -- in out
+
+[937-17 IJMP]Line 367 not executed.
+     367       Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  368                                             Qrec => Qrec,                          -- in out
+  *  369                                             Qrecnum => Qrecnum);                   -- in out
+
+[937-19 IJMP]Lines 367 - 372 not executed.
+     367       Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+     368                                             Qrec => Qrec,                          -- in out
+     369                                             Qrecnum => Qrecnum);                   -- in out
+     370 
+     371       -- DETERMINE THE LEG INDEX OF THE second position 'DIRECT TO' FIX
+     372       Fp_Route_Uplink_Pkg.Process_Revise (Fplan => Fplan,               -- in
+  *  373                                           Fprequest => Fprequest,       -- in out
+  *  374                                           Qrec => Qrec,                 -- in out
+  *  375                                           Qrecnum => Qrecnum,           -- in out
+  *  376                                           Rev_Point => Second_Pos,       -- in out
+  *  377                                           Rev_Pt_Flags => Rev_Pt_Flags);-- in out
+
+[937-21 JMPT]Lines 372 - 381 not executed.
+[937-21 JMPT]Decision ending on line 381 not executed.
+     372       Fp_Route_Uplink_Pkg.Process_Revise (Fplan => Fplan,               -- in
+     373                                           Fprequest => Fprequest,       -- in out
+     374                                           Qrec => Qrec,                 -- in out
+     375                                           Qrecnum => Qrecnum,           -- in out
+     376                                           Rev_Point => Second_Pos,       -- in out
+     377                                           Rev_Pt_Flags => Rev_Pt_Flags);-- in out
+     378 
+     379       -- IF THE FIRST POSITION IS IN THE FLIGH PLAN, THEN
+     380       -- PROCESS ATC POSITION
+     381       if First_Pos /= 0 then
+  *  382         --  IF THE SECOND POSITION IS IN THE FLIGHT PLAN, THEN DELETE
+  *  383         --  THE WAYPOINTS BETWEEN THE FIRST AND THE SECOND POSITION
+  *  384         if Second_Pos /= 0 then
+  *  385           Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  386                                 Leg_Index => First_Pos,                            -- in
+  *  387                                 Lateral_Leg => Gleg);                              -- out
+
+[937-23 JMPT]Decision ending on line 384 not executed.
+     384         if Second_Pos /= 0 then
+  *  385           Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  386                                 Leg_Index => First_Pos,                            -- in
+  *  387                                 Lateral_Leg => Gleg);                              -- out
+
+[937-25 IJMP]Line 385 not executed.
+     385           Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  386                                 Leg_Index => First_Pos,                            -- in
+  *  387                                 Lateral_Leg => Gleg);                              -- out
+
+[937-27 JMPT]Lines 388 - 392 not executed.
+[937-27 JMPT]Decision ending on line 392 not executed.
+     388           Gleg_Index := Gleg.Nextfpn;
+     389 
+     390           -- IF WAYPOINTS BETWEEN THE FIRST AND SECOND POSITION EXIST, THEN 
+     391           -- START DELETING THE WAYPOINTS.  OTHERWISE, DON'T DO ANYTHING
+     392           if Gleg.Nextfpn /= Second_Pos then  
+  *  393             Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  394                                   Leg_Index => Second_Pos,                            -- in
+  *  395                                   Lateral_Leg => Gleg);
+
+[937-29 IJMP]Line 393 not executed.
+     393             Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  394                                   Leg_Index => Second_Pos,                            -- in
+  *  395                                   Lateral_Leg => Gleg);
+
+[937-31 JMPT]Decision ending on line 397 not executed.
+     397             if Gleg_Index /= 0 then
+  *  398               Fp_Lat_Utils_Pkg.Delete_Legs (Fplan => Fplan,            -- in
+  *  399                                             Firstlegidx => Gleg_Index,   -- in
+  *  400                                             Lastlegidx => Gleg.Prevfpn,  -- in
+  *  401                                             Fprequest => Fprequest);     -- in out
+
+[937-33 IJMP]Line 398 not executed.
+     398               Fp_Lat_Utils_Pkg.Delete_Legs (Fplan => Fplan,            -- in
+  *  399                                             Firstlegidx => Gleg_Index,   -- in
+  *  400                                             Lastlegidx => Gleg.Prevfpn,  -- in
+  *  401                                             Fprequest => Fprequest);     -- in out
+
+[937-35 JMP]Lines 402 - 406 not executed.
+     402             end if;
+     403           end if;
+     404 
+     405           Revisept := Second_Pos;
+     406           Fprequest.Revptidx := Second_Pos;
+
+[937-37 LABEL]Lines 408 - 411 not executed.
+     408         else
+     409           --  THE SECOND POSITION IS NOT IN THE FLIGH PLAN.  SET UP THE REVISE PT
+     410           --  TO STRUNG A TF LEG INTO THE FLIGHT PLAN AFTER THE FIRST POSITION
+     411           Revisept := First_Pos;
+
+[937-38 JMP]Line 412 not executed.
+     412         end if;
+
+[937-40 LABEL]Lines 413 - 416 not executed.
+     413       else
+     414         -- FIRST POSITION IS NOT IN THE FLIGHT PLAN
+     415         Fp_Dl_Dpkg.Unloadable := True;
+     416         Revisept := First_Pos;
+
+[937-41 JMP]Line 417 not executed.
+     417       end if;
+
+[937-51 JMPT]Decision ending on line 436 ONLY taken.
+  .  436       if Revisept /= 0 then
+  *  437         Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning,-- in
+  *  438                               Leg_Index => Revisept,                            -- in
+  *  439                               Lateral_Leg => Prev_Leg);                        -- out
+
+[937-73 JMPT]Decision ending on line 463 ONLY taken.
+  .  463       if First_Pos = 0 then
+  *  464         if Qrec.Waypoint_Data.Duplicates_Exist then
+  *  465           Fp_Route_Uplink_Pkg.Process_Duplicate_Fix (Fplan => Fplan,         -- in
+  *  466                                                      Fprequest => Fprequest, -- in out
+  *  467                                                      Qrec => Qrec,           -- in out
+  *  468                                                      Qrecnum => Qrecnum);   -- in out                                  
+
+[937-87 JMPT]Decision ending on line 481 ONLY taken.
+  .  480     else
+  .  481       if Revisept /= 0 then
+  *  482 
+  *  483         if First_Pos /= 0 and Second_Pos /= 0 then
+  *  484           -- THE FIRST POSITION AND SECOND POSITION ARE IN THE FLIGHT PLAN, 
+  *  485           -- THEREFORE, CONSTRUCTION A DF LEG FROM FIRST TO SECOND POSITION
+  *  486 
+  *  487 
+  *  488           Fp_Dl_Dpkg.Loadable := True;
+
+[937-89 JMPF]Decision ending on line 483 NOT taken.
+  .  483         if First_Pos /= 0 and Second_Pos /= 0 then
+  *  484           -- THE FIRST POSITION AND SECOND POSITION ARE IN THE FLIGHT PLAN, 
+  *  485           -- THEREFORE, CONSTRUCTION A DF LEG FROM FIRST TO SECOND POSITION
+  *  486 
+  *  487 
+  *  488           Fp_Dl_Dpkg.Loadable := True;
+
+[937-91 IJMP]Lines 488 - 489 not executed.
+[937-93 JMP]Line 489 not executed.
+     488           Fp_Dl_Dpkg.Loadable := True;
+     489           Construct_Df_Leg (Firstidx => First_Pos,    -- in
+  *  490                             Secondidx => Second_Pos); -- in
+
+[937-107 JMPT]Decision ending on line 514 NOT taken.
+     514           if Qrec.Pilot_Defined and then Fprequest.Revptidx /= 0 then
+  *  515             Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  516                                   Leg_Index => Fprequest.Revptidx,                            -- in
+  *  517                                   Lateral_Leg => Gleg);
+
+[937-109 IJMP]Line 515 not executed.
+     515             Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  516                                   Leg_Index => Fprequest.Revptidx,                            -- in
+  *  517                                   Lateral_Leg => Gleg);
+
+[937-112 IJMP]Line 519 not executed.
+     519             Fp_Leg_Utils_Pkg.Pilot_Def_Gleg_Info (Qrec.Fix_Type, Qrec.Db_Offset, Gleg, Fprequest);
+
+[937-114 IJMP]Line 521 not executed.
+     521             Common_Lgb.Putlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  522                                   Leg_Index => Fprequest.Revptidx,                            -- in
+  *  523                                   Lateral_Leg => Gleg);
+
+[937-119 LABEL]Lines 529 - 531 not executed.
+     529       else
+     530         -- FIRST POSITION OF ELEMENT ELEMENT IS UNLOADABLE 
+     531         Fp_Dl_Dpkg.Unloadable := True;  
+
+[937-120 JMPT]Decision ending on line 534 NOT taken.
+  .  532       end if;
+  .  533 
+  .  534       if Fp_Data_Dpkg.Error_Status = Fprequestrec_Types.Fp_Full then
+  *  535         --  GUID BUFFER CAPACITY EXCEEDED
+  *  536         Skipdirfix;
+
+[937-122 IJMP]Line 536 not executed.
+[937-124 JMP]Line 536 not executed.
+     536         Skipdirfix;
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	FP_ROUTE_UPLINK_PKG.ROUTE_CONSTRUCTION
+	C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_ROUTE_CONSTRUCTION.ADA 
+
+Coverage statistics :
+
+	TYPE 3,  56.9%
+
+			 Executed	  Total
+	Decision Paths 	      24	    40
+	Condition Paths	     n/a	   n/a
+	Statements	      43	    79
+	Blocks		     143	   254
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.ROUTE_CONSTRUCTION
+[943-13 JMPT]Decision ending on line 186 NOT taken.
+  .  186      (Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Atc_Buffer and then Fprequest.Fplan = Mdxx_Lgb_Tpkg.Secprimary) then
+  *  187     Fp_Route_Uplink_Pkg.Init (Fplan => Fplan,        -- in
+  *  188                               Fprequest => Fprequest,-- in out
+  *  189                               Qrec => Qrec,          -- in out
+  *  190                               Qrecnum => Qrecnum);   -- in out
+
+[943-15 IJMP]Line 187 not executed.
+[943-17 LABEL]Line 187 not executed.
+     187     Fp_Route_Uplink_Pkg.Init (Fplan => Fplan,        -- in
+  *  188                               Fprequest => Fprequest,-- in out
+  *  189                               Qrec => Qrec,          -- in out
+  *  190                               Qrecnum => Qrecnum);   -- in out
+
+[943-18 JMPT]Decision ending on line 194 ONLY taken.
+  .  191   end if;
+  .  192 
+  .  193   -- PERFORM CERTAIN PRE-PROCESSING FOR THE ATC UPLINKS
+  .  194   if Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Atc_Buffer then
+  *  195 
+  *  196     if Qrec.Element_Type = Fpx_Buffer_Types.Fpx_Fix then
+  *  197       Pos_Fixident := Qrec.Fix_Ident; -- save for Um79 post processing below
+
+[943-33 IJMP]Line 217 not executed.
+[943-35 JMP]Line 217 not executed.
+     217         Fp_Route_Uplink_Pkg.Process_Corte (Fplan => Fplan,         -- in
+  *  218                                            Fprequest => Fprequest, -- in out
+  *  219                                            Qrec => Qrec,           -- in out
+  *  220                                            Qrecnum => Qrecnum,     -- in out
+  *  221                                            Acarsflag => Acarsflag, -- in out
+  *  222                                            Comrteid => Comrteid,   -- out
+  *  223                                            Comrteexist => Comrteexist); -- out
+
+[943-42 JMPT]Decision ending on line 237 NOT taken.
+  .  237         if Qrec.Runway_Type = Fpx_Buffer_Types.Fpx_Origin then
+  *  238           -- DEPARTURE RUNWAY
+  *  239 
+  *  240           if Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer then
+  *  241             Fp_Route_Uplink_Pkg.Process_Departure (Fplan => Fplan,         -- in
+  *  242                                                    Fprequest => Fprequest, -- in out
+  *  243                                                    Revisept => Rev_Pt,     -- in out
+  *  244                                                    Qrec => Qrec,           -- in out
+  *  245                                                    Qrecnum => Qrecnum);    -- in out
+
+[943-44 JMPT]Decision ending on line 240 not executed.
+     240           if Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer then
+  *  241             Fp_Route_Uplink_Pkg.Process_Departure (Fplan => Fplan,         -- in
+  *  242                                                    Fprequest => Fprequest, -- in out
+  *  243                                                    Revisept => Rev_Pt,     -- in out
+  *  244                                                    Qrec => Qrec,           -- in out
+  *  245                                                    Qrecnum => Qrecnum);    -- in out
+
+[943-46 IJMP]Line 241 not executed.
+[943-48 JMP]Line 241 not executed.
+     241             Fp_Route_Uplink_Pkg.Process_Departure (Fplan => Fplan,         -- in
+  *  242                                                    Fprequest => Fprequest, -- in out
+  *  243                                                    Revisept => Rev_Pt,     -- in out
+  *  244                                                    Qrec => Qrec,           -- in out
+  *  245                                                    Qrecnum => Qrecnum);    -- in out
+
+[943-50 IJMP]Lines 246 - 247 not executed.
+[943-52 LABEL]Line 247 not executed.
+     246           else
+     247             Fp_Route_Uplink_Pkg.Process_Atc_Departure (Fplan => Fplan,         -- in
+  *  248                                                        Fprequest => Fprequest, -- in out
+  *  249                                                        Revisept => Rev_Pt,     -- in out
+  *  250                                                        Qrec => Qrec,           -- in out
+  *  251                                                        Qrecnum => Qrecnum);    -- in out
+
+[943-53 JMP]Line 252 not executed.
+     252           end if;
+
+[943-63 JMPT]Decision ending on line 268 NOT taken.
+  .  268           if Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer then
+  *  269             Fp_Route_Uplink_Pkg.Process_Departure (Fplan => Fplan,         -- in
+  *  270                                                    Fprequest => Fprequest, -- in out
+  *  271                                                    Revisept => Rev_Pt,     -- in out
+  *  272                                                    Qrec => Qrec,           -- in out
+  *  273                                                    Qrecnum => Qrecnum);    -- in out
+
+[943-65 IJMP]Line 269 not executed.
+[943-67 JMP]Line 269 not executed.
+     269             Fp_Route_Uplink_Pkg.Process_Departure (Fplan => Fplan,         -- in
+  *  270                                                    Fprequest => Fprequest, -- in out
+  *  271                                                    Revisept => Rev_Pt,     -- in out
+  *  272                                                    Qrec => Qrec,           -- in out
+  *  273                                                    Qrecnum => Qrecnum);    -- in out
+
+[943-80 JMPT]Decision ending on line 294 not executed.
+     294         if (Qrec.Transition_Type = Fpx_Buffer_Types.Fpx_Departure) then
+  *  295           -- SID TRANSITION
+  *  296           if Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer then
+  *  297             Fp_Route_Uplink_Pkg.Process_Departure (Fplan => Fplan,         -- in
+  *  298                                                    Fprequest => Fprequest, -- in out
+  *  299                                                    Revisept => Rev_Pt,     -- in out
+  *  300                                                    Qrec => Qrec,           -- in out
+  *  301                                                    Qrecnum => Qrecnum);    -- in out
+
+[943-82 JMPT]Decision ending on line 296 not executed.
+     296           if Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer then
+  *  297             Fp_Route_Uplink_Pkg.Process_Departure (Fplan => Fplan,         -- in
+  *  298                                                    Fprequest => Fprequest, -- in out
+  *  299                                                    Revisept => Rev_Pt,     -- in out
+  *  300                                                    Qrec => Qrec,           -- in out
+  *  301                                                    Qrecnum => Qrecnum);    -- in out
+
+[943-84 IJMP]Line 297 not executed.
+[943-86 JMP]Line 297 not executed.
+     297             Fp_Route_Uplink_Pkg.Process_Departure (Fplan => Fplan,         -- in
+  *  298                                                    Fprequest => Fprequest, -- in out
+  *  299                                                    Revisept => Rev_Pt,     -- in out
+  *  300                                                    Qrec => Qrec,           -- in out
+  *  301                                                    Qrecnum => Qrecnum);    -- in out
+
+[943-88 IJMP]Lines 302 - 303 not executed.
+[943-90 LABEL]Line 303 not executed.
+     302           else
+     303             Fp_Route_Uplink_Pkg.Process_Atc_Departure (Fplan => Fplan,         -- in
+  *  304                                                        Fprequest => Fprequest, -- in out
+  *  305                                                        Revisept => Rev_Pt,     -- in out
+  *  306                                                        Qrec => Qrec,           -- in out
+  *  307                                                        Qrecnum => Qrecnum);    -- in out
+
+[943-91 JMP]Line 308 not executed.
+     308           end if;
+
+[943-93 IJMP]Lines 309 - 311 not executed.
+[943-95 LABEL]Line 311 not executed.
+     309         else
+     310           -- STAR TRANSITION OR APPROACH TRANSITION
+     311           Fp_Route_Uplink_Pkg.Process_Arrival (Fplan => Fplan,        -- in
+  *  312                                                Fprequest => Fprequest,-- in out
+  *  313                                                Revisept => Rev_Pt,    -- in out
+  *  314                                                Qrec => Qrec,          -- in out
+  *  315                                                Qrecnum => Qrecnum,    -- in out
+  *  316                                                Arvldata => Arvldata); -- in out
+
+[943-96 JMP]Line 317 not executed.
+     317         end if;
+
+[943-103 IJMP]Line 326 not executed.
+[943-105 JMP]Line 326 not executed.
+     326             Fp_Route_Uplink_Pkg.Process_Seg_Fix (Fplan => Fplan,         -- in
+  *  327                                                  Fprequest => Fprequest, -- in out
+  *  328                                                  Revisept => Rev_Pt,     -- in out
+  *  329                                                  Qrec => Qrec,           -- in out
+  *  330                                                  Qrecnum => Qrecnum);    -- in out
+
+[943-108 JMPF]Decision ending on line 335 NOT taken.
+  .  335             if Qrec.Waypoint_Data.Duplicates_Exist then
+  *  336               Fp_Route_Uplink_Pkg.Process_Duplicate_Fix (Fplan => Fplan,         -- in
+  *  337                                                          Fprequest => Fprequest, -- in out
+  *  338                                                          Qrec => Qrec,           -- in out
+  *  339                                                          Qrecnum => Qrecnum);   -- in out                                  
+
+[943-110 IJMP]Line 336 not executed.
+[943-112 LABEL]Line 336 not executed.
+     336               Fp_Route_Uplink_Pkg.Process_Duplicate_Fix (Fplan => Fplan,         -- in
+  *  337                                                          Fprequest => Fprequest, -- in out
+  *  338                                                          Qrec => Qrec,           -- in out
+  *  339                                                          Qrecnum => Qrecnum);   -- in out                                  
+
+[943-113 JMPT]Decision ending on line 342 NOT taken.
+  .  340             end if;
+  .  341             -- IF ELEMENT 77, THEN CALL DIRECT FIX
+  .  342             if (Fp_Dl_Dpkg.Atc_Construction_Info.Atc_Element_Number = Fp_Dl_Dpkg.Atc_At_Position_Direct_To) then
+  *  343               Rev_Pt := Fprequest.Revptidx;
+
+[943-115 IJMP]Lines 343 - 346 not executed.
+[943-117 JMP]Line 346 not executed.
+     343               Rev_Pt := Fprequest.Revptidx;
+     344               Insert_Discon := False;
+     345               -- ENROUTE FIX (TF OR DF LEG)
+     346               Fp_Route_Uplink_Pkg.Process_Direct_Fix (Fplan => Fplan,                  -- in 
+  *  347                                                       Fprequest => Fprequest,        -- in out
+  *  348                                                       Revisept => Rev_Pt,            -- in out
+  *  349                                                       Insertdiscon => Insert_Discon, -- in out
+  *  350                                                       Qrec => Qrec,                  -- in out
+  *  351                                                       Qrecnum => Qrecnum);
+
+[943-150 JMPF]Decision ending on line 390 NOT taken.
+     390                (Fprequest.Revptidx /=0) and then (Fprequest.Revptisfrom) then -- And if fp-request if from and non-zero, then 
+  *  391                                                                               -- this might indicate
+  *  392                                                                               -- Genorgdest set up from airport.
+  *  393                                                                               
+  *  394               Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  395                                     Leg_Index => Fprequest.Revptidx,                   -- in
+  *  396                                     Lateral_Leg => Revptgleg);                         -- out
+
+[943-152 IJMP]Line 394 not executed.
+     394               Common_Lgb.Getlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  395                                     Leg_Index => Fprequest.Revptidx,                   -- in
+  *  396                                     Lateral_Leg => Revptgleg);                         -- out
+
+[943-155 IJMP]Lines 397 - 400 not executed.
+     397               Revptgleg_Fixptr := Revptgleg.Fixptr;
+     398 
+     399               -- CLEAR THE ORIGIN CRITICAL INDEX
+     400               Common_Lgb.Getlgbhdr (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning,      -- in
+  *  401                                     Rte => Fplan,                                           -- in
+  *  402                                     Returned_Header => Fp_Data_Dpkg.Fp_Header (Fplan));     -- out
+
+[943-158 JMPT]Lines 404 - 406 not executed.
+[943-158 JMPT]Decision ending on line 406 not executed.
+     404               Fp_Hdr_Origin_Ndb_Ptr := Fp_Data_Dpkg.Fp_Header(Fplan).Originapt.Aptnavdbptr;
+     405 
+     406               if (Revptgleg_Fixptr = Fp_Hdr_Origin_Ndb_Ptr) then -- 1st leg & hdr are origin apt
+  *  407               
+  *  408                 --   CONVERT REVISE POINT TO A T-P LEG
+  *  409                 Fp_Build_Leg_Pkg.Build_Tp (Acposn => Navigation_Data.Aircraft_Position,  -- in
+  *  410                                            Gleg => Revptgleg,                            -- in out
+  *  411                                            Failure_Code => Failure_Code);                -- in out
+
+[943-160 IJMP]Line 409 not executed.
+     409                 Fp_Build_Leg_Pkg.Build_Tp (Acposn => Navigation_Data.Aircraft_Position,  -- in
+  *  410                                            Gleg => Revptgleg,                            -- in out
+  *  411                                            Failure_Code => Failure_Code);                -- in out
+
+[943-162 IJMP]Lines 409 - 413 not executed.
+     409                 Fp_Build_Leg_Pkg.Build_Tp (Acposn => Navigation_Data.Aircraft_Position,  -- in
+     410                                            Gleg => Revptgleg,                            -- in out
+     411                                            Failure_Code => Failure_Code);                -- in out
+     412 
+     413                 Common_Lgb.Putlgbleg (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  414                                       Leg_Index => Fprequest.Revptidx,                   -- in
+  *  415                                       Lateral_Leg => Revptgleg);                         -- in
+
+[943-164 IJMP]Line 417 not executed.
+     417                 Fp_Error_Processing_Pkg.Check_For_Error (Fprequest => Fprequest,                              -- in out
+  *  418                                                          New_Error_Status => Fprequestrec_Types.Nam_Error,    -- in
+  *  419                                                          Failure_Code => Failure_Code);                       -- in
+
+[943-167 IJMP]Line 422 not executed.
+     422                 Common_Lgb.Getlgbhdr (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning,      -- in
+  *  423                                       Rte => Fplan,                                           -- in
+  *  424                                       Returned_Header => Fp_Data_Dpkg.Fp_Header (Fplan));     -- out
+
+[943-171 IJMP]Lines 426 - 428 not executed.
+     426                 Fp_Data_Dpkg.Fp_Header (Fplan).Critidx (Flight_Pln_Hdr_Types.Originwpt) := 0;
+     427 
+     428                 Common_Lgb.Putlgbhdr (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning,    -- in
+  *  429                                       Rte => Fplan,                                         -- in
+  *  430                                       Input_Header => Fp_Data_Dpkg.Fp_Header (Fplan));      -- in
+
+[943-177 IJMP]Lines 444 - 445 not executed.
+[943-179 JMP]Line 445 not executed.
+     444             Insert_Discon := False;
+     445             Fp_Route_Uplink_Pkg.Process_Direct_Fix (Fplan => Fplan,                  -- in 
+  *  446                                                     Fprequest => Fprequest,        -- in out
+  *  447                                                     Revisept => Rev_Pt,            -- in out
+  *  448                                                     Insertdiscon => Insert_Discon, -- in out
+  *  449                                                     Qrec => Qrec,                  -- in out
+  *  450                                                     Qrecnum => Qrecnum);
+
+[943-181 IJMP]Lines 453 - 454 not executed.
+[943-183 LABEL]Line 454 not executed.
+     453             Fp_Dl_Dpkg.Unloadable := True;
+     454             Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  455                                                   Qrec => Qrec,                          -- in out
+  *  456                                                   Qrecnum => Qrecnum);                   -- in out
+
+[943-184 JMP]Line 457 not executed.
+     457         end case;
+
+[943-190 IJMP]Line 472 not executed.
+     472         Fp_Route_Uplink_Pkg.Process_Revise (Fplan => Fplan,               -- in
+  *  473                                             Fprequest => Fprequest,       -- in out
+  *  474                                             Qrec => Qrec,                 -- in out
+  *  475                                             Qrecnum => Qrecnum,           -- in out
+  *  476                                             Rev_Point => Rev_Pt,          -- in out
+  *  477                                             Rev_Pt_Flags => Rev_Pt_Flags);-- in out
+
+[943-192 IJMP]Lines 472 - 479 not executed.
+[943-194 JMP]Line 479 not executed.
+     472         Fp_Route_Uplink_Pkg.Process_Revise (Fplan => Fplan,               -- in
+     473                                             Fprequest => Fprequest,       -- in out
+     474                                             Qrec => Qrec,                 -- in out
+     475                                             Qrecnum => Qrecnum,           -- in out
+     476                                             Rev_Point => Rev_Pt,          -- in out
+     477                                             Rev_Pt_Flags => Rev_Pt_Flags);-- in out
+     478 
+     479         Fp_Route_Uplink_Pkg.Process_Constraint (Fplan => Fplan,             -- in
+  *  480                                                 Fprequest => Fprequest,     -- in out
+  *  481                                                 Qrec => Qrec,               -- in out
+  *  482                                                 Qrecnum => Qrecnum,         -- in out
+  *  483                                                 Revisept => Rev_Pt,         -- in
+  *  484                                                 Revptflags => Rev_Pt_Flags);-- in
+
+[943-196 IJMP]Line 489 not executed.
+     489         Fp_Route_Uplink_Pkg.Process_Revise (Fplan => Fplan,                -- in
+  *  490                                             Fprequest => Fprequest,        -- in out
+  *  491                                             Qrec => Qrec,                  -- in out
+  *  492                                             Qrecnum => Qrecnum,            -- in out
+  *  493                                             Rev_Point => Rev_Pt,           -- in out
+  *  494                                             Rev_Pt_Flags => Rev_Pt_Flags); -- in out
+
+[943-198 IJMP]Lines 489 - 496 not executed.
+[943-200 JMP]Line 496 not executed.
+     489         Fp_Route_Uplink_Pkg.Process_Revise (Fplan => Fplan,                -- in
+     490                                             Fprequest => Fprequest,        -- in out
+     491                                             Qrec => Qrec,                  -- in out
+     492                                             Qrecnum => Qrecnum,            -- in out
+     493                                             Rev_Point => Rev_Pt,           -- in out
+     494                                             Rev_Pt_Flags => Rev_Pt_Flags); -- in out
+     495 
+     496         Fp_Route_Uplink_Pkg.Process_Hold (Fplan => Fplan,                  -- in
+  *  497                                           Fprequest => Fprequest,          -- in out
+  *  498                                           Qrec => Qrec,                    -- in out
+  *  499                                           Qrecnum => Qrecnum,              -- in out
+  *  500                                           Revisept_In => Rev_Pt,           -- in
+  *  501                                           Revptflags => Rev_Pt_Flags);     -- in
+
+[943-214 IJMP]Line 541 not executed.
+[943-216 JMP]Line 541 not executed.
+     541         Fp_Route_Uplink_Pkg.Process_Lat_Offset (Fplan => Fplan,        -- in
+  *  542                                                 Fprequest => Fprequest,-- in out
+  *  543                                                 Qrec => Qrec,          -- in out
+  *  544                                                 Qrecnum => Qrecnum);   -- in out
+
+[943-219 IJMP]Lines 551 - 554 not executed.
+     551         Fp_Dl_Dpkg.Atc_Construction_Info.Atc_Element_Number := Qrec.Atc_Element_Number;
+     552 
+     553         -- GET ELEMENT PARMETER
+     554         Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  555                                               Qrec => Qrec,                          -- in out
+  *  556                                               Qrecnum => Qrecnum);                   -- in out
+
+[943-221 IJMP]Lines 554 - 558 not executed.
+[943-223 JMP]Line 558 not executed.
+     554         Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+     555                                               Qrec => Qrec,                          -- in out
+     556                                               Qrecnum => Qrecnum);                   -- in out
+     557 
+     558         Fp_Route_Uplink_Pkg.Setup_Atc (Fplan => Fplan,         -- in
+  *  559                                        Fprequest => Fprequest, -- in out
+  *  560                                        Qrec => Qrec,           -- in out
+  *  561                                        Qrecnum => Qrecnum);   -- in out
+
+[943-225 IJMP]Line 565 not executed.
+     565         Fp_Route_Uplink_Pkg.Process_Revise (Fplan => Fplan,               -- in
+  *  566                                             Fprequest => Fprequest,       -- in out
+  *  567                                             Qrec => Qrec,                 -- in out
+  *  568                                             Qrecnum => Qrecnum,           -- in out
+  *  569                                             Rev_Point => Rev_Pt,          -- in out
+  *  570                                             Rev_Pt_Flags => Rev_Pt_Flags);-- in out
+
+[943-227 IJMP]Lines 565 - 572 not executed.
+[943-229 JMP]Line 572 not executed.
+     565         Fp_Route_Uplink_Pkg.Process_Revise (Fplan => Fplan,               -- in
+     566                                             Fprequest => Fprequest,       -- in out
+     567                                             Qrec => Qrec,                 -- in out
+     568                                             Qrecnum => Qrecnum,           -- in out
+     569                                             Rev_Point => Rev_Pt,          -- in out
+     570                                             Rev_Pt_Flags => Rev_Pt_Flags);-- in out
+     571 
+     572         Fp_Route_Uplink_Pkg.Process_Waypt_Step (Fplan => Fplan,              -- in
+  *  573                                                 Fprequest => Fprequest,      -- in out
+  *  574                                                 Qrec => Qrec,                -- in out
+  *  575                                                 Qrecnum => Qrecnum,          -- in out
+  *  576                                                 Revisept => Rev_Pt);         -- in
+
+[943-231 IJMP]Line 579 not executed.
+[943-233 LABEL]Line 579 not executed.
+     579         Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type, -- in
+  *  580                                               Qrec => Qrec,                          -- in out
+  *  581                                               Qrecnum => Qrecnum);                   -- in out
+
+[943-249 JMPF]Decision ending on line 597 NOT taken.
+  .  597   if Comrteexist then
+  *  598     -- STORE ROUTE IDENTIFIER
+  *  599     Common_Lgb.Getlgbhdr (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  600                           Rte => Fplan,                                      -- in
+  *  601                           Returned_Header => Fp_Data_Dpkg.Fp_Header (Fplan));-- out
+
+[943-252 IJMP]Line 599 not executed.
+     599     Common_Lgb.Getlgbhdr (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  600                           Rte => Fplan,                                      -- in
+  *  601                           Returned_Header => Fp_Data_Dpkg.Fp_Header (Fplan));-- out
+
+[943-257 IJMP]Line 606 not executed.
+     606     Common_Lgb.Putlgbhdr (Process_Id => Fmcs_Fp_Guid_Btypes.Flight_Planning, -- in
+  *  607                           Rte => Fplan,                                      -- in
+  *  608                           Input_Header => Fp_Data_Dpkg.Fp_Header (Fplan));   -- in
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	FP_ROUTE_UPLINK_PKG.EXECUTIVE
+	C:\BUILDS\MD11\HW\SRC_HW\fm\FP_ROUTE_UPLINK_PKG_EXECUTIVE.ADA
+
+Coverage statistics :
+
+	TYPE 3,  57.2%
+
+			 Executed	  Total
+	Decision Paths 	      15	    32
+	Condition Paths	     n/a	   n/a
+	Statements	      33	    52
+	Blocks		      71	   116
+
+
+........................................................................
+SubUnit: FP_ROUTE_UPLINK_PKG.EXECUTIVE
+[944-5 JMPF]Decision ending on line 138 NOT taken.
+  .  112   Qrecnum : Portable_Types_Pkg.Integer_32;
+  .  113 
+  .  114   --  SAVED REQUEST FROM CDU KEY
+  .  115   Savedrequest : Fprequestrec_Types.Fprequestrec;
+  .  116 
+  .  117   --  FMC TO PROCESS
+  .  118   Side : Fmcs_Base_Types.Left_Or_Right_Type;
+  .  119 
+  .  120   -- RECORD COUNT
+  .  121   Record_Count : Portable_Types_Pkg.Integer_32;
+  .  122 
+  .  123   -- BUFFER STATUS
+  .  124   Buffer_Status : Fpx_Buffer_Types.Buffer_Status_Type;
+  .  125 
+  .  126 begin
+  .  127   -- INITIALIZE VARIABLES
+  .  128   Ident := (others => ' ');
+  .  129   Qrec := (Element_Type => Fpx_Buffer_Types.Fpx_Nothing, Db_Offset => Fmcs_Base_Types.Null_Ndb_Pointer);
+  .  130 
+  .  131   Qrecnum := 0;
+  .  132   Fp_Data_Dpkg.Generate_Error := False;
+  .  133   Fp_Dl_Dpkg.Atc_Construction_Info.Atc_Element_Number := 0;
+  .  134   Fp_Dl_Dpkg.Unloadable := False;
+  .  135   Fp_Dl_Dpkg.Loadable := False;
+  .  136 
+  .  137   -- DETERMINE IF THE CURRENT UPLINK IS AN AOC OR ATC UPLINK
+  .  138   if Fprequest.Buffer_Is_Aoc then
+  *  139     Fp_Dl_Dpkg.Buffer_Type := Fpx_Buffer_Types.Aoc_Buffer;
+
+[944-7 JMP]Line 139 not executed.
+     139     Fp_Dl_Dpkg.Buffer_Type := Fpx_Buffer_Types.Aoc_Buffer;
+
+[944-12 JMPT]Decision ending on line 149 ONLY taken.
+  .  149   if Record_Count >= 1 then                                                                    -- scr 10257 
+  *  150     -- THE FIRST ELEMENT OF THE BUFFER IS ALWAYS THE AOC OR ATC INDICATOR
+  *  151     Fp_Route_Uplink_Pkg.Get_Next_Element (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,-- in
+  *  152                                           Qrec => Qrec,                         -- in out
+  *  153                                           Qrecnum => Qrecnum);                  -- in out
+
+[944-20 JMPT]Decision ending on line 157 ONLY taken.
+     157        (Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Atc_Buffer or else Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer) then
+  *  158 
+  *  159       -----------------------------------------------------------------------------
+  *  160       -- Display the SPAD message that indicates an upload has begun.  -- scr 12564
+  *  161       -----------------------------------------------------------------------------
+  *  162       Io_Mdxx_Mcdu_Spad_Pkg.Display_Message --
+  *  163          (Message_Id => Io_Mdxx_Spad_Msg_Info_Tpkg.Fpln_Uplink_Loading,   -- in
+  *  164           Variable_Txt => "",                                             -- in
+  *  165           Number => Portable_Types_Pkg.Float_32'Last);                    -- in
+
+[944-24 JMPT]Decision ending on line 168 NOT taken.
+  .  168       if (Qrec.Element_Type = Fpx_Buffer_Types.Fpx_Aoc_Indicator) then                         -- scr 10541
+  *  169         -- AOC ROUTE UPLINK                                                                    -- scr 10541
+  *  170         if (Qrec.Route_Indicator = Fpx_Buffer_Types.Route_Active) then                         -- scr 10541
+  *  171           Fp_Dl_Dpkg.Uplink_Is_Mod := False;                                                   -- scr 10541
+
+[944-27 JMPT]Decision ending on line 170 not executed.
+     170         if (Qrec.Route_Indicator = Fpx_Buffer_Types.Route_Active) then                         -- scr 10541
+  *  171           Fp_Dl_Dpkg.Uplink_Is_Mod := False;                                                   -- scr 10541
+
+[944-29 JMP]Lines 171 - 172 not executed.
+     171           Fp_Dl_Dpkg.Uplink_Is_Mod := False;                                                   -- scr 10541
+     172           Fp_Dl_Dpkg.Uplink_Iei := Cdl_Dltokentype_Data.Routerep;                              -- scr 10541
+
+[944-32 JMPT]Decision ending on line 173 not executed.
+     173         elsif (Qrec.Route_Indicator = Fpx_Buffer_Types.Route_Inactive) then                    -- scr 10541
+  *  174           Fp_Dl_Dpkg.Uplink_Is_Mod := False;                                                   -- scr 10541
+
+[944-34 JMP]Lines 174 - 175 not executed.
+     174           Fp_Dl_Dpkg.Uplink_Is_Mod := False;                                                   -- scr 10541
+     175           Fp_Dl_Dpkg.Uplink_Iei := Cdl_Dltokentype_Data.Inactrterep;                           -- scr 10541
+
+[944-36 LABEL]Lines 176 - 178 not executed.
+     176         else                                                                                   -- scr 10541
+     177           Fp_Dl_Dpkg.Uplink_Is_Mod := True;                                                    -- scr 10541
+     178           Fp_Dl_Dpkg.Uplink_Iei := Cdl_Dltokentype_Data.Routemod;                              -- scr 10541
+
+[944-37 JMP]Line 179 not executed.
+     179         end if;                                                                                -- scr 10541
+
+[944-54 JMPT]Decision ending on line 203 ONLY taken.
+  .  203       if (Qrec.Element_Type /= Fpx_Buffer_Types.Fpx_Nothing) then
+  *  204         Fp_Route_Uplink_Pkg.Route_Construction (Fplan => Fplan,         -- in
+  *  205                                                 Fprequest => Fprequest, -- in out
+  *  206                                                 Qrec => Qrec,           -- in out
+  *  207                                                 Qrecnum => Qrecnum,     -- in out
+  *  208                                                 Acarsflag => Acarsflag);-- in out
+
+[944-58 JMPT]Decision ending on line 212 NOT taken.
+  .  209       end if;
+  .  210 
+  .  211       -- DISPLAY ERROR MESSAGE
+  .  212       if (Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer) then
+  *  213 
+  *  214         -- NOTIFY CDCK
+  *  215         Fp_Data_Dpkg.Generate_Error := Fp_Dl_Dpkg.Unloadable;
+
+[944-60 JMPT]Lines 215 - 218 not executed.
+[944-60 JMPT]Decision ending on line 218 not executed.
+     215         Fp_Data_Dpkg.Generate_Error := Fp_Dl_Dpkg.Unloadable;
+     216 
+     217         -- DISPLAY 'INVALID FPLN UPLINK'
+     218         if not Fp_Dl_Dpkg.Loadable then
+  *  219           Io_Mdxx_Mcdu_Spad_Pkg.Display_Message (Message_Id => Io_Mdxx_Spad_Msg_Info_Tpkg.Invalid_Fpln_Uplink,   -- in
+  *  220                                                  Variable_Txt => "",                                             -- in
+  *  221                                                  Number => Portable_Types_Pkg.Float_32'Last);                    -- in
+
+[944-62 IJMP]Line 219 not executed.
+[944-64 JMP]Line 219 not executed.
+     219           Io_Mdxx_Mcdu_Spad_Pkg.Display_Message (Message_Id => Io_Mdxx_Spad_Msg_Info_Tpkg.Invalid_Fpln_Uplink,   -- in
+  *  220                                                  Variable_Txt => "",                                             -- in
+  *  221                                                  Number => Portable_Types_Pkg.Float_32'Last);                    -- in
+
+[944-66 IJMP]Lines 222 - 224 not executed.
+     222         else
+     223           -- DISPLAY 'PARTIAL FPLN UPLINK'
+     224           if (not Fpx_Uplink_Buffer_Pkg.Aoc_Verification_Result_Ok) or else
+  *  225              (Fp_Dl_Dpkg.Unloadable and then Fp_Dl_Dpkg.Loadable) then
+  *  226             Io_Mdxx_Mcdu_Spad_Pkg.Display_Message (Message_Id => Io_Mdxx_Spad_Msg_Info_Tpkg.Partial_Fpln_Uplink,   -- in
+  *  227                                                    Variable_Txt => "",                                             -- in
+  *  228                                                    Number => Portable_Types_Pkg.Float_32'Last);                    -- in
+
+[944-72 JMPF]Decision ending on line 225 not executed.
+     225              (Fp_Dl_Dpkg.Unloadable and then Fp_Dl_Dpkg.Loadable) then
+  *  226             Io_Mdxx_Mcdu_Spad_Pkg.Display_Message (Message_Id => Io_Mdxx_Spad_Msg_Info_Tpkg.Partial_Fpln_Uplink,   -- in
+  *  227                                                    Variable_Txt => "",                                             -- in
+  *  228                                                    Number => Portable_Types_Pkg.Float_32'Last);                    -- in
+
+[944-74 IJMP]Line 226 not executed.
+     226             Io_Mdxx_Mcdu_Spad_Pkg.Display_Message (Message_Id => Io_Mdxx_Spad_Msg_Info_Tpkg.Partial_Fpln_Uplink,   -- in
+  *  227                                                    Variable_Txt => "",                                             -- in
+  *  228                                                    Number => Portable_Types_Pkg.Float_32'Last);                    -- in
+
+[944-76 JMP]Lines 229 - 230 not executed.
+     229           end if;  
+     230         end if;
+
+[944-98 JMPT]Decision ending on line 255 NOT taken.
+  .  250           end if;
+  .  251         end if;
+  .  252       end if;
+  .  253 
+  .  254       -- CLEAR THE ERROR STATUS IF IT IS FLIGHT PLAN FULL
+  .  255       if (Fp_Data_Dpkg.Error_Status = Fprequestrec_Types.Fp_Full) then
+  *  256 
+  *  257         Fp_Data_Dpkg.Error_Status := Fprequestrec_Types.No_Error;
+
+[944-100 IJMP]Lines 257 - 259 not executed.
+     257         Fp_Data_Dpkg.Error_Status := Fprequestrec_Types.No_Error;
+     258 
+     259         Side := Cdk_Ext_Dpkg.Src_Of_Bp;
+
+[944-102 IJMP]Line 262 not executed.
+     262         Io_Mdxx_Mcdu_Spad_Pkg.Display_Message (Cdu_Side => Side,                                   -- in
+  *  263                                                Message_Id => Io_Mdxx_Spad_Msg_Info_Tpkg.Fpln_Full, -- in
+  *  264                                                Variable_Txt => "",                                 -- in
+  *  265                                                Number => Portable_Types_Pkg.Float_32'Last);        -- in
+
+[944-104 IJMP]Line 268 not executed.
+     268         Fp_Route_Uplink_Pkg.Process_Error (Buffer_Type => Fp_Dl_Dpkg.Buffer_Type,    -- in
+  *  269                                            Fp_Dl_Error_Code => Fp_Dl_Tpkg.Fpln_Full, -- in
+  *  270                                            Ident => Ident);                          -- in                                  
+
+[944-112 JMPF]Decision ending on line 275 NOT taken.
+     275          Cdl_Fpln_Rejection_Dpkg.Error_Data_Encoded then
+  *  276         Cdl_Fpln_Rejection_Dpkg.Send_Rejection;
+
+[944-114 IJMP]Line 276 not executed.
+     276         Cdl_Fpln_Rejection_Dpkg.Send_Rejection;
+
+[944-118 JMPT]Decision ending on line 287 NOT taken.
+  .  283     end if;
+  .  284   end if;                                                                        -- scr 10257 
+  .  285 
+  .  286   -- IF THE CURRENT UPLINK IS AN AOC, THEN CLEAR THE PENDING FLAG
+  .  287   if Fp_Dl_Dpkg.Buffer_Type = Fpx_Buffer_Types.Aoc_Buffer then
+  *  288     Ops_Cdl_Interface_Mgr_Pkg.Put_Loadpending (Loadpending => False);   -- in
+
+[944-120 IJMP]Line 288 not executed.
+     288     Ops_Cdl_Interface_Mgr_Pkg.Put_Loadpending (Loadpending => False);   -- in
+
+[944-122 IJMP]Line 291 not executed.
+[944-124 JMP]Line 291 not executed.
+     291     Fpx_Uplink_Buffer_Pkg.Buffer_Initialize (Buffer => Fpx_Buffer_Types.Aoc_Buffer);    -- in
+
+
+
+**************************** End of Report *****************************
