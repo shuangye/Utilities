@@ -18,9 +18,55 @@ def func(old_path, new_path):
     old_file_line = old_file.readline()
     new_file_line = new_file.readline()
     while ('' != old_file_line and '' != new_file_line):
-        if (old_file_line.upper() != new_file_line.upper()):
-            consistent = False
-            break
+        # get the first 3 lines
+        for i in range(0, 2):
+            old_file_line += old_file.readline()
+            new_file_line += new_file.readline()
+            
+        if ('RESULTS FILE' in old_file_line.upper()):        
+            # .RST files
+            # allowed differences
+            if ('TEST START TIME' in old_file_line.upper()):
+                continue
+            if ('TEST END TIME' in old_file_line.upper()):
+                continue
+            if ('USERID:' in old_file_line.upper()):
+                continue
+            # reached the end
+            if ('CURRENT PROGRAM LIBRARY' in old_file_line.upper() or 'CURRENT BUILD' in old_file_line.upper()):
+                break
+            
+            # other differences are not allowed
+            if (old_file_line.upper() != new_file_line.upper()):
+                consistent = False
+                break
+
+        else:
+            # .RPT files
+            # skip the first 9 lines
+            for i in range(0, 6):
+                old_file_line = old_file.readline()
+                new_file_line = new_file.readline()
+            if ('Win32 Host:' in old_file_line):
+                continue
+            if ('Current Dir:' in old_file_line):
+                continue
+            if ('.PTH' in old_file_line.upper()):
+                continue
+            if ('.CUL' in old_file_line.upper()):
+                continue
+            if ('.XIN' in old_file_line.upper()):
+                continue
+            if ('Date of report' in old_file_line.upper()):
+                for i in range(0, 3):
+                    old_file_line = old_file.readline()
+                    new_file_line = new_file.readline()
+            if ('Current Directory:' in old_file_line.upper()):
+                for i in range(0, 3):
+                    old_file_line = old_file.readline()
+                    new_file_line = new_file.readline()
+            # how about src code path?
+        
     
         old_file_line = old_file.readline()
         new_file_line = new_file.readline()
