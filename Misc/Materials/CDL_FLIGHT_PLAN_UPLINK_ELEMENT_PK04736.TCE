@@ -1,0 +1,794 @@
+-------------------------------------------------------------------------------
+ THIS TCE WAS CREATED BY : e801455 ON 8/14/2014 10:34:37 AM
+-------------------------------------------------------------------------------
+Filename: C:\MD11\MD11_Coverage\TCA_REPORTS\FM\DL\922RL101001_TO_922RL101001\CDL_FLIGHT_PLAN_UPLINK_ELEMENT_PK04736.tcr
+-------------------------------------------------------------------------------
+*** Warning **** This file was initially auto-generated from file:
+                 C:\MD11\MD11_Coverage\TCA_REPORTS\FM\DL\922RL101001_TO_922RL101001\CDL_FLIGHT_PLAN_UPLINK_ELEMENT_PK04736.tcr
+-------------------------------------------------------------------------------
+    Date generated: 8/14/2014
+    Generate Structural Coverage Exception Report (GTCE)
+        Ver: 4.0.2 Part No: PS62001798-102
+
+    Test Coverage Analyzer (TCA)  V6.17 CLASS A ps4082880-125
+    Win32 Host: WinNT 6.1 Build 7601  UserID: E323673  Node: CH71LT6R99XW1 (Intel PentPro Model 58 Step 9)
+    Current Dir: C:\Program Files\TCA_Post
+
+
+----------------------------------------------------------------------------------------------
+       Compilation                    Test Coverage Statistics       Warnings   Analysis for
+        Unit Name               Total Decision Cond Statemnt Block  Mixed Bool structual hole
+------------------------------- ----------------------------------- ---------- ---------------
+CDL_FLIGHT_PLAN_UPLINK_ELEMEN -
+  T_PKG.DIRECT_FIX.CHECK_FIX_ -
+  FORMAT                          12.8     5.0   n/a    23.5    9.9     0   0     DONE
+                                        1/20    n/a   8/34   7/71
+
+CDL_FLIGHT_PLAN_UPLINK_ELEMEN -
+  T_PKG.DIRECT_FIX.DIRECT_FIX     32.3    25.0   n/a    42.1   29.7     0   0     DONE
+                                        12/48   n/a   32/76  41/138
+
+------------------------------------------------------------------------------
+Total Percentages                        19.1   n/a    36.4   23.0
+Totals                                  13/68   n/a   40/110  48/209
+Total Coverage                   26.1
+------------------------------------------------------------------------------
+
+************************************************************************
+
+	Test Coverage Analyzer (TCA)  Version 6.17 CLASS A
+
+************************************************************************
+
+
+Compilation Unit / Source file :
+
+	CDL_FLIGHT_PLAN_UPLINK_ELEMENT_PKG.DIRECT_FIX.CHECK_FIX_FORMAT
+	C:\MD11\BUILDS\922RL101001\SRC_922RL101001\FM\\CDL_FLIGHT_PLAN_UPLIN -
+           K_ELEMENT_PK04736.ADA                                               
+
+Coverage statistics :
+
+	TYPE 3,  12.8%
+
+			 Executed	  Total
+	Decision Paths 	       1	    20
+	Condition Paths	     n/a	   n/a
+	Statements	       8	    34
+	Blocks		       7	    71
+
+
+........................................................................
+SubUnit: CDL_FLIGHT_PLAN_UPLINK_ELEMENT_PKG.DIRECT_FIX.CHECK_FIX_FORMAT
+[1-5 JMPT]Decision ending on line 173 ONLY taken.
+  .  170     Cdl_Get_Element_Token_Pkg.Get_Element
+  .  171        (Datalink_Message => Fpx_Buffer, Startlocation => Fpn_Buffer_Index, Msgstring => Fix_Text, Terminator => Terminator);
+  .  172 
+  .  173     if (Fix_Text.Contents = Cdl_Datalinerec_Types.Empty) then
+  *  174       Etc := Cdl_Error_Codes_Data.Etcnodata_108;
+
+[1-9 JMPT]Lines 175 - 180 not executed.
+[1-9 JMPT]Decision ending on line 180 not executed.
+     175     else
+     176 
+     177       ---------------------------------------
+     178       -- check for optional reference lat/lon
+     179       ---------------------------------------
+     180       if Terminator = Cdl_Dltermtype_Types.Comma then
+  *  181 
+  *  182         if Fix_Text.Contents = Cdl_Datalinerec_Types.Not_Empty then
+  *  183 
+  *  184           Ref_Lat_Lon_Exists := True;
+
+[1-11 JMPT]Decision ending on line 182 not executed.
+     182         if Fix_Text.Contents = Cdl_Datalinerec_Types.Not_Empty then
+  *  183 
+  *  184           Ref_Lat_Lon_Exists := True;
+
+[1-13 IJMP]Lines 184 - 186 not executed.
+     184           Ref_Lat_Lon_Exists := True;
+     185 
+     186           Cdl_Get_Element_Token_Pkg.Get_Element (Datalink_Message => Fpx_Buffer,
+  *  187                                                  Startlocation => Fpn_Buffer_Index + Fix_Text.Numchars + 1,
+  *  188                                                  Msgstring => Ref_Lat_Lon_Text,
+  *  189                                                  Terminator => Terminator);
+
+[1-15 IJMP]Lines 186 - 191 not executed.
+     186           Cdl_Get_Element_Token_Pkg.Get_Element (Datalink_Message => Fpx_Buffer,
+     187                                                  Startlocation => Fpn_Buffer_Index + Fix_Text.Numchars + 1,
+     188                                                  Msgstring => Ref_Lat_Lon_Text,
+     189                                                  Terminator => Terminator);
+     190 
+     191           Cdl_Fix_Utilities_Pkg.Check_Lat_Lon (Datalink_Message => Fpx_Buffer,
+  *  192                                                Startindx => Fpn_Buffer_Index + Fix_Text.Numchars + 1,
+  *  193                                                Numofchar => Portable_Types_Pkg.Integer_32 (Ref_Lat_Lon_Text.Numchars),
+  *  194                                                Valid => Ref_Lat_Lon_Valid,
+  *  195                                                Latlonvalue => Ref_Lat_Lon);
+
+[1-17 JMPT]Lines 191 - 196 not executed.
+[1-17 JMPT]Decision ending on line 196 not executed.
+     191           Cdl_Fix_Utilities_Pkg.Check_Lat_Lon (Datalink_Message => Fpx_Buffer,
+     192                                                Startindx => Fpn_Buffer_Index + Fix_Text.Numchars + 1,
+     193                                                Numofchar => Portable_Types_Pkg.Integer_32 (Ref_Lat_Lon_Text.Numchars),
+     194                                                Valid => Ref_Lat_Lon_Valid,
+     195                                                Latlonvalue => Ref_Lat_Lon);
+     196           if not Ref_Lat_Lon_Valid then
+  *  197             Err_Text := Ref_Lat_Lon_Text;
+
+[1-19 LABEL]Line 197 not executed.
+     197             Err_Text := Ref_Lat_Lon_Text;
+
+[1-24 LABEL]Line 203 not executed.
+[1-25 JMPF]Decision ending on line 203 not executed.
+     203       if (Fix_Text.Numchars in 1 .. 5) and not (Ref_Lat_Lon_Exists and Terminator = Comma) then
+  *  204         --------------------------------------------------------
+  *  205         -- try as NDB fix
+  *  206         --------------------------------------------------------
+  *  207 
+  *  208         Local_Valid := True;
+
+[1-27 JMPF]Lines 208 - 210 not executed.
+     208         Local_Valid := True;
+     209 
+     210         for Index in 1 .. Fix_Text.Numchars loop
+  *  211           if ((Fix_Text.Datachars (Index) in 'A' .. 'Z') or
+  *  212               (Fix_Text.Datachars (Index) in '0' .. '9') or (Fix_Text.Datachars (Index) = '-')) then
+  *  213 
+  *  214             Fix_Name (Index) := Fix_Text.Datachars (Index);
+
+[1-34 LABEL]Line 211 not executed.
+[1-40 LABEL]Line 211 not executed.
+[1-42 JMPF]Decision ending on line 211 not executed.
+     211           if ((Fix_Text.Datachars (Index) in 'A' .. 'Z') or
+  *  212               (Fix_Text.Datachars (Index) in '0' .. '9') or (Fix_Text.Datachars (Index) = '-')) then
+  *  213 
+  *  214             Fix_Name (Index) := Fix_Text.Datachars (Index);
+
+[1-46 JMP]Line 214 not executed.
+     214             Fix_Name (Index) := Fix_Text.Datachars (Index);
+
+[1-48 LABEL]Lines 216 - 218 not executed.
+     216           else
+     217             Local_Valid := False;
+     218             Err_Text := Fix_Text;
+
+[1-49 JMPF]Lines 219 - 221 not executed.
+     219           end if;
+     220 
+     221         end loop;
+
+[1-55 JMPF]Decision ending on line 223 not executed.
+     223         if Local_Valid and then (not Ref_Lat_Lon_Exists or else Ref_Lat_Lon_Valid) then
+  *  224 
+  *  225           Format_Valid := True;
+
+[1-57 LABEL]Lines 225 - 229 not executed.
+     225           Format_Valid := True;
+     226           -----------------------------
+     227           -- set fix type and name only
+     228           -----------------------------
+     229           To_Fix := (Typefixreq => Definefixrec_Iftypes.Plaintofix,
+  *  230                      Fixnam => Fix_Name,
+  *  231                      Spare_1 => 0,
+  *  232                      Tofixdbptr => (Dbptrtype => Fmcs_Fp_Guid_Btypes.Waypt,
+  *  233                                     Spare => 0,
+  *  234                                     Approxdist => 0.0,
+  *  235                                     Dbptr => Fmcs_Base_Types.Null_Ndb_Pointer));
+
+[1-58 JMP]Line 236 not executed.
+     236         end if;
+
+[1-60 IJMP]Lines 238 - 242 not executed.
+     238       else
+     239         -------------
+     240         -- try as PBD
+     241         -------------
+     242         Cdl_Fix_Utilities_Pkg.Check_Pbd (Datalink_Message => Fpx_Buffer,
+  *  243                                          Startindx => Fpn_Buffer_Index,
+  *  244                                          Valid => Local_Valid,
+  *  245                                          Fixentry => To_Fix,
+  *  246                                          Foundcount => Foundcount);
+
+[1-62 JMPF]Lines 242 - 247 not executed.
+[1-62 JMPF]Decision ending on line 247 not executed.
+     242         Cdl_Fix_Utilities_Pkg.Check_Pbd (Datalink_Message => Fpx_Buffer,
+     243                                          Startindx => Fpn_Buffer_Index,
+     244                                          Valid => Local_Valid,
+     245                                          Fixentry => To_Fix,
+     246                                          Foundcount => Foundcount);
+     247         if Local_Valid then
+  *  248           Format_Valid := True;
+
+[1-64 JMP]Lines 248 - 249 not executed.
+     248           Format_Valid := True;
+     249           Cdl_Fpn_Uplink_Plt_Def_Info_Dpkg.Pbd_Found_Count := Foundcount;
+
+[1-66 LABEL]Lines 250 - 251 not executed.
+     250         else
+     251           Err_Text := Fix_Text;
+
+[1-69 JMPT]Decision ending on line 254 not executed.
+     254         if not Local_Valid and then (Terminator /= Cdl_Dltermtype_Types.Comma) then
+  *  255           --------------------------------------------------------
+  *  256           -- try as latitude/longitute;
+
+[1-71 IJMP]Line 259 not executed.
+     259           Cdl_Fix_Utilities_Pkg.Check_Lat_Lon (Datalink_Message => Fpx_Buffer,
+  *  260                                                Startindx => Fpn_Buffer_Index,
+  *  261                                                Numofchar => Numofchars,
+  *  262                                                Valid => Local_Valid,
+  *  263                                                Latlonvalue => Fix_Lat_Lon);
+
+[1-73 JMPF]Decision ending on line 264 not executed.
+     264           if Local_Valid then
+  *  265             Format_Valid := True;
+
+[1-75 JMP]Lines 265 - 266 not executed.
+     265             Format_Valid := True;
+     266             To_Fix := (Typefixreq => Definefixrec_Iftypes.Latlonfix,
+  *  267                        Fixnam => Fix_Name,
+  *  268                        Spare_1 => 0,
+  *  269                        Latlondata => Fix_Lat_Lon,
+  *  270                        Llfixtype => Fmcs_Fp_Guid_Btypes.Plainlatlon);
+
+[1-77 LABEL]Lines 271 - 272 not executed.
+     271           else
+     272             Err_Text := Fix_Text;
+
+{no_change_since_cert}
+There were no changes to this code since its last certification.
+Coverage analysis was inspected and placed in ACM at that time.
+This historical coverage analysis is sufficient for the level of
+the current certification.
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	CDL_FLIGHT_PLAN_UPLINK_ELEMENT_PKG.DIRECT_FIX.DIRECT_FIX
+	C:\MD11\BUILDS\922RL101001\SRC_922RL101001\FM\\CDL_FLIGHT_PLAN_UPLIN -
+           K_ELEMENT_PK04736.ADA                                               
+
+Coverage statistics :
+
+	TYPE 3,  32.3%
+
+			 Executed	  Total
+	Decision Paths 	      12	    48
+	Condition Paths	     n/a	   n/a
+	Statements	      32	    76
+	Blocks		      41	   138
+
+
+........................................................................
+SubUnit: CDL_FLIGHT_PLAN_UPLINK_ELEMENT_PKG.DIRECT_FIX
+[2-10 JMPT]Decision ending on line 302 NOT taken.
+  .  144   Search_Fix : Cdl_Dlsrchtypes_Types.Dlfixrec;                   -- PBD search variable
+  .  145   Start_Segment : Boolean;                                       -- T = start new enroute segment
+  .  146   Terminator : Cdl_Dltermtype_Types.Dltermtype;                  -- element terminator     
+  .  147   To_Fix : Definefixrec_Iftypes.Definefixrec;                    -- fix data including identifier, NDB info, position, etc.
+  .  148   Pilot_Define_Store_Full : Boolean := False;
+  .  149 
+  .  150   Fpx_Buffer : String renames Cdl_Loc_Buffer_Data.Uplink_Processing_Buffer;
+  .  151 
+  .  152 --------------------------------------------------------------------------------------------------  
+  .  153 
+  .  154   procedure Check_Fix_Format (Format_Valid : out Boolean) is
+  .  155     --|
+  .  156     --| @DESCRIPTION: determines the format the fix was uplinked in
+  .  157     --|
+  .  158 
+  .  159     Fix_Lat_Lon : Ac_Position_Types.Lat_Lon_32_Type;
+  .  160     Fix_Name : Fmcs_Base_Types.Fix_Ident_Type := (others => ' ');
+  .  161     Local_Valid : Boolean;
+  .  162 
+  .  163   begin
+  .  164     Format_Valid := False;
+  .  165     Local_Valid := False;
+  .  166     Fix_Lat_Lon := (Lat => 0.0, Lon => 0.0);
+  .  167     Ref_Lat_Lon_Exists := False;
+  .  168     Ref_Lat_Lon_Valid := False;
+  .  169 
+  .  170     Cdl_Get_Element_Token_Pkg.Get_Element
+  .  171        (Datalink_Message => Fpx_Buffer, Startlocation => Fpn_Buffer_Index, Msgstring => Fix_Text, Terminator => Terminator);
+  .  172 
+  .  173     if (Fix_Text.Contents = Cdl_Datalinerec_Types.Empty) then
+  .  174       Etc := Cdl_Error_Codes_Data.Etcnodata_108;
+  .  175     else
+  .  176 
+  .  177       ---------------------------------------
+  .  178       -- check for optional reference lat/lon
+  .  179       ---------------------------------------
+  .  180       if Terminator = Cdl_Dltermtype_Types.Comma then
+  .  181 
+  .  182         if Fix_Text.Contents = Cdl_Datalinerec_Types.Not_Empty then
+  .  183 
+  .  184           Ref_Lat_Lon_Exists := True;
+  .  185 
+  .  186           Cdl_Get_Element_Token_Pkg.Get_Element (Datalink_Message => Fpx_Buffer,
+  .  187                                                  Startlocation => Fpn_Buffer_Index + Fix_Text.Numchars + 1,
+  .  188                                                  Msgstring => Ref_Lat_Lon_Text,
+  .  189                                                  Terminator => Terminator);
+  .  190 
+  .  191           Cdl_Fix_Utilities_Pkg.Check_Lat_Lon (Datalink_Message => Fpx_Buffer,
+  .  192                                                Startindx => Fpn_Buffer_Index + Fix_Text.Numchars + 1,
+  .  193                                                Numofchar => Portable_Types_Pkg.Integer_32 (Ref_Lat_Lon_Text.Numchars),
+  .  194                                                Valid => Ref_Lat_Lon_Valid,
+  .  195                                                Latlonvalue => Ref_Lat_Lon);
+  .  196           if not Ref_Lat_Lon_Valid then
+  .  197             Err_Text := Ref_Lat_Lon_Text;
+  .  198           end if;
+  .  199         end if;
+  .  200 
+  .  201       end if;
+  .  202 
+  .  203       if (Fix_Text.Numchars in 1 .. 5) and not (Ref_Lat_Lon_Exists and Terminator = Comma) then
+  .  204         --------------------------------------------------------
+  .  205         -- try as NDB fix
+  .  206         --------------------------------------------------------
+  .  207 
+  .  208         Local_Valid := True;
+  .  209 
+  .  210         for Index in 1 .. Fix_Text.Numchars loop
+  .  211           if ((Fix_Text.Datachars (Index) in 'A' .. 'Z') or
+  .  212               (Fix_Text.Datachars (Index) in '0' .. '9') or (Fix_Text.Datachars (Index) = '-')) then
+  .  213 
+  .  214             Fix_Name (Index) := Fix_Text.Datachars (Index);
+  .  215 
+  .  216           else
+  .  217             Local_Valid := False;
+  .  218             Err_Text := Fix_Text;
+  .  219           end if;
+  .  220 
+  .  221         end loop;
+  .  222 
+  .  223         if Local_Valid and then (not Ref_Lat_Lon_Exists or else Ref_Lat_Lon_Valid) then
+  .  224 
+  .  225           Format_Valid := True;
+  .  226           -----------------------------
+  .  227           -- set fix type and name only
+  .  228           -----------------------------
+  .  229           To_Fix := (Typefixreq => Definefixrec_Iftypes.Plaintofix,
+  .  230                      Fixnam => Fix_Name,
+  .  231                      Spare_1 => 0,
+  .  232                      Tofixdbptr => (Dbptrtype => Fmcs_Fp_Guid_Btypes.Waypt,
+  .  233                                     Spare => 0,
+  .  234                                     Approxdist => 0.0,
+  .  235                                     Dbptr => Fmcs_Base_Types.Null_Ndb_Pointer));
+  .  236         end if;
+  .  237 
+  .  238       else
+  .  239         -------------
+  .  240         -- try as PBD
+  .  241         -------------
+  .  242         Cdl_Fix_Utilities_Pkg.Check_Pbd (Datalink_Message => Fpx_Buffer,
+  .  243                                          Startindx => Fpn_Buffer_Index,
+  .  244                                          Valid => Local_Valid,
+  .  245                                          Fixentry => To_Fix,
+  .  246                                          Foundcount => Foundcount);
+  .  247         if Local_Valid then
+  .  248           Format_Valid := True;
+  .  249           Cdl_Fpn_Uplink_Plt_Def_Info_Dpkg.Pbd_Found_Count := Foundcount;
+  .  250         else
+  .  251           Err_Text := Fix_Text;
+  .  252         end if;
+  .  253 
+  .  254         if not Local_Valid and then (Terminator /= Cdl_Dltermtype_Types.Comma) then
+  .  255           --------------------------------------------------------
+  .  256           -- try as latitude/longitute;
+  .  257           -- if terminated by a comma it cannot be a valid lat/lon
+  .  258           --------------------------------------------------------
+  .  259           Cdl_Fix_Utilities_Pkg.Check_Lat_Lon (Datalink_Message => Fpx_Buffer,
+  .  260                                                Startindx => Fpn_Buffer_Index,
+  .  261                                                Numofchar => Numofchars,
+  .  262                                                Valid => Local_Valid,
+  .  263                                                Latlonvalue => Fix_Lat_Lon);
+  .  264           if Local_Valid then
+  .  265             Format_Valid := True;
+  .  266             To_Fix := (Typefixreq => Definefixrec_Iftypes.Latlonfix,
+  .  267                        Fixnam => Fix_Name,
+  .  268                        Spare_1 => 0,
+  .  269                        Latlondata => Fix_Lat_Lon,
+  .  270                        Llfixtype => Fmcs_Fp_Guid_Btypes.Plainlatlon);
+  .  271           else
+  .  272             Err_Text := Fix_Text;
+  .  273           end if;
+  .  274 
+  .  275         end if; -- try as latitude/longitute
+  .  276 
+  .  277       end if; -- try as NDB fix
+  .  278 
+  .  279     end if;  -- Empty Contents? 
+  .  280 
+  .  281   end Check_Fix_Format;
+  .  282 
+  .  283 ---------------------------------------------------------------
+  .  284 
+  .  285 begin
+  .  286 
+  .  287   Edc := Cdl_Error_Codes_Data.Edcdirtowpt_082;
+  .  288   Etc := Cdl_Error_Codes_Data.Etc_No_Error;
+  .  289   Foundcount := 0;
+  .  290   Start_Segment := False;
+  .  291   Err_Text := (Contents => Cdl_Datalinerec_Types.Empty, Numchars => 1, Datachars => (others => ' '));
+  .  292   Fix_Text := (Contents => Cdl_Datalinerec_Types.Empty, Numchars => 1, Datachars => (others => ' '));
+  .  293   Airway_Text := (Contents => Cdl_Datalinerec_Types.Empty, Numchars => 1, Datachars => (others => ' '));
+  .  294   Ref_Lat_Lon := (Lat => 0.0, Lon => 0.0);
+  .  295   To_Fix.Fixnam := (others => ' ');
+  .  296   Valid := False;
+  .  297 
+  .  298   ---------------------------------------------
+  .  299   -- determine if doing direct fix '..' element
+  .  300   -- or en route segment ':F:' element
+  .  301   ---------------------------------------------
+  .  302   if Cdl_Fpxrectype_Data.Fpei = Cdl_Dltokentype_Data.Frstenrtefx then
+  *  303     Edc := Cdl_Error_Codes_Data.Edcersegment_221;
+
+[2-12 LABEL]Lines 303 - 304 not executed.
+     303     Edc := Cdl_Error_Codes_Data.Edcersegment_221;
+     304     Start_Segment := True;
+
+[2-15 JMPF]Decision ending on line 312 ONLY taken.
+  .  310   Check_Fix_Format (Format_Valid => Valid);
+  .  311 
+  .  312   if Valid then
+  *  313     -------------------------------
+  *  314     -- airframe specific validation
+  *  315     -------------------------------
+  *  316 
+  *  317     if Start_Segment or (not Cdl_Dlupendawy_Data.Procprevawy) then
+  *  318 
+  *  319       ------------------------------------------
+  *  320       -- search for a matching PBD or Lat/Lon --
+  *  321       ------------------------------------------
+  *  322       Fix_Found := False;
+
+[2-17 JMPF]Decision ending on line 317 ONLY taken.
+  .  317     if Start_Segment or (not Cdl_Dlupendawy_Data.Procprevawy) then
+  *  318 
+  *  319       ------------------------------------------
+  *  320       -- search for a matching PBD or Lat/Lon --
+  *  321       ------------------------------------------
+  *  322       Fix_Found := False;
+
+[2-19 JMPT]Decision ending on line 323 NOT taken.
+  .  322       Fix_Found := False;
+  .  323       if To_Fix.Typefixreq = Definefixrec_Iftypes.Plbrgdisfix then
+  *  324         Search_Fix.Dlfix := Cdl_Dlsrchtypes_Types.Dlpbd;
+
+[2-21 JMPT]Lines 324 - 325 not executed.
+[2-23 JMPT]Line 325 not executed.
+     324         Search_Fix.Dlfix := Cdl_Dlsrchtypes_Types.Dlpbd;
+     325         Search_Fix.Dldistance := To_Fix.Tofixispbd.Distofpbd;
+
+[2-26 JMPT]Line 326 not executed.
+[2-28 JMPT]Line 326 not executed.
+     326         Search_Fix.Dlbearing := To_Fix.Tofixispbd.Magbrgofpbd;
+
+[2-31 JMPT]Line 327 not executed.
+[2-33 JMPT]Line 327 not executed.
+     327         Search_Fix.Pbdparent := To_Fix.Tofixispbd.Parentident;
+
+[2-36 JMPT]Lines 327 - 329 not executed.
+[2-36 JMPT]Decision ending on line 329 not executed.
+     327         Search_Fix.Pbdparent := To_Fix.Tofixispbd.Parentident;
+     328 
+     329         if Foundcount > 1 then
+  *  330           Ndb_Duplicate_Exists := True;
+
+[2-38 JMP]Line 330 not executed.
+     330           Ndb_Duplicate_Exists := True;
+
+[2-40 IJMP]Lines 331 - 336 not executed.
+     331         else
+     332           ---------------------------------
+     333           -- only do this when there are --
+     334           -- no duplicate parents        --
+     335           ---------------------------------
+     336           Resolve_Fix_Ident (Fixrec => Search_Fix, Fix_Ident => Fix_Ident, Fix_Valid => Fix_Found);
+
+[2-42 JMPF]Lines 336 - 337 not executed.
+[2-42 JMPF]Decision ending on line 337 not executed.
+     336           Resolve_Fix_Ident (Fixrec => Search_Fix, Fix_Ident => Fix_Ident, Fix_Valid => Fix_Found);
+     337           if Fix_Found then
+  *  338             To_Fix.Fixnam := Fix_Ident;
+
+[2-44 LABEL]Line 338 not executed.
+     338             To_Fix.Fixnam := Fix_Ident;
+
+[2-45 JMP]Lines 339 - 340 not executed.
+     339           end if;
+     340         end if;
+
+[2-47 JMPT]Decision ending on line 342 NOT taken.
+  .  342       elsif To_Fix.Typefixreq = Definefixrec_Iftypes.Latlonfix then
+  *  343         Search_Fix.Dlfix := Cdl_Dlsrchtypes_Types.Dllatlon;
+
+[2-50 IJMP]Lines 344 - 345 not executed.
+     344         Search_Fix.Position := To_Fix.Latlondata;
+     345         Resolve_Fix_Ident (Fixrec => Search_Fix, Fix_Ident => Fix_Ident, Fix_Valid => Fix_Found);
+
+[2-52 JMPF]Lines 345 - 346 not executed.
+[2-52 JMPF]Decision ending on line 346 not executed.
+     345         Resolve_Fix_Ident (Fixrec => Search_Fix, Fix_Ident => Fix_Ident, Fix_Valid => Fix_Found);
+     346         if Fix_Found then
+  *  347           To_Fix.Fixnam := Fix_Ident;
+
+[2-54 LABEL]Line 347 not executed.
+     347           To_Fix.Fixnam := Fix_Ident;
+
+[2-55 JMPT]Decision ending on line 354 ONLY taken.
+  .  348         end if;
+  .  349       end if;
+  .  350 
+  .  351       --------------------------------------- 
+  .  352       -- on normal fix or new PBD check it --
+  .  353       ---------------------------------------
+  .  354       if not Fix_Found then
+  *  355         Cdl_Fpn_Validation_Pkg.Check_Direct_Fix (Ref_Lat_Lon_Val => Ref_Lat_Lon_Exists,
+  *  356                                                  Ref_Lat_Lon => Ref_Lat_Lon,
+  *  357                                                  Start_Segment => Start_Segment,
+  *  358                                                  To_Fix => To_Fix,
+  *  359                                                  Nbd_Duplicate_Exists => Ndb_Duplicate_Exists,
+  *  360                                                  Valid => Valid,
+  *  361                                                  Pilot_Define_Store_Full => Pilot_Define_Store_Full);
+
+[2-60 JMPF]Decision ending on line 364 ONLY taken.
+  .  362       end if;
+  .  363 
+  .  364       if Valid then
+  *  365         ------------------------------
+  *  366         -- insert fix into fpx buffer
+  *  367         ------------------------------
+  *  368         Direct_Fix_Request.Tofix := To_Fix;
+
+[2-62 JMPF]Decision ending on line 372 NOT taken.
+  .  368         Direct_Fix_Request.Tofix := To_Fix;
+  .  369         Direct_Fix_Request.Duplicate_Exist := Ndb_Duplicate_Exists;
+  .  370         Direct_Fix_Request.Start_Segment := Start_Segment;
+  .  371         Direct_Fix_Request.Gbmatchleg := 0;
+  .  372         if Cdl_Fpxrectype_Data.Fpxdiscon then
+  *  373           Direct_Fix_Request.Requestdir := Dl_Fpx_Request_Tpkg.Newinitfix;
+
+[2-64 JMP]Line 373 not executed.
+     373           Direct_Fix_Request.Requestdir := Dl_Fpx_Request_Tpkg.Newinitfix;
+
+[2-69 JMPT]Decision ending on line 384 NOT taken.
+  .  384         if not Fpx_Buffer_Ok then
+  *  385           Aoc702_Downlink_Build_Pkg.Append_Error (Uplinkinproc => "FPN",
+  *  386                                                   Errtypecode => Cdl_Error_Codes_Data.Etcbuffull_101,
+  *  387                                                   Tokeninproc => Cdl_Fpxrectype_Data.Routeiei,
+  *  388                                                   Exterrcode => Cdl_Error_Codes_Data.Eecelem_005,
+  *  389                                                   Errtext => Airway_Text);
+
+[2-71 IJMP]Line 385 not executed.
+     385           Aoc702_Downlink_Build_Pkg.Append_Error (Uplinkinproc => "FPN",
+  *  386                                                   Errtypecode => Cdl_Error_Codes_Data.Etcbuffull_101,
+  *  387                                                   Tokeninproc => Cdl_Fpxrectype_Data.Routeiei,
+  *  388                                                   Exterrcode => Cdl_Error_Codes_Data.Eecelem_005,
+  *  389                                                   Errtext => Airway_Text);
+
+[2-73 JMP]Line 391 not executed.
+     391         end if;
+
+[2-75 JMPF]Decision ending on line 392 not executed.
+     392       elsif Pilot_Define_Store_Full then
+  *  393         Etc := Cdl_Error_Codes_Data.Etcpilotisfull_208;
+
+[2-77 JMP]Line 393 not executed.
+     393         Etc := Cdl_Error_Codes_Data.Etcpilotisfull_208;
+
+[2-79 LABEL]Lines 394 - 395 not executed.
+     394       else
+     395         Etc := Cdl_Error_Codes_Data.Etcnotinndb_011;
+
+[2-80 JMP]Line 396 not executed.
+     396       end if;
+
+[2-82 JMPT]Decision ending on line 398 not executed.
+     398     elsif To_Fix.Typefixreq /= Definefixrec_Iftypes.Plaintofix then
+  *  399       ---------------------------------------
+  *  400       -- invalid form to close pending airway
+  *  401       ---------------------------------------
+  *  402       Valid := False;
+
+[2-84 JMP]Lines 402 - 403 not executed.
+     402       Valid := False;
+     403       Etc := Cdl_Error_Codes_Data.Etcawytofix_041;
+
+[2-86 IJMP]Lines 405 - 406 not executed.
+     405     else
+     406       Cdl_Fpn_Validation_Pkg.Check_Direct_Fix (Ref_Lat_Lon_Val => Ref_Lat_Lon_Exists,
+  *  407                                                Ref_Lat_Lon => Ref_Lat_Lon,
+  *  408                                                Start_Segment => Start_Segment,
+  *  409                                                To_Fix => To_Fix,
+  *  410                                                Nbd_Duplicate_Exists => Ndb_Duplicate_Exists,
+  *  411                                                Valid => Valid,
+  *  412                                                Pilot_Define_Store_Full => Pilot_Define_Store_Full);
+
+[2-88 JMPF]Lines 406 - 413 not executed.
+[2-88 JMPF]Decision ending on line 413 not executed.
+     406       Cdl_Fpn_Validation_Pkg.Check_Direct_Fix (Ref_Lat_Lon_Val => Ref_Lat_Lon_Exists,
+     407                                                Ref_Lat_Lon => Ref_Lat_Lon,
+     408                                                Start_Segment => Start_Segment,
+     409                                                To_Fix => To_Fix,
+     410                                                Nbd_Duplicate_Exists => Ndb_Duplicate_Exists,
+     411                                                Valid => Valid,
+     412                                                Pilot_Define_Store_Full => Pilot_Define_Store_Full);
+     413       if Valid then
+  *  414 
+  *  415         -----------------------------------
+  *  416         -- NDB fix closing a pending airway
+  *  417         -----------------------------------
+  *  418         Airway_Element := (Element_Type => Fpx_Buffer_Types.Fpx_Airway,
+  *  419                            Db_Offset => Fmcs_Base_Types.Null_Ndb_Pointer,
+  *  420                            Airway_Id => Cdl_Dlupendawy_Data.Airwayname,
+  *  421                            Airway_Start_Index => 0,
+  *  422                            Airway_End_Index => 0,
+  *  423                            Intersection_Type => Airway_Types.Awy1Fix,
+  *  424                            Intersection_Pointer => Fmcs_Base_Types.Null_Ndb_Pointer);
+
+[2-94 IJMP]Lines 426 - 438 not executed.
+     426         Fix_Element := (Element_Type => Fpx_Buffer_Types.Fpx_Fix,
+     427                         Db_Offset => To_Fix.Tofixdbptr.Dbptr,
+     428                         Fix_Ident => To_Fix.Fixnam,
+     429                         Fix_Type => To_Fix.Tofixdbptr.Dbptrtype,
+     430                         Pilot_Defined => False,
+     431                         Waypoint_Data => (Waypoint_Type => Fpx_Buffer_Types.Pubid, Duplicates_Exist => Ndb_Duplicate_Exists),
+     432                         Fix_Identifier => Fpx_Buffer_Types.Aoc_Standard);
+     433 
+     434         -----------------------------------------------------------------------------
+     435         -- Validate closing fix. It is expected that pending airway data has been set
+     436         -- up by a prior call to Check_Airway_After_Airway or Check_Airway_After_Fix.
+     437         -----------------------------------------------------------------------------
+     438         Dl_Airway_Validation_Pkg.Check_Fix_After_Airway (User => Fpx_Buffer_Types.Aoc_Buffer,
+  *  439                                                          Origin_Position => Cdl_Fpn_Fpe_Uplink_Info_Dpkg.Origin_Airport.Position,
+  *  440                                                          Previous_Airway_Element => Airway_Element,
+  *  441                                                          Fix_Element => Fix_Element,
+  *  442                                                          Valid => Valid);
+
+[2-96 JMPF]Lines 438 - 443 not executed.
+[2-96 JMPF]Decision ending on line 443 not executed.
+     438         Dl_Airway_Validation_Pkg.Check_Fix_After_Airway (User => Fpx_Buffer_Types.Aoc_Buffer,
+     439                                                          Origin_Position => Cdl_Fpn_Fpe_Uplink_Info_Dpkg.Origin_Airport.Position,
+     440                                                          Previous_Airway_Element => Airway_Element,
+     441                                                          Fix_Element => Fix_Element,
+     442                                                          Valid => Valid);
+     443         if Valid then
+  *  444           ----------------------
+  *  445           -- load airway and fix
+  *  446           ----------------------
+  *  447           Valid := True;
+
+[2-98 IJMP]Lines 447 - 449 not executed.
+     447           Valid := True;
+     448 
+     449           Fpx_Uplink_Buffer_Pkg.Sequential_Write
+  *  450              (Buffer => Fpx_Buffer_Types.Aoc_Buffer, Element => Airway_Element, Success => Buffer_Ok);
+
+[2-100 JMPF]Decision ending on line 452 not executed.
+     452           if Buffer_Ok then
+  *  453             Fpx_Uplink_Buffer_Pkg.Sequential_Write
+  *  454                (Buffer => Fpx_Buffer_Types.Aoc_Buffer, Element => Fix_Element, Success => Buffer_Ok);
+
+[2-102 IJMP]Line 453 not executed.
+     453             Fpx_Uplink_Buffer_Pkg.Sequential_Write
+  *  454                (Buffer => Fpx_Buffer_Types.Aoc_Buffer, Element => Fix_Element, Success => Buffer_Ok);
+
+[2-104 JMPT]Lines 455 - 459 not executed.
+[2-104 JMPT]Decision ending on line 459 not executed.
+     455           end if;
+     456 
+     457         end if; -- load airway and fix
+     458 
+     459         if not Valid then
+  *  460           Etc := Cdl_Error_Codes_Data.Etcawytofix_041;
+
+[2-106 LABEL]Line 460 not executed.
+     460           Etc := Cdl_Error_Codes_Data.Etcawytofix_041;
+
+[2-107 JMP]Line 461 not executed.
+     461         end if;
+
+[2-109 LABEL]Lines 462 - 470 not executed.
+     462       else
+     463 
+     464         -- ----------------------------------------------------------------------------------
+     465         -- Note: For this path, there is no need to check if Pilot_Define_Store_Full is true,
+     466         --       as To_Fix.Typefixreq can only be Definefixrec_Iftypes.Plaintofix.  This means
+     467         --       that it should always be false, if we are here.
+     468         -- ----------------------------------------------------------------------------------
+     469 
+     470         Etc := Cdl_Error_Codes_Data.Etcnotinndb_011;
+
+[2-110 JMP]Lines 471 - 473 not executed.
+     471       end if;
+     472 
+     473     end if; -- Start_Segment or ...
+
+[2-112 JMPT]Decision ending on line 475 not executed.
+     475   elsif (Foundcount > 0) then
+  *  476 
+  *  477     -- The optional lat/lon is not within 1/2 minute of matching NDB fix of the PBD parent.
+  *  478     Etc := Cdl_Error_Codes_Data.Etcnotinndb_011;
+
+[2-114 JMP]Line 478 not executed.
+     478     Etc := Cdl_Error_Codes_Data.Etcnotinndb_011;
+
+[2-116 JMPT]Decision ending on line 480 not executed.
+     480   elsif (Etc = Cdl_Error_Codes_Data.Etc_No_Error) then
+  *  481 
+  *  482     Etc := Cdl_Error_Codes_Data.Etcrangefmt_109;
+
+[2-118 LABEL]Line 482 not executed.
+     482     Etc := Cdl_Error_Codes_Data.Etcrangefmt_109;
+
+[2-119 JMPT]Decision ending on line 486 NOT taken.
+  .  484   end if; -- airframe specific validation
+  .  485 
+  .  486   if not Valid then
+  *  487     -----------------
+  *  488     -- rejection data
+  *  489     -----------------
+  *  490 
+  *  491     if Cdl_Dlupendawy_Data.Procprevawy then
+  *  492       ------------------------
+  *  493       -- reject pending airway
+  *  494       ------------------------
+  *  495       Airway_Text.Contents := Cdl_Datalinerec_Types.Not_Empty;
+
+[2-121 JMPF]Decision ending on line 491 not executed.
+     491     if Cdl_Dlupendawy_Data.Procprevawy then
+  *  492       ------------------------
+  *  493       -- reject pending airway
+  *  494       ------------------------
+  *  495       Airway_Text.Contents := Cdl_Datalinerec_Types.Not_Empty;
+
+[2-125 JMPT]Lines 496 - 499 not executed.
+[2-128 LABEL]Line 499 not executed.
+[2-129 JMPT]Line 499 not executed.
+[2-131 LABEL]Line 499 not executed.
+[2-133 JMPT]Line 499 not executed.
+[2-135 JMPT]Line 499 not executed.
+[2-137 LABEL]Line 499 not executed.
+[2-138 JMPF]Line 499 not executed.
+     496       Airway_Text.Numchars := Positive (Cdl_Dlupendawy_Data.Numofchars);
+     497       Airway_Text.Datachars := (others => ' ');
+     498 
+     499       Airway_Text.Datachars (1 .. Airway_Text.Numchars) := Cdl_Dlupendawy_Data.Airwayname (1 .. Airway_Text.Numchars);
+
+[2-140 IJMP]Line 501 not executed.
+     501       Aoc702_Downlink_Build_Pkg.Append_Error (Uplinkinproc => "FPN",
+  *  502                                               Errtypecode => Cdl_Error_Codes_Data.Etcawyclose_137,
+  *  503                                               Errdatacode => Cdl_Error_Codes_Data.Edcawyvia_065,
+  *  504                                               Tokeninproc => Cdl_Fpxrectype_Data.Routeiei,
+  *  505                                               Exterrcode => Cdl_Error_Codes_Data.Eecelem_005,
+  *  506                                               Errtext => Airway_Text);
+
+[2-142 JMPT]Lines 508 - 510 not executed.
+[2-142 JMPT]Decision ending on line 510 not executed.
+     508     end if; -- reject pending airway
+     509 
+     510     if (Err_Text.Contents = Cdl_Datalinerec_Types.Empty) then
+  *  511       Err_Text := Fix_Text;
+
+[2-144 LABEL]Line 511 not executed.
+     511       Err_Text := Fix_Text;
+
+[2-145 IJMP]Lines 512 - 514 not executed.
+     512     end if;
+     513 
+     514     Aoc702_Downlink_Build_Pkg.Append_Error (Uplinkinproc => "FPN",
+  *  515                                             Errtypecode => Etc,
+  *  516                                             Errdatacode => Edc,
+  *  517                                             Tokeninproc => Cdl_Fpxrectype_Data.Routeiei,
+  *  518                                             Exterrcode => Cdl_Error_Codes_Data.Eecelem_005,
+  *  519                                             Errtext => Err_Text);
+
+{no_change_since_cert}
+There were no changes to this code since its last certification.
+Coverage analysis was inspected and placed in ACM at that time.
+This historical coverage analysis is sufficient for the level of
+the current certification.
+
+**************************** End of Report *****************************

@@ -1,7 +1,8 @@
-# 
+# /usr/bin/env python3
+# checks if the .RPT/.RST files are consistent
 
 import sys
-import re
+import subprocess
 
 def func(old_path, new_path):
     if (None == old_path or None == new_path):
@@ -36,11 +37,6 @@ def func(old_path, new_path):
             if ('CURRENT PROGRAM LIBRARY' in old_file_line.upper() or 'CURRENT BUILD' in old_file_line.upper()):
                 break
             
-            # other differences are not allowed
-            if (old_file_line.upper() != new_file_line.upper()):
-                consistent = False
-                break
-
         else:
             # .RPT files
             # skip the first 9 lines
@@ -67,19 +63,13 @@ def func(old_path, new_path):
                     new_file_line = new_file.readline()
             # how about src code path?
         
-    
+        # other differences are not allowed
+        if (old_file_line.upper() != new_file_line.upper()):
+            consistent = False
+            break
         old_file_line = old_file.readline()
         new_file_line = new_file.readline()
-    
-    
-    pattern = re.compile(r"TESTID\s*:\s*\d+", re.IGNORECASE)  # TESTID: 2
-    for line in file_in:
-        if (None != pattern.match(line.strip())):
-            print("TESTID: {ID}".format(ID = ID), file = file_out)
-            ID += 1
-        else:
-            print(line, end = '', file = file_out)
-            
+                        
     old_file.close()
     new_file.close()
     if (consistent):
@@ -87,7 +77,42 @@ def func(old_path, new_path):
     else:
         return 1
 
+        
+def call_diff(old_file, new_file):
+    if (None == old_file or None == new_file):
+        print('Bad parameter.', file = sys.stderr)
+        return None
+    
+    # command = ['D:/Program Files/Git/bin/diff.exe', " --unchanged-line-format=''" + " --old-line-format=''" + \
+    #           " --new-line-format='(%dn) %L'", old_file, new_file]
+    command = ['D:/Program Files/Git/bin/diff.exe', old_file, new_file]
+    result = subprocess.Popen(command, shell = True, stdout = subprocess.PIPE)    
+    differences = []
+    for line in result.stdout:
+        LINE = str(line).upper()
+        if (('TEST START TIME' in LINE) or               \
+            ('TEST END TIME' in LINE) or                 \
+            ('USERID:' in LINE) or                       \
+            ('CURRENT PROGRAM LIBRARY' in LINE) or       \
+            ('CURRENT BUILD' in LINE) or                 \
+            ('WIN32 HOST:' in LINE) or                   \
+            ('CURRENT DIR' in LINE) or                   \
+            ('DATE OF REPORT' in LINE) or                \
+            ('.PTH' in LINE) or                          \
+            ('.CUL' in LINE) or                          \
+            ('.XIN' in LINE)):        
+            continue
+        else:
+            differences.append(line)
+            
+    return differences
 
 if ("__main__" == __name__):
-    if (len(sys.argv) > 1):
-        func(sys.argv[1])
+    if (len(sys.argv) > 2):
+        # func(sys.argv[1])        
+        retval = call_diff(sys.argv[1], sys.argv[2])
+        if (None == retval):        
+            print('Missing comparison operand.')
+        else:
+            for line in retval:
+                print(line, file = sys.stdout)
