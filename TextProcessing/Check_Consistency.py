@@ -85,7 +85,7 @@ def call_diff(old_file, new_file):
     
     # command = ['D:/Program Files/Git/bin/diff.exe', " --unchanged-line-format=''" + " --old-line-format=''" + \
     #           " --new-line-format='(%dn) %L'", old_file, new_file]
-    command = ['D:/Program Files/Git/bin/diff.exe', old_file, new_file]
+    command = ['diff.exe', old_file, new_file]
     result = subprocess.Popen(command, shell = True, stdout = subprocess.PIPE)    
     differences = []
     for line in result.stdout:

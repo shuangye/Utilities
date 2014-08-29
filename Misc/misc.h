@@ -5,3 +5,5 @@ int is_power_of_two (int n);
 // algorithm 1: Nilakantha series
 // algorithm 2: Gregory–Leibniz series
 double calc_PI(int algorithm, long terms);
+
+float integer_to_float(int target);
