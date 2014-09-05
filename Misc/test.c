@@ -11,5 +11,6 @@ int main(int argc, char *argv[])
     fprintf(stdout, "MAX_LONG = %ld\n", LONG_MAX);
     // fprintf(stdout, "PI with %ld terms of calculations: %f\n", LONG_MAX, calc_PI(1, LONG_MAX));
     
-    fprintf(stdout, "0x3F9D70A3H = %f\n", integer_to_float(0xC14570A3)); // -12.34
+    fprintf(stdout, "0x000061F2 = %f\n", integer_to_float(0x000061F2));
+    fprintf(stdout, "0x003C0000 = %f\n", integer_to_float(0x003C0000));
 }

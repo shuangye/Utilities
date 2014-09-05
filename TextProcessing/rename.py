@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# remove "BLD_922RL101001" from a file name
 
 import sys
 import os
@@ -8,7 +7,7 @@ import shutil
 
 
 
-def work(src_path, dest_path):
+def rename(src_path, dest_path):
     if (None == src_path or None == dest_path):
         print("Invalid path", file = sys.stderr)
         return -1
@@ -22,9 +21,26 @@ def work(src_path, dest_path):
         
     return 0
     
+def copy(list_file_path, src_path, dest_path):
+    if (None == list_file_path or None == src_path or None == dest_path):
+        print("Invalid path", file = sys.stderr)
+        return -1
+    
+    processed_file_count = 0
+    list_file = open(list_file_path, 'r')
+    for line in list_file:
+        line = line.strip()
+        src_file = os.path.join(src_path, line)
+        if (os.path.isfile(src_file)):
+            # shutil.copy2(src_file, dest_path)
+            processed_file_count += 1
+        else:
+            print(line + "does not exist.", file = sys.stderr)
+    list_file.close()
+    return processed_file_count
 
-if (len(sys.argv) > 2):
-    work(sys.argv[1], sys.argv[2])
+if (len(sys.argv) > 3):
+    print("Processed file count: " + str(copy(sys.argv[1], sys.argv[2], sys.argv[3])), file = sys.stdout)
 else:
     print("usage: python {me} src_path dest_path".format(me = sys.argv[0]))
                         
