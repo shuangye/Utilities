@@ -32,7 +32,7 @@ def copy(list_file_path, src_path, dest_path):
         line = line.strip()
         src_file = os.path.join(src_path, line)
         if (os.path.isfile(src_file)):
-            # shutil.copy2(src_file, dest_path)
+            shutil.copy2(src_file, dest_path)
             processed_file_count += 1
         else:
             print(line + "does not exist.", file = sys.stderr)

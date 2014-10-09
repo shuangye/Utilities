@@ -31,7 +31,7 @@ def work(trace_path):
         return -1
         
     try:
-        file_out = open("result.txt", mode = "a")
+        file_out = open("TRT.txt", mode = "a")
     except OSError as e:
         print("Failed to open result file for writing: {1}".format(e.strerror), file = sys.stderr)
         return -2
@@ -40,7 +40,7 @@ def work(trace_path):
     for root, dirs, files in os.walk(trace_path):        
         for file in files:            
             basename, extension = os.path.splitext(file)            
-            if (".TRR" == extension.upper()):
+            if (".TRT" == extension.upper()):
                 parse_trace(os.path.join(trace_path, file), file_out)
                 parsed_file_count += 1
     
@@ -51,5 +51,5 @@ if ("__main__" == __name__):
     if (len(sys.argv) > 1):
         print("Processed file count: " + str(work(sys.argv[1])), file = sys.stdout)
     else:
-        print("usage: python {me} srd_path trt_path".format(me = sys.argv[0]))
+        print("usage: python {me} trace_path".format(me = sys.argv[0]))
                        
