@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# calc running duration according to .VER or .RST files.
+# calc running duration from .VER or .RST files.
 
 import sys
 import os
@@ -24,8 +24,12 @@ def parse_time(time_str):
             try:
                 time_struct = time.strptime(time_str_clean, "%m-%d-%y %a %H:%M:%S")
             except ValueError:
-                # I have tried my best
-                return None;
+                try:
+                    # Wed 10/15/2014 15:39:10
+                    time_struct = time.strptime(time_str_clean, "%a %m/%d/%Y %H:%M:%S")
+                except ValueError:
+                    # I have tried my best
+                    return None;
                 
     return time_struct
  
