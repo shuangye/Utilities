@@ -1,0 +1,271 @@
+-------------------------------------------------------------------------------
+ THIS TCE WAS CREATED BY : E451848 ON 10/20/2014 5:52:52 PM
+-------------------------------------------------------------------------------
+Filename: W:\A340_Step2\ST2099\TCA_REPORTS\Fm\DL\ST2099_TO_ST2099\ATC_UL_MSG_PROCESSOR_PKG.tcr
+-------------------------------------------------------------------------------
+*** Warning **** This file was initially auto-generated from file:
+                 W:\A340_Step2\ST2099\TCA_REPORTS\Fm\DL\ST2099_TO_ST2099\ATC_UL_MSG_PROCESSOR_PKG.tcr
+-------------------------------------------------------------------------------
+    Date generated: 10/20/2014
+    Generate Structural Coverage Exception Report (GTCE)
+        Ver: 2.0.0 Part No: PS4091395-101
+
+    Test Coverage Analyzer (TCA)  V6.15 CLASS A ps4082880-123
+    Win32 Host: WinNT 6.1 Build 7601  UserID: atats  Node: IE11IW6VNGBX1 (Intel PentPro Model 45 Step 7)
+    Current Dir: W:\A340_Step2\ST2099\POST_TCA\20_Th_OCT
+
+--------------------------------------------------------------------------------
+TCA invoked Mon Oct 20 15:53:04 India Standard Time 2014 with command line:
+   TCA.exe -TABS -s -t 4 -x ...
+   W:\A340_Step2\ST2099\TCA_REPORTS\TCA_INPUT\Fm\ST2099\XIN\ATC_UL_MSG_PROCESSOR_PKG.XIL ...
+   -p ...
+   W:\A340_Step2\ST2099\TCA_REPORTS\TCA_INPUT\Fm\ST2099\CUL_AND_PTH\ATC_UL_MSG_PROCESSOR_PKG.ptl ...
+   -c ...
+   W:\A340_Step2\ST2099\TCA_REPORTS\TCA_INPUT\Fm\ST2099\CUL_AND_PTH\ATC_UL_MSG_PROCESSOR_PKG.cul ...
+   -r ...
+   W:\A340_Step2\ST2099\TCA_REPORTS\Fm\DL\ST2099_TO_ST2099\ATC_UL_MSG_PROCESSOR_PKG.tcr
+------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+       Compilation                    Test Coverage Statistics       Warnings   Analysis for
+        Unit Name               Total Decision Cond Statemnt Block  Mixed Bool structual hole
+------------------------------- ----------------------------------- ---------- ---------------
+ATC_UL_MSG_PROCESSOR_PKG.FREE -
+  _RC_SPACE                        0.0    n/a    n/a     0.0    0.0     0   0     TBD
+                                         n/a    n/a   0/2    0/5
+
+ATC_UL_MSG_PROCESSOR_PKG.INIT -
+  IALIZE_UPLINK_VARIABLES        100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   11/11  3/3
+
+ATC_UL_MSG_PROCESSOR_PKG.GET_ -
+  DL_ELEMENT                       0.0    n/a    n/a     0.0    0.0     0   0     TBD
+                                         n/a    n/a   0/5    0/52
+
+ATC_UL_MSG_PROCESSOR_PKG.PROC -
+  ESS_161_NOT_FOUND               72.4    n/a    n/a    71.4   73.3     0   0     TBD
+                                         n/a    n/a   5/7    11/15
+
+ATC_UL_MSG_PROCESSOR_PKG.STOR -
+  E_UPLINK                       100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   1/1    4/4
+
+ATC_UL_MSG_PROCESSOR_PKG.UPLI -
+  NK_PENDING                     100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   1/1    4/4
+
+ATC_UL_MSG_PROCESSOR_PKG.CHEC -
+  K_FOR_NEW_UPLINK               100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   3/3    9/9
+
+ATC_UL_MSG_PROCESSOR_PKG.INIT -
+  IALIZE                         100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   2/2    5/5
+
+ATC_UL_MSG_PROCESSOR_PKG.BODY -
+  _ELABORATION                   100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   1/1    34/34
+
+------------------------------------------------------------------------------
+Total Percentages                        n/a    n/a    72.7   53.4
+Totals                                   n/a    n/a   24/33  70/131
+Total Coverage                   63.1
+------------------------------------------------------------------------------
+
+************************************************************************
+
+	Test Coverage Analyzer (TCA)  Version 6.15 CLASS A
+
+************************************************************************
+
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.FREE_RC_SPACE
+	P:\A340_Test_Environment\A340_Builds\ST2099\SRC_ST2099\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4,   0.0%
+
+			 Executed	  Total
+	Statements	       0	     2
+	Blocks		       0	     5
+
+
+........................................................................
+SubUnit: ATC_UL_MSG_PROCESSOR_PKG.FREE_RC_SPACE  (0.0% Coverage)
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.INITIALIZE_UPLINK_VARIABLES
+	P:\A340_Test_Environment\A340_Builds\ST2099\SRC_ST2099\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	      11	    11
+	Blocks		       3	     3
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.GET_DL_ELEMENT
+	P:\A340_Test_Environment\A340_Builds\ST2099\SRC_ST2099\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4,   0.0%
+
+			 Executed	  Total
+	Statements	       0	     5
+	Blocks		       0	    52
+
+
+........................................................................
+SubUnit: ATC_UL_MSG_PROCESSOR_PKG.GET_DL_ELEMENT  (0.0% Coverage)
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.PROCESS_161_NOT_FOUND
+	P:\A340_Test_Environment\A340_Builds\ST2099\SRC_ST2099\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4,  72.4%
+
+			 Executed	  Total
+	Statements	       5	     7
+	Blocks		      11	    15
+
+
+........................................................................
+SubUnit: ATC_UL_MSG_PROCESSOR_PKG.PROCESS_161_NOT_FOUND
+[4-13 IJMP]NON-executed source lines 442 - 448 follow.
+     442     else
+     443 
+     444       -- Process an Invalid Message
+     445       -----------------------------
+     446 
+     447       -- Send a Data Request downlink to ATC DMC
+     448       Create_System_Response_Dl (Resp_Msg => Insuff_Storage, Mrn_Flag => False);
+
+[4-15 IJMP]NON-executed source lines 451 - 451 follow.
+     451       Free_Rc_Space;
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.STORE_UPLINK
+	P:\A340_Test_Environment\A340_Builds\ST2099\SRC_ST2099\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       1	     1
+	Blocks		       4	     4
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.UPLINK_PENDING
+	P:\A340_Test_Environment\A340_Builds\ST2099\SRC_ST2099\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       1	     1
+	Blocks		       4	     4
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.CHECK_FOR_NEW_UPLINK
+	P:\A340_Test_Environment\A340_Builds\ST2099\SRC_ST2099\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       3	     3
+	Blocks		       9	     9
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.INITIALIZE
+	P:\A340_Test_Environment\A340_Builds\ST2099\SRC_ST2099\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       2	     2
+	Blocks		       5	     5
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.BODY_ELABORATION
+	P:\A340_Test_Environment\A340_Builds\ST2099\SRC_ST2099\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       1	     1
+	Blocks		      34	    34
+
+
+
+**************************** End of Report *****************************
+*************************************************
+TCE Disposed by :  
+TCE Reviewed by : 
+TCE Reviewed date:
+Comments: 
+Comments Reviewed by :
+Comments Reviewed Date:
+*************************************************

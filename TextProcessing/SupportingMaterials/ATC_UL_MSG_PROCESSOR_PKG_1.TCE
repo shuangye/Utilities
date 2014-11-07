@@ -1,0 +1,309 @@
+-------------------------------------------------------------------------------
+ THIS TCE WAS CREATED BY : E332459 ON 7/8/2013 5:17:03 PM
+-------------------------------------------------------------------------------
+Filename: V:\SCAT\TCA_REPORTS\FM\DL\S1A117_TO_S1A117\ATC_UL_MSG_PROCESSOR_PKG.tcr
+-------------------------------------------------------------------------------
+*** Warning **** This file was initially auto-generated from file:
+                 V:\SCAT\TCA_REPORTS\FM\DL\S1A117_TO_S1A117\ATC_UL_MSG_PROCESSOR_PKG.tcr
+-------------------------------------------------------------------------------
+    Date generated: 7/8/2013
+    Generate Structural Coverage Exception Report (GTCE)
+        Ver: 2.0.0 Part No: PS4091395-101
+
+    Test Coverage Analyzer (TCA)  V6.13 CLASS A ps4082880-121
+    Win32 Host: WinNT 5.1 Build 2600  UserID: admin  Node: IE11DT28B5S1S (Intel PentPro Model 15 Step 11)
+    Current Dir: C:\Documents and Settings\admin\Desktop\A340
+
+--------------------------------------------------------------------------------
+TCA invoked Fri Jul 05 04:03:27 India Standard Time 2013 with command line:
+   TCA.exe -TABS -s -t 4 -x ...
+   V:\SCAT\TCA_REPORTS\TCA_INPUT\FM\S1A117\XIN\ATC_UL_MSG_PROCESSOR_PKG.XIL ...
+   -p ...
+   V:\SCAT\TCA_REPORTS\TCA_INPUT\FM\S1A117\CUL_AND_PTH\ATC_UL_MSG_PROCESSOR_PKG.ptl ...
+   -c ...
+   V:\SCAT\TCA_REPORTS\TCA_INPUT\FM\S1A117\CUL_AND_PTH\ATC_UL_MSG_PROCESSOR_PKG.cul ...
+   -r ...
+   V:\SCAT\TCA_REPORTS\FM\DL\S1A117_TO_S1A117\ATC_UL_MSG_PROCESSOR_PKG.tcr
+------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+       Compilation                    Test Coverage Statistics       Warnings   Analysis for
+        Unit Name               Total Decision Cond Statemnt Block  Mixed Bool structual hole
+------------------------------- ----------------------------------- ---------- ---------------
+ATC_UL_MSG_PROCESSOR_PKG.FREE -
+  _RC_SPACE                        0.0    n/a    n/a     0.0    0.0     0   0     TBD
+                                         n/a    n/a   0/2    0/5
+
+ATC_UL_MSG_PROCESSOR_PKG.INIT -
+  IALIZE_UPLINK_VARIABLES        100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   11/11  3/3
+
+ATC_UL_MSG_PROCESSOR_PKG.GET_ -
+  DL_ELEMENT                       0.0    n/a    n/a     0.0    0.0     0   0     TBD
+                                         n/a    n/a   0/5    0/52
+
+ATC_UL_MSG_PROCESSOR_PKG.PROC -
+  ESS_161_NOT_FOUND               72.4    n/a    n/a    71.4   73.3     0   0     TBD
+                                         n/a    n/a   5/7    11/15
+
+ATC_UL_MSG_PROCESSOR_PKG.STOR -
+  E_UPLINK                       100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   1/1    4/4
+
+ATC_UL_MSG_PROCESSOR_PKG.UPLI -
+  NK_PENDING                     100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   1/1    4/4
+
+ATC_UL_MSG_PROCESSOR_PKG.CHEC -
+  K_FOR_NEW_UPLINK               100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   3/3    9/9
+
+ATC_UL_MSG_PROCESSOR_PKG.INIT -
+  IALIZE                         100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   2/2    5/5
+
+ATC_UL_MSG_PROCESSOR_PKG.BODY -
+  _ELABORATION                   100.0    n/a    n/a   100.0  100.0     0   0     DONE
+                                         n/a    n/a   1/1    34/34
+
+------------------------------------------------------------------------------
+Total Percentages                        n/a    n/a    72.7   53.4
+Totals                                   n/a    n/a   24/33  70/131
+Total Coverage                   63.1
+------------------------------------------------------------------------------
+
+************************************************************************
+
+	Test Coverage Analyzer (TCA)  Version 6.13 CLASS A
+
+************************************************************************
+
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.FREE_RC_SPACE
+	W:\A340_Test_Environment\A340_Builds\S1A117\SRC_S1A117\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4,   0.0%
+
+			 Executed	  Total
+	Statements	       0	     2
+	Blocks		       0	     5
+
+
+........................................................................
+SubUnit: ATC_UL_MSG_PROCESSOR_PKG.FREE_RC_SPACE  (0.0% Coverage)
+
+
+{protective_code}
+This code insures the program remains in a safe state should an anomaly occur.
+Since the anomaly can not normally occur, it is not feasible to develop a test
+to execute this code segment.
+why the code is there:
+Code exists to avoid the anomaly in execution when it passes wrongly in decoder. 
+These checks will re-validate the date being decoded and responds with error information if it fails.
+
+Description of system impact (what would happen) if this code executes:
+When execute error information will be populated and responded to user. 
+The Uplink message will not be stored and will be rejected with errors.
+
+AO_A340S1A_DATALINK_0014.DOC, SCR 44424 (Project/SubProject:FMS2000/A3XX)
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.INITIALIZE_UPLINK_VARIABLES
+	W:\A340_Test_Environment\A340_Builds\S1A117\SRC_S1A117\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	      11	    11
+	Blocks		       3	     3
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.GET_DL_ELEMENT
+	W:\A340_Test_Environment\A340_Builds\S1A117\SRC_S1A117\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4,   0.0%
+
+			 Executed	  Total
+	Statements	       0	     5
+	Blocks		       0	    52
+
+
+........................................................................
+SubUnit: ATC_UL_MSG_PROCESSOR_PKG.GET_DL_ELEMENT  (0.0% Coverage)
+
+{protective_code}
+This code insures the program remains in a safe state should an anomaly occur.
+Since the anomaly can not normally occur, it is not feasible to develop a test
+to execute this code segment.
+why the code is there:
+Code exists to avoid the anomaly in execution when it passes wrongly in decoder. 
+These checks will re-validate the date being decoded and responds with error information if it fails.
+
+Description of system impact (what would happen) if this code executes:
+When execute error information will be populated and responded to user. 
+The Uplink message will not be stored and will be rejected with errors.
+
+AO_A340S1A_DATALINK_0014.DOC, 44424 (Project/SubProject:FMS2000/A3XX)
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.PROCESS_161_NOT_FOUND
+	W:\A340_Test_Environment\A340_Builds\S1A117\SRC_S1A117\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4,  72.4%
+
+			 Executed	  Total
+	Statements	       5	     7
+	Blocks		      11	    15
+
+
+........................................................................
+SubUnit: ATC_UL_MSG_PROCESSOR_PKG.PROCESS_161_NOT_FOUND
+[4-13 IJMP]NON-executed source lines 442 - 448 follow.
+     442     else
+     443 
+     444       -- Process an Invalid Message
+     445       -----------------------------
+     446 
+     447       -- Send a Data Request downlink to ATC DMC
+     448       Create_System_Response_Dl (Resp_Msg => Insuff_Storage, Mrn_Flag => False);
+
+[4-15 IJMP]NON-executed source lines 451 - 451 follow.
+     451       Free_Rc_Space;
+
+{protective_code}
+This code insures the program remains in a safe state should an anomaly occur.
+Since the anomaly can not normally occur, it is not feasible to develop a test
+to execute this code segment.
+why the code is there:
+Code exists to avoid the anomaly in execution when it passes wrongly in decoder. 
+These checks will re-validate the date being decoded and responds with error information if it fails.
+
+Description of system impact (what would happen) if this code executes:
+When execute error information will be populated and responded to user. 
+The Uplink message will not be stored and will be rejected with errors.
+AO_A340S1A_DATALINK_0014.DOC
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.STORE_UPLINK
+	W:\A340_Test_Environment\A340_Builds\S1A117\SRC_S1A117\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       1	     1
+	Blocks		       4	     4
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.UPLINK_PENDING
+	W:\A340_Test_Environment\A340_Builds\S1A117\SRC_S1A117\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       1	     1
+	Blocks		       4	     4
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.CHECK_FOR_NEW_UPLINK
+	W:\A340_Test_Environment\A340_Builds\S1A117\SRC_S1A117\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       3	     3
+	Blocks		       9	     9
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.INITIALIZE
+	W:\A340_Test_Environment\A340_Builds\S1A117\SRC_S1A117\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       2	     2
+	Blocks		       5	     5
+
+
+
+************************************************************************
+
+Compilation Unit / Source file :
+
+	ATC_UL_MSG_PROCESSOR_PKG.BODY_ELABORATION
+	W:\A340_Test_Environment\A340_Builds\S1A117\SRC_S1A117\Fm2\ATC_UL_MS -
+           G_PROCESSOR_PKG.ADA                                                 
+
+Coverage statistics :
+
+	TYPE 4, 100.0%
+
+			 Executed	  Total
+	Statements	       1	     1
+	Blocks		      34	    34
+
+
+
+**************************** End of Report *****************************
+*************************************************
+TCE Disposed by :  Md.Shamsuzzoha
+TCE Reviewed by : Vinod Jeengar
+TCE Reviewed date: 07/22/2013
+Comments: N/A
+Comments Reviewed by : N/A
+Comments Reviewed Date: N/A
+*************************************************
