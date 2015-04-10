@@ -60,6 +60,7 @@ def parse_file(file_path):
 
 
 def main(path, result_path):
+    print("main")
     if (None == path or None == result_path):
         print("Invalid path", file = sys.stderr)
         return -1
@@ -78,7 +79,7 @@ def main(path, result_path):
             file_path = os.path.join(path, item)
             fileName, extension = os.path.splitext(file_path)
             if (".RST" == extension.upper() or ".VER" == extension.upper()):                
-                # print("Parsing " + file_path)
+                print("Parsing " + file_path)
                 start_time, end_time = parse_file(file_path)
                 if (None == start_time or None == end_time):
                     print("Test Start/End Time not retrieved from " + file_path, file = sys.stderr)
@@ -99,7 +100,7 @@ def main(path, result_path):
     
 
 if ("__main__" == __name__):
-    if (len(sys.argv) > 2):
+    if (len(sys.argv) > 2):        
         main(sys.argv[1], sys.argv[2])
     else:
         print("usage: python {me} path result".format(me = sys.argv[0]))
