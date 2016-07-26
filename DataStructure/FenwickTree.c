@@ -224,5 +224,7 @@ int main(int argc, char *argv[])
 	}
 	BIT_dump(handle);
 	
+	BIT_destroy(handle);
+	
 	return 0;
 }
