@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding:utf8 -*-
 
+# "C:\Program Files\Python36\python.exe" D:\Code\smartaccesscontrol\dbmanager\doc\gen_struct.py D:\Code\smartaccesscontrol\dbmanager\doc\tables_sqlite3.sql D:\Code\smartaccesscontrol\dbmanager\doc
+
+
 import sys
 import os
 import codecs
@@ -9,60 +12,622 @@ import re
 import datetime
 
 
-def work(ddl_path, header_path):    
-    if (None == ddl_path or None == header_path):
-        print("Invalid argument")
-        return -1
+G_indent = 4    # 4 spaces
+G_namespace_prefix = "DBM"
 
-    try:
-        file_in = open(ddl_path, mode = "r", encoding="utf8")
-    except OSError as e:
-        print("Failed to open file " + ddl_path + "for parsing: " + str(e.errno) + e.strerror)    
-        return -1
+G_sql_types = { 
+#   SQLite data type  : [C data type,     C format specifier, SQLite3 bind          , Python.ctypes]
+    "CHAR"            : ["Char",          "%s",               "sqlite3_bind_text"   , "ctypes.c_char" ], 
+    "VARCHAR"         : ["Char",          "%s",               "sqlite3_bind_text"   , "ctypes.c_char" ], 
+    "DATE"            : ["Char",          "%s",               "sqlite3_bind_text"   , "ctypes.c_char" ], 
+    "DATETIME"        : ["Char",          "%s",               "sqlite3_bind_text"   , "ctypes.c_char" ], 
+    "TINYINT"         : ["Int8",          "%d",               "sqlite3_bind_int"    , "ctypes.c_char" ], 
+    "SMALLINT"        : ["Int16",         "%d",               "sqlite3_bind_int"    , "ctypes.c_short"], 
+    "INT"             : ["Int32",         "%d",               "sqlite3_bind_int"    , "ctypes.c_int"  ], 
+    "FLOAT"           : ["Float32",       "%f",               "sqlite3_bind_double" , "ctypes.c_float"], 
+}
 
-    try:
-        file_out = open(header_path, mode = "w", encoding="utf8")
-    except OSError as e:
-        print("Failed to open file for writing result: " + str(e.errno) + e.strerror)    
+G_auto_types = {
+# value container is `val_of_{field_name}`
+    "UUID"            : ["Char val_of_{field_name}[64];  DBM_utlGenUuid(val_of_{field_name}, sizeof(val_of_{field_name}));"],
+    "DATETIME"        : ["Char val_of_{field_name}[32];  DBM_utlGetCurrentDateTime(val_of_{field_name}, sizeof(val_of_{field_name}));"],
+    "DATE"            : ["Char val_of_{field_name}[32];  DBM_utlGetCurrentDate(val_of_{field_name}, sizeof(val_of_{field_name}));"],
+    "FLAG"            : ["Int32 val_of_{field_name} = DBM_DATA_OPERATION_C;"],
+    "SYNC"            : ["Int32 val_of_{field_name} = DBM_DATA_SYNC_UNSYNCED;"],
+}
 
-    type_maps = { 
-        "CHAR"            : "Char", 
-        "VARCHAR"         : "Char",        
-        "DATE"            : "Char",
-        "DATETIME"        : "Char",
-        "TINYINT"         : "Int8",
-        "SMALLINT"        : "Int16",
-        "INT"             : "Int32",
-        "FLOAT"           : "Float32"
-    }
-    date_str_len = "12"  # YYYYMMDD
-    datetime_str_len = "16" # YYYYMMDDHHMMSS
-    
-    is_in_table_context = False
-    is_at_table_start = False    
-    table_name = ""
-    field_name = ""
-    field_type = ""
-    field_size = ""
-    field_comment = ""
-    table_begin_pattern = r'\s*CREATE\s+TABLE\s+(\w+)\s*'                          # matches 'CREATE TABLE table_name'
-    table_end_pattern = r'\s*\)\s*;\s*'                                            # matches ');'
-    field_pattern = r'([a-zA-Z_]+\w*)\s+([a-zA-Z]+)\s*\(?(\d*)\)?.*,\s*--\s*(.*)'  # matches sth. like 'reluuid CHAR(32) NOT NULL, -- comments' or 'sync TINYINT, -- comments'
-    # field_pattern = re.compile(field_pattern, re.IGNORECASE)
-    # match = re.search(field_pattern, line, flags = re.IGNORECASE)
-    
-    # file header
-    file_base_name = os.path.basename(header_path)
+G_entity_name = ""                # the database table name
+G_entity_fields = { 0: [] }       # G_entity_fields = { index : ["name", "length", "modifier" "type_sql", "type_c", "c_format_spec", "comment"] }
+G_entity_primary_keys = []        # stores field index
+G_entity_foreign_keys = { 0: [] } # G_entity_foreign_keys = { field_index : [ "foreign_table_name", "foreign_field_name" ] }
+
+G_mCounter = 0
+G_mName = ""
+G_mModifier = ""
+G_mLength = ""
+G_mTypeSql = ""             # field type of SQL
+G_mTypeC = ""               # field type of C
+G_mFormatSpec = ""          # format specifier, e.g., %s, %d
+G_mComment = ""
+
+# global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys
+# global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+
+
+# supid plurality to singular converter, not reliable
+def plurality_to_singular(thestring):    
+    # if thestring.endswith('es'):
+    #     return thestring[:-len('es')]    
+    if thestring.endswith('s'):
+        return thestring[:-len('s')]
+    else:
+        return thestring
+        
+        
+def get_guard_macro(file_path):
+    file_base_name = os.path.basename(file_path)
     header_guard_macro = "__" + file_base_name.replace('.', '_').upper() + "__"
+    return header_guard_macro
+    
+    
+def combine_files(files, out_file_path):
+    with open(out_file_path, 'w') as outfile:
+        for f in files:
+            f.seek(0, 0)
+            outfile.write(f.read())    
+
+    
+def find_index_of_field(field_name):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    index = -1
+    
+    for i in range(0, count):
+        if (field_name.upper() == G_entity_fields[i][0].upper()):
+            index = i
+            break
+    return index
+    
+    
+def gen_entities_prototype_header(file_out, file_path):
+    header_guard_macro = get_guard_macro(file_path)
     print("#pragma once", file = file_out, end = '\n');
     print("#ifndef {guard}".format(guard = header_guard_macro), file = file_out, end = '\n');
     print("#define {guard}".format(guard = header_guard_macro), file = file_out, end = '\n');
     print("", file = file_out, end = '\n')
     print("/* Created by Papillon. {now}. */".format(now = datetime.datetime.now().strftime("%c")), file = file_out, end = '\n')
     print("/* WARNING: DO NOT EDIT THIS FILE. IT IS GENERATED BY A SCRIPT AUTOMATICALLY. */", file = file_out, end = '\n')
-    print("", file = file_out, end = '\n')  # 2 empty lines
+    print("", file = file_out, end = '\n')
+    print("#include <osa/osa.h>  /* primary types definitions */", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
     print("", file = file_out, end = '\n')
     
+    
+def gen_entities_prototype_footer(file_out, file_path):
+    header_guard_macro = get_guard_macro(file_path)
+    print("#endif  /* {guard} */".format(guard = header_guard_macro), file = file_out, end = '\n');
+    print("", file = file_out, end = '\n')
+        
+      
+# struct prototype definition  
+# typedef struct XXX {   
+#     Char                uuid[36];                     /* [00] uuid */ 
+# } XXX;
+def gen_entities_prototype(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    
+    print("typedef struct DBM_{G_entity_name}".format(G_entity_name = G_entity_name), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n');
+                
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        field_length = G_entity_fields[i][1]
+        field_type_sql = G_entity_fields[i][3]
+        field_type_c = G_entity_fields[i][4]        
+        field_comment = G_entity_fields[i][6]
+        field_size = ""
+        if (field_type_c == "Char" and len(field_length) > 0): field_size = "[" + field_length + "]"        
+        print("".ljust(4) 
+              + "{field_type_c}".format(field_type_c = field_type_c).ljust(20)
+              + "{field_name}{field_size};".format(field_name = field_name, field_size = field_size,).ljust(30)
+              + "/* [{counter:02}] {field_comment} */".format(counter = i, field_comment = field_comment),
+              file = file_out, end = '\n')
+    
+    print("}} DBM_{G_entity_name};".format(G_entity_name = G_entity_name), file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')    
+    
+    
+def gen_python_classes(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    
+    print("class DBM_{G_entity_name}(ctypes.Structure):".format(G_entity_name = G_entity_name), file = file_out, end = '\n')
+    print("".ljust(4) + "_fields_ = [", file = file_out, end = '\n');
+    
+    #for key, value in G_entity_fields.items():
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        field_length = G_entity_fields[i][1]
+        field_type_sql = G_entity_fields[i][3]
+        python_type = G_sql_types[field_type_sql][3]
+        separator = ","
+        if (i == count - 1): separator = ""    # the last field has no `,` separator
+        field_size = ""
+        if (len(field_length) > 0): field_size = " * " + field_length        
+        print("".ljust(8) 
+              + "(\""
+              + "{field_name}\"".format(field_name = field_name).ljust(25)
+              + ", {python_type}".format(python_type = python_type).ljust(18)
+              + "{field_size}".format(field_size = field_size).ljust(8)
+              + "){separator}".format(separator = separator).ljust(4)
+              + "# [{counter:02}]".format(counter = i),
+              file = file_out, end = '\n')
+    
+    print("".ljust(4) + "]", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+
+    return
+        
+# Char const             *uuid         ;           /* [00] */
+def gen_field_names_def(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    
+    print("typedef struct DBM_{G_entity_name}Names".format(G_entity_name = G_entity_name), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n');
+    
+    #for key, value in G_entity_fields.items():
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        print("".ljust(4) 
+              + "Char const".ljust(25)
+              + "*{field_name}".format(field_name = field_name).ljust(25)
+              + ";".ljust(4)
+              + "/* [{counter:02}] */".format(counter = i),
+              file = file_out, end = '\n')
+    
+    print("}} DBM_{G_entity_name}Names;".format(G_entity_name = G_entity_name), file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+            
+        
+# .uuid                  = "uuid"         ,        /*  0 */
+def gen_field_names_values(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    
+    
+    # in struct form
+    # print("static const DBM_{G_entity_name}Names g{G_entity_name}Names = ".format(G_entity_name = G_entity_name), file = file_out, end = '\n')
+    # print("{", file = file_out, end = '\n');    
+    # for i in range(0, count):
+    #     field_name = G_entity_fields[i][0]        
+    #     separator = ","
+    #     if (i == count - 1):
+    #         separator = ""    # the last field has no `,` separator
+    #     print("".ljust(4)
+    #           + ".{field_name}".format(field_name = field_name).ljust(25)
+    #           + "= \"{field_name}\"".format(field_name = field_name).ljust(25)
+    #           + separator.ljust(4)
+    #           + "/* [{counter:02}] */".format(counter = i),
+    #           file = file_out, end = '\n')    
+    # print("};", file = file_out, end = '\n')
+    
+    
+    # in array form
+    print("static const Char * DBM_entityGet{G_entity_name}FieldDesc(const unsigned int index, Char *pFormatSpec, const size_t length)"
+        .format(G_entity_name = G_entity_name), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n')
+    
+    # the name array
+    nameArray = "g{G_entity_name}Names".format(G_entity_name = G_entity_name)
+    print("".ljust(4) + "static const Char * const {nameArray}[] = {{".format(nameArray = nameArray), file = file_out, end = '\n')
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        separator = ","
+        if (i == count - 1):
+            separator = ""    # the last field has no `,` separator
+        print("".ljust(8)
+              + "\"{field_name}\"".format(field_name = field_name).ljust(25)
+              + separator.ljust(4)
+              + "/* [{counter:02}] {field_name}".format(counter = i, field_name = field_name).ljust(30)
+              + " */",
+              file = file_out, end = '\n') 
+    print("".ljust(4) + "};", file = file_out, end = '\n')
+    
+    # the format specifier array
+    formatSpecArray = "g{G_entity_name}FormatSpecs".format(G_entity_name = G_entity_name)
+    print("".ljust(4) + "static const Char * const {formatSpecArray}[] = {{".format(formatSpecArray = formatSpecArray), file = file_out, end = '\n')
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        field_type_sql = G_entity_fields[i][3]
+        format_spec = G_sql_types[field_type_sql][1]
+        separator = ","
+        if (i == count - 1):
+            separator = ""    # the last field has no `,` separator
+        print("".ljust(8)
+              + "\"{format_spec}\"".format(format_spec = format_spec).ljust(25)
+              + separator.ljust(4)
+              + "/* [{counter:02}] {field_name}".format(counter = i, field_name = field_name).ljust(30)
+              + " */",
+              file = file_out, end = '\n') 
+    print("".ljust(4) + "};", file = file_out, end = '\n')
+    
+    print("".ljust(4) + "if (index >= OSA_arraySize({nameArray})) {{".format(nameArray = nameArray), file = file_out, end = '\n')
+    print("".ljust(8) + "OSA_debug(\"Invalid field index %u.\\n\", index);", file = file_out, end = '\n')
+    print("".ljust(8) + "return NULL;", file = file_out, end = '\n')
+    print("".ljust(4) + "}", file = file_out, end = '\n')
+    print("".ljust(4) + "if (NULL != pFormatSpec) {{".format(nameArray = nameArray), file = file_out, end = '\n')
+    print("".ljust(8) + "strncpy(pFormatSpec, {formatSpecArray}[index], length);".format(formatSpecArray = formatSpecArray), file = file_out, end = '\n')
+    print("".ljust(4) + "}", file = file_out, end = '\n')
+    print("".ljust(4) + "return {nameArray}[index];".format(nameArray = nameArray), file = file_out, end = '\n')
+    print("}", file = file_out, end = '\n')
+    
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+        
+    
+# NOTE: this function is obsolete, use gen_get_field instead.
+# DBM_SQLITE3GETCOLUMN(pStatement,  0, pPerson->uuid         );
+def _gen_get_field(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys 
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    formal_var = "p" + G_entity_name
+        
+    print("static void DBM_convert{G_entity_name}(DBM_DbStatement *pStatement, DBM_{G_entity_name} *{formal_var})"
+          .format(G_entity_name = G_entity_name, formal_var = formal_var), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n');
+    
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        print("".ljust(4)
+              + "DBM_SQLITE3GETCOLUMN(pStatement, "
+              + "{counter}, ".format(counter = i).ljust(4)
+              + "{formal_var}->".format(formal_var = formal_var)
+              + "{field_name}".format(field_name = field_name).ljust(20)
+              + ");    /* [{counter:02}] */".format(counter = i),
+              file = file_out, end = '\n')
+    
+    print("}", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+        
+        
+def gen_get_field(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys 
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    formal_var = "p" + G_entity_name
+        
+    print("static void DBM_convert{G_entity_name}(DBM_DbStatement *pStatement, DBM_{G_entity_name} *{formal_var})"
+          .format(G_entity_name = G_entity_name, formal_var = formal_var), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n');
+    
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        field_type_c = G_entity_fields[i][4]
+        dest = "{formal_var}->{field_name}".format(formal_var = formal_var, field_name = field_name)        
+        should_assign = True
+        if ("CHAR" in field_type_c.upper()):
+            src = "(Char *)".ljust(10) + "sqlite3_column_text".ljust(22) + "(pStatement, ".ljust(10) + "{counter})".format(counter = i).ljust(4)
+            should_assign = False   # strings should retrieve by copy, not assign
+            print("".ljust(4) + "OSA_strncpy({dest}, ".format(dest = dest).ljust(40)
+                  + "{src}".format(src = src).ljust(20)
+                  + ");".ljust(4),
+                  file = file_out, end = '')
+        elif ("INT" in field_type_c.upper()):   sqlite3_column_xxx = "sqlite3_column_int64"
+        elif ("FLOAT" in field_type_c.upper()): sqlite3_column_xxx = "sqlite3_column_double"
+        else: print("Cannot determine how to retrieve data fro C data type " + field_type_c)
+        if (should_assign):
+            print("".ljust(4)
+                  + "{formal_var}->{field_name} = ".format(formal_var = formal_var, field_name = field_name).ljust(40)
+                  + "({field_type_c})".format(field_type_c = field_type_c).ljust(10)
+                  + "{sqlite3_column_xxx}".format(sqlite3_column_xxx = sqlite3_column_xxx).ljust(22)
+                  + "(pStatement, ".ljust(10)
+                  + "{counter}".format(counter = i).ljust(4)
+                  + ");".ljust(4),
+                  file = file_out, end = '')
+        print("/* [{counter:02}] */".format(counter = i), file = file_out, end = '\n')
+    
+    print("}", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+        
+
+# obsolete, use `gen_sqlite3_bind_all` instead
+# DBM_SQLITE3SETCOLUMN(handle, gTable, gPersonsNames.uuid         , pStatement,  1, uuid                  );
+def gen_set_field(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys 
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    formal_var = "p" + G_entity_name
+        
+    print("/* Set fields of {G_entity_name} */".format(G_entity_name = G_entity_name), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n')
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        print("".ljust(4)
+              + "DBM_SQLITE3SETCOLUMN(handle, gTable, "              
+              + "g{G_entity_name}Names.{field_name}".format(G_entity_name = G_entity_name, field_name = field_name).ljust(40)
+              + ", pStatement, "
+              + "{counter}, ".format(counter = i + 1).ljust(4)
+              + "{formal_var}->".format(formal_var = formal_var)
+              + "{field_name}".format(field_name = field_name).ljust(20)
+              + ");",
+              file = file_out, end = '\n')
+        
+    print("}", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+        
+    
+# generate sqlite3_bind_xxx statements for all fields
+# sqlite3_bind_text(pStatement, 1, pPerson->uuid, -1, NULL);
+# sqlite3_bind_int(pStatement, 33, DBM_DATA_OPERATION_C);
+def gen_sqlite3_bind_all(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys 
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    entity_type = "DBM_" + G_entity_name
+    formal_var = "p" + G_entity_name
+        
+    print("static int DBM_entityBind{G_entity_name}(DBM_DbStatement *pStatement, const {entity_type} *{formal_var})"
+          .format(G_entity_name = G_entity_name, entity_type = entity_type, formal_var = formal_var), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n')
+    print("".ljust(4) + "int ret = 0;", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        type_sql = G_entity_fields[i][3]
+        sqlite3_bind = G_sql_types[type_sql][2]
+        print("".ljust(4)
+              + "ret |= {sqlite3_bind}".format(sqlite3_bind = sqlite3_bind).ljust(28)
+              + "(pStatement, "
+              + "{param_index}, ".format(param_index = i + 1).ljust(4)
+              + "{formal_var}->{field_name}".format(formal_var = formal_var, field_name = field_name).ljust(35),
+              file = file_out, end = '')
+        if ("sqlite3_bind_text" == sqlite3_bind):  
+            print(", -1, NULL".ljust(10), file = file_out, end = '')
+        else:
+            print(" ".ljust(10), file = file_out, end = '')  # to make them align
+        print(");".ljust(4), file = file_out, end = '')
+        print("/* [{counter}] */".format(counter = i), file = file_out, end = '\n')
+    
+    print("", file = file_out, end = '\n')
+    print("".ljust(4) + "return SQLITE_OK == ret ? OSA_STATUS_OK : OSA_STATUS_EINVAL;", file = file_out, end = '\n')
+    print("}", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    
+    
+# generate sqlite3_bind_xxx statements used for INSERTing or UPDATing database records
+def gen_sqlite3_bind(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys 
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    global G_auto_types
+    count = len(G_entity_fields)
+    entity_type = "DBM_" + G_entity_name
+    formal_var = "p" + G_entity_name
+    attr_pattern = r'ATTR\s*:\s*(.+)\s*;'                     # e.g., ATTR:AUTO_ON_C(DATETIME), NO_U();
+    auto_c_pattern = r'AUTO_ON_C\s*\(\s*([A-Z]+)\s*\)'        # e.g., AUTO_ON_C(DATETIME)
+    auto_u_pattern = r'AUTO_ON_U\s*\(\s*([A-Z]+)\s*\)'        # e.g., AUTO_ON_U(DATETIME)
+    no_u_pattern   = r'NO_U\s*\(\s*\)'                        # e.g., NO_U()
+    updating_allowed = True
+        
+    print("static int DBM_entityBind{G_entity_name}(const DBM_BindType bindType, DBM_DbStatement *pStatement, const {entity_type} *{formal_var})"
+          .format(G_entity_name = G_entity_name, entity_type = entity_type, formal_var = formal_var), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n')
+    print("".ljust(4) + "int ret = 0;", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    
+    for i in range(0, count):
+        updating_allowed = True
+        field_name = G_entity_fields[i][0]
+        type_sql = G_entity_fields[i][3]        
+        comment = G_entity_fields[i][6]
+        sqlite3_bind = G_sql_types[type_sql][2]
+        field_value = "{formal_var}->{field_name}".format(formal_var = formal_var, field_name = field_name)
+        destructor = "NULL"
+                
+        # determine if the comment contains attributes
+        match = re.search(attr_pattern, comment, re.IGNORECASE)
+        if (None != match):
+            attributes = match.group(1)
+            
+            # AUTO_ON_C(DATETIME)
+            match = re.search(auto_c_pattern, attributes, re.IGNORECASE)
+            if (None != match):
+                auto_type = match.group(1)
+                destructor = "SQLITE_TRANSIENT"
+                if ("FLAG" == auto_type.upper()):
+                    field_value = "DBM_BIND_TYPE_INSERT == bindType ? DBM_DATA_OPERATION_C : DBM_DATA_OPERATION_U"
+                elif ("SYNC" == auto_type.upper()):
+                    field_value = "DBM_BIND_TYPE_INSERT == bindType ? DBM_DATA_SYNC_UNSYNCED : " + field_value
+                else:
+                    # "UUID"            : ["Char val_of_{field_name}[64];  DBM_utlGenUuid(val_of_{field_name}, sizeof(val_of_{field_name}));"],
+                    field_value = "val_of_{field_name}".format(field_name = field_name)                    
+                    
+            # NO_U()
+            match = re.search(no_u_pattern, attributes, re.IGNORECASE)
+            if (None != match):
+                updating_allowed = False;
+                print("".ljust(4) + "if (DBM_BIND_TYPE_INSERT == bindType) {    /* only generate on creation */", file = file_out, end = '\n')
+                print("".ljust(8), file = file_out, end = '')  # ident
+                print(G_auto_types[auto_type][0].format(field_name = field_name), file = file_out, end = '\n')                
+                print("".ljust(4), file = file_out, end = '')  # deeper indet for next C statement
+            
+            # AUTO_ON_U(DATETIME)
+            match = re.search(auto_u_pattern, attributes, re.IGNORECASE)
+            if (None != match and "FLAG" != auto_type.upper() and "SYNC" != auto_type.upper()):
+                auto_type = match.group(1)
+                destructor = "SQLITE_TRANSIENT"
+                print("".ljust(4), file = file_out, end = '')
+                print(G_auto_types[auto_type][0].format(field_name = field_name), file = file_out, end = '\n')
+         
+        print("".ljust(4), file = file_out, end = '')  # ident
+        aligned_len = 30
+        if (not updating_allowed): aligned_len -= 4    # make them align
+        print("ret |= {sqlite3_bind}".format(sqlite3_bind = sqlite3_bind).ljust(aligned_len)              
+              + "(pStatement, "
+              + "{param_index}, ".format(param_index = i + 1).ljust(4)
+              + "{field_value}".format(field_value = field_value).ljust(35),
+              file = file_out, end = '')
+        if ("sqlite3_bind_text" == sqlite3_bind):  
+            print(", -1, {destructor}".format(destructor = destructor).ljust(10), file = file_out, end = '')
+        else:
+            print(" ".ljust(10), file = file_out, end = '')  # to make them align
+        print(");".ljust(4), file = file_out, end = '')
+        print("/* [{counter}] */".format(counter = i), file = file_out, end = '\n')
+        if (not updating_allowed):
+            print("".ljust(4) + "}", file = file_out, end = '\n')        
+    
+    print("", file = file_out, end = '\n')
+    print("".ljust(4) + "return SQLITE_OK == ret ? OSA_STATUS_OK : OSA_STATUS_EINVAL;", file = file_out, end = '\n')
+    print("}", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+            
+        
+# INSERT INTO %s ("col1", "col2") VALUES(?, ?, );
+def gen_sql_INSERT_statement(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys 
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    
+    print("static const Char * DBM_getSqlStatementOfINSERT{G_entity_name}(void)".format(G_entity_name = G_entity_name), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n')
+    print("".ljust(4) + "/* fields count = {count} */".format(count = count), file = file_out, end = '\n')
+    print("".ljust(4) + "return", file = file_out, end = '\n');
+    print("".ljust(4) + "\"INSERT INTO \\\"%s\\\" (", file = file_out, end = '');
+        
+    # for key, value in G_entity_fields.items():
+    for i in range(0, count):     # range[ , )
+        separator = ', '
+        if (i == count - 1):
+            separator = ''
+        field_name = G_entity_fields[i][0]
+        print("\\\"{field_name}\\\"{separator}".format(field_name = field_name, separator = separator), file = file_out, end = '')    
+    print(") VALUES(", file = file_out, end = '')
+    for i in range(0, count):
+        separator = ', '
+        if (i == count - 1):
+            separator = ''
+        print("?{separator}".format(separator = separator), file = file_out, end = '')    
+    print(");\"", file = file_out, end = '\n')
+    print("".ljust(4) + ";", file = file_out, end = '\n')
+    print("}", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')  # empty line
+    print("", file = file_out, end = '\n')
+
+    
+# OSA_info("%s = %s\n");
+def gen_print_entity(file_out):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys 
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    count = len(G_entity_fields)
+    entity_type = "DBM_" + G_entity_name
+    formal_var = "p" + G_entity_name    
+
+    print("static void DBM_entityPrint{G_entity_name}(const {entity_type} *{formal_var})"
+          .format(G_entity_name = G_entity_name, entity_type = entity_type, formal_var = formal_var), file = file_out, end = '\n')
+    print("{", file = file_out, end = '\n')
+    print("".ljust(4)
+          + "OSA_info(\"-- Printing all fields of {entity_type} at %p -- \\n\", ".format(entity_type = entity_type)
+          + "{formal_var});".format(formal_var = formal_var), file = file_out, end = '\n')
+    
+    for i in range(0, count):
+        field_name = G_entity_fields[i][0]
+        format_spec = G_entity_fields[i][5]
+        print("".ljust(4)
+              + "OSA_info(\"{field_name}".format(field_name = field_name).ljust(30)
+              + "= {format_spec}\\n\", ".format(format_spec = format_spec).ljust(4)
+              + "{formal_var}->{field_name}".format(formal_var = formal_var, field_name = field_name).ljust(40)
+              + ");".ljust(4)
+              + "/* [{counter}] */".format(counter = i),               
+              file = file_out, end = '\n')    
+    
+    print("}", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+    print("", file = file_out, end = '\n')
+        
+
+def parse_ddl_file(ddl_path, out_dir):
+    global G_sql_types, G_entity_name, G_entity_fields, G_entity_primary_keys, G_entity_foreign_keys 
+    global G_mCounter, G_mName, G_mModifier, G_mLength, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment
+    
+    if (not os.path.exists(out_dir)):
+        print(out_dir + " does not exist");
+        return
+    
+    try:
+        file_in = open(ddl_path, mode = "r", encoding="utf8")
+    except OSError as e:
+        print("Failed to open file " + ddl_path + "for parsing: " + str(e.errno) + e.strerror)    
+        return -1
+
+    if (os.path.isdir(out_dir)):
+        _out_dir = out_dir
+    else:
+        _out_dir = os.path.dirname(out_dir) 
+    
+    prototype_path                 = os.path.join(_out_dir, "dbm_entities.h")
+    python_class_path              = os.path.join(_out_dir, "dbm_entities.py")
+    field_names_def_path           = os.path.join(_out_dir, "_field_names_def.c")
+    field_desc_path                = os.path.join(_out_dir, "_field_desc.c")
+    get_field_path                 = os.path.join(_out_dir, "_get_field.c")
+    set_field_path                 = os.path.join(_out_dir, "_set_field.c")
+    print_field_path               = os.path.join(_out_dir, "_print_field.c")
+    sqlite3_bind_path              = os.path.join(_out_dir, "_sqlite3_bind.c")
+    sql_INSERT_statement_path      = os.path.join(_out_dir, "_sql_INSERT.c")
+        
+    try:        
+        file_prototype             = open(prototype_path,             mode = "w+", encoding="utf8")
+        file_python_class          = open(python_class_path,          mode = "w+", encoding="utf8")
+        file_names_def             = open(field_names_def_path,       mode = "w+", encoding="utf8")
+        file_field_desc            = open(field_desc_path,            mode = "w+", encoding="utf8")
+        file_get_field             = open(get_field_path,             mode = "w+", encoding="utf8")
+        file_set_field             = open(set_field_path,             mode = "w+", encoding="utf8")
+        file_print_field           = open(print_field_path,           mode = "w+", encoding="utf8")
+        file_sqlite3_bind          = open(sqlite3_bind_path,          mode = "w+", encoding="utf8")
+        file_sql_INSERT_statement  = open(sql_INSERT_statement_path,  mode = "w+", encoding="utf8")        
+    except OSError as e:
+        print("Failed to open file for writing result: " + str(e.errno) + e.strerror)    
+    
+    is_within_fields = False
+    table_begin_pattern = r'\s*CREATE\s+TABLE\s+(\w+)\s*'                             # matches 'CREATE TABLE G_entity_name'
+    table_end_pattern = r'\s*\)\s*;'                                                  # matches ');'
+    field_pattern = r'([a-zA-Z_]+\w*)\s+([a-zA-Z]+)\s*\(?(\d*)\)?([^-]*)([-]{2,})?\s*(.*)?$'  # matches sth. like 'reluuid CHAR(32) NOT NULL -- comments' or 'sync TINYINT -- comments'
+    # field_pattern = re.compile(field_pattern, re.IGNORECASE)
+    # match = re.search(field_pattern, line, flags = re.IGNORECASE)
+    
+    # File header
+    gen_entities_prototype_header(file_prototype, prototype_path)       
+    
+    print(r"#!/usr/bin/env python3", file = file_python_class)
+    print(r"# -*- encoding: utf-8 -*-", file = file_python_class, end = '\n' * 2)    
+    print("# Created by Papillon. {now}. ".format(now = datetime.datetime.now().strftime("%c")), file = file_python_class, end = '\n')
+    print("# WARNING: DO NOT EDIT THIS FILE. IT IS GENERATED BY A SCRIPT AUTOMATICALLY. ", file = file_python_class, end = '\n' * 3)
+    print(r"import ctypes", file = file_python_class)
+    print(r"from ctypes import *", file = file_python_class, end = '\n' * 3)
+    
+    print("#pragma region Field Name Definitions",     file = file_names_def           , end = '\n\n\n')
+    print("#pragma region Field Descriptions",         file = file_field_desc          , end = '\n\n\n')
+    print("#pragma region Get Field Values",           file = file_get_field           , end = '\n\n\n')
+    print("#pragma region Set Field Values",           file = file_set_field           , end = '\n\n\n')
+    print("#pragma region SQLite3 Bind Fields",        file = file_sqlite3_bind        , end = '\n\n\n')
+    print("#pragma region Print Fields",               file = file_print_field         , end = '\n\n\n')
+    print("#pragma region SQL `INSERT` Statements",    file = file_sql_INSERT_statement, end = '\n\n\n')
+        
     # file content
     for line in file_in:
         line = line.strip()
@@ -72,62 +637,103 @@ def work(ddl_path, header_path):
             continue
         
         # determine if table definition ends
-        match = re.search(table_end_pattern, line, re.IGNORECASE)
+        match = re.match(table_end_pattern, line, re.IGNORECASE)
         if (None != match):
-            is_in_table_context = False
-            print("}} DBM_{table_name};".format(table_name = table_name), file = file_out, end = '\n')
-            print("", file = file_out, end = '\n')  # 2 empty lines
-            print("", file = file_out, end = '\n')
+            is_within_fields = False
+            gen_entities_prototype(file_prototype)
+            gen_python_classes(file_python_class)
+            gen_field_names_def(file_names_def)
+            gen_field_names_values(file_field_desc)
+            gen_get_field(file_get_field)
+            gen_set_field(file_set_field)
+            # gen_sqlite3_bind_all(file_sqlite3_bind)
+            gen_sqlite3_bind(file_sqlite3_bind)
+            gen_print_entity(file_print_field)
+            gen_sql_INSERT_statement(file_sql_INSERT_statement)
+            
             continue
         
         # determine if table definition starts
-        match = re.search(table_begin_pattern, line, re.IGNORECASE)
+        match = re.match(table_begin_pattern, line, re.IGNORECASE)
         if (None != match):
-            is_at_table_start = True
-            is_in_table_context = True
+            is_within_fields = True
+            G_entity_name = match.group(1)
+            G_entity_name = plurality_to_singular(G_entity_name)            
+            G_mCounter = -1
             
-        if (is_at_table_start):
-            table_name = match.group(1)
-            print("typedef struct DBM_{table_name}".format(table_name = table_name), file = file_out, end = '\n')
-            print("{", file = file_out, end = '\n');
-            is_at_table_start = False
+            G_entity_fields.clear()
+            G_entity_primary_keys.clear()
+            G_entity_foreign_keys.clear()
             continue
         
         # determine if within table definition
-        if (is_in_table_context):
-            match = re.search(field_pattern, line, re.IGNORECASE)
+        if (is_within_fields):
+            match = re.match(field_pattern, line, re.IGNORECASE)
             if (None == match):
                 continue
-            field_name = match.group(1)
-            field_type = match.group(2)
-            field_comment = match.group(4)
-            if (field_type in type_maps.keys()):
-                c_field_type = type_maps[field_type]
-                field_size = ""
-                if (c_field_type == "Char" and len(match.group(3)) > 0):
-                    field_size = "[" + match.group(3) + "]"                
-                if (field_type.upper() == "DATE"):
-                    field_size = "[" + date_str_len + "]"
-                elif (field_type.upper() == "DATETIME"):
-                    field_size = "[" + datetime_str_len + "]"
-                print("".ljust(4) 
-                      + "{c_field_type}".format(c_field_type = c_field_type).ljust(20)
-                      + "{field_name}{field_size};".format(field_name = field_name, field_size = field_size,).ljust(30)
-                      + "/* {field_comment} */".format(field_comment = field_comment),
-                      file = file_out, end = '\n')                
-            else:
-                print("Unrecognized SQL data type " + field_type)
-                continue            
+            G_mCounter += 1
+            G_mName = match.group(1)
+            G_mTypeSql = match.group(2)
+            G_mLength = match.group(3)
+            G_mModifier = match.group(4)
+            # match.group(5) is the `--` prefix of comment
+            G_mComment = match.group(6)
+                        
+            if (G_mTypeSql in G_sql_types.keys()):
+                G_mTypeC = G_sql_types[G_mTypeSql][0]
+                G_mFormatSpec = G_sql_types[G_mTypeSql][1]
+                if ("DATE" == G_mTypeSql.upper()): G_mLength = "16"  # format 20171020
+                elif ("DATETIME" == G_mTypeSql.upper()): G_mLength = "32"  # format 20171020080930                
+                # G_entity_fields = { index : ["name", "length", "modifier" "type_sql", "type_c", "c_format_spec" "comment"] }
+                G_entity_fields[G_mCounter] = [G_mName, G_mLength, G_mModifier, G_mTypeSql, G_mTypeC, G_mFormatSpec, G_mComment]            
+                if ("PRIMARY" in G_mModifier.upper()):
+                    G_entity_primary_keys.append(G_mCounter)                               
+                                     
+            primary_pattern = r'PRIMARY\s+KEY\s+\((\w+)\)'
+            match = re.search(primary_pattern, line, re.IGNORECASE)
+            if (None != match):
+                field_name = match.group(1)
+                index = find_index_of_field(field_name)
+                if (index < 0):
+                    print("Invalid PRIMARY KEY constraint: " + line)
+                else:
+                    G_entity_primary_keys.append(index)                
+            
+            foreign_pattern = r'FOREIGN\s+KEY\s+\((\w+)\)\s+REFERENCES\s+(\w+)\((\w+)\)'
+            match = re.search(foreign_pattern, line, re.IGNORECASE)
+            if (None != match):
+                field_name = match.group(1)
+                foreign_table = match.group(2)
+                foreign_field = match.group(3)
+                # G_entity_foreign_keys = { field_index : [ "foreign_table_name", "foreign_field_name" ] }
+                G_entity_foreign_keys[G_mCounter] = [foreign_table, foreign_field]                
+                  
+            # print("Unrecognized SQL data type " + G_mTypeSql)
+            continue            
 
-    # file footer
-    print("#endif  /* {guard} */".format(guard = header_guard_macro), file = file_out, end = '\n');    
-    file_in.close()
-    file_out.close()
-
+    file_in.close()  # close the input file
+            
+    # File footer
+    gen_entities_prototype_footer(file_prototype, prototype_path)
+    file_prototype.close()
+    
+    file_python_class.close()
+    
+    distributed_files = [file_field_desc, file_get_field, file_sqlite3_bind, file_print_field, file_sql_INSERT_statement]
+    for f in distributed_files:
+        print("#pragma endregion", file = f, end = '\n\n\n' )
+        f.flush()
+    
+    combine_files(distributed_files, os.path.join(_out_dir, "dbm_entities.c"))
+    
+    for f in distributed_files:
+        f.close()
+    
+    
     
     
 if (len(sys.argv) < 3):
-    print("usage: {0} ddl_path header_path".format(sys.argv[0]))
+    print("usage: {0} ddl_path output_dir".format(sys.argv[0]))
     sys.exit(-1)
 else:
-    work(sys.argv[1], sys.argv[2])
+    parse_ddl_file(sys.argv[1], sys.argv[2])
