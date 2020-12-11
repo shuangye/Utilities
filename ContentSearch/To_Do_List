@@ -1,5 +1,0 @@
-BUGS：
-1. invoke "program --help" will cause the help message to be shown twice.
-
-To do:
-1. Include/exclude specific file attributes, e.g., file types (distingushed by extension names), modification time, size, etc.;
